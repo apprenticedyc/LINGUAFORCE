@@ -1,0 +1,634 @@
+{"dialogue_id": 2, "types": ["A2", "B2", "C6", "C1", "D1"]}
+{"dialogue_id": 3, "types": ["A2", "C1", "C5", "D1"]}
+{"dialogue_id": 1, "types": ["A2", "B2", "D3", "D4"]}
+{"dialogue_id": 5, "types": ["A2", "C1", "C3", "B2", "D4"]}
+{"dialogue_id": 7, "types": ["A1"]}
+{"dialogue_id": 4, "types": ["C1", "C3", "C6", "D1", "D3", "D4"]}
+{"dialogue_id": 0, "types": ["A2", "C5", "B2", "A1"]}
+{"dialogue_id": 6, "types": ["A1", "C2", "C3", "A2"]}
+{"dialogue_id": 8, "types": ["A2", "C1", "C2", "C3", "D3"]}
+{"dialogue_id": 9, "types": ["A2", "C1", "C2", "C6"]}
+{"dialogue_id": 10, "types": ["A1", "C2", "C6"]}
+{"dialogue_id": 11, "types": ["C1", "C2", "C3", "B2"]}
+{"dialogue_id": 14, "types": ["A1", "C1", "C6", "D1"]}
+{"dialogue_id": 15, "types": ["C2", "C5", "D1"]}
+{"dialogue_id": 13, "types": ["B2", "C3", "C5", "D4"]}
+{"dialogue_id": 12, "types": ["A2", "B2", "C1", "C3", "D4"]}
+{"dialogue_id": 16, "types": ["C6", "C1", "C3"]}
+{"dialogue_id": 18, "types": ["A1", "B1"]}
+{"dialogue_id": 17, "types": ["C3", "D4", "B2"]}
+{"dialogue_id": 20, "types": ["C6"]}
+{"dialogue_id": 19, "types": ["A2", "B2", "C1", "C3", "C5", "D4"]}
+{"dialogue_id": 22, "types": ["A1", "C5"]}
+{"dialogue_id": 21, "types": ["A1", "C3", "D1"]}
+{"dialogue_id": 23, "types": ["C1", "C6"]}
+{"dialogue_id": 24, "types": ["C1", "C2", "C3", "D1"]}
+{"dialogue_id": 25, "types": ["C1", "C2", "C3", "D4"]}
+{"dialogue_id": 27, "types": ["C1", "C2", "C3", "C6", "D1"]}
+{"dialogue_id": 26, "types": ["A1", "C2", "C3", "D3"]}
+{"dialogue_id": 31, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 29, "types": ["C1", "C2", "C3", "C5", "D4"]}
+{"dialogue_id": 28, "types": ["A1", "C1", "C2", "C3", "C5", "C6", "D1"]}
+{"dialogue_id": 30, "types": ["C1", "C6", "B2"]}
+{"dialogue_id": 32, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 35, "types": ["A1", "C5", "C3"]}
+{"dialogue_id": 34, "types": ["A2", "C6", "C3", "D4", "B2"]}
+{"dialogue_id": 33, "types": ["C3", "C4", "C5", "C6"]}
+{"dialogue_id": 36, "types": ["A1"]}
+{"dialogue_id": 37, "types": ["A1", "C1", "C2", "C6", "D1"]}
+{"dialogue_id": 38, "types": ["C5", "C3", "A2", "D1"]}
+{"dialogue_id": 39, "types": ["C6", "C1", "C3"]}
+{"dialogue_id": 42, "types": ["A1"]}
+{"dialogue_id": 40, "types": ["A1", "C2", "C3", "D1"]}
+{"dialogue_id": 43, "types": ["A1", "C6"]}
+{"dialogue_id": 41, "types": ["C1", "C2", "C3", "D1"]}
+{"dialogue_id": 44, "types": ["A2", "D4", "B2"]}
+{"dialogue_id": 45, "types": ["C1", "C3", "C6", "D1", "D3"]}
+{"dialogue_id": 46, "types": ["C1", "C3", "D1", "D3"]}
+{"dialogue_id": 47, "types": ["A1", "C2", "C1"]}
+{"dialogue_id": 51, "types": []}
+{"dialogue_id": 48, "types": ["B2", "C3", "D3"]}
+{"dialogue_id": 49, "types": []}
+{"dialogue_id": 50, "types": ["A1", "C6"]}
+{"dialogue_id": 52, "types": ["A2", "C2", "C3", "B2", "D4"]}
+{"dialogue_id": 53, "types": ["A1"]}
+{"dialogue_id": 54, "types": ["B2", "C3", "D4"]}
+{"dialogue_id": 56, "types": ["C1", "C5", "C6", "D1"]}
+{"dialogue_id": 55, "types": ["A1", "C6"]}
+{"dialogue_id": 57, "types": ["A1", "C6", "C5", "B1"]}
+{"dialogue_id": 60, "types": ["A1", "B1"]}
+{"dialogue_id": 58, "types": ["C6", "C5", "D1"]}
+{"dialogue_id": 59, "types": ["C2", "C3", "C4", "D3"]}
+{"dialogue_id": 61, "types": ["A1", "C1", "C5", "C6", "D1"]}
+{"dialogue_id": 63, "types": ["A1", "C1", "C2", "C5", "C6", "D1"]}
+{"dialogue_id": 65, "types": []}
+{"dialogue_id": 62, "types": []}
+{"dialogue_id": 67, "types": ["A1", "C6"]}
+{"dialogue_id": 64, "types": ["A2", "C3", "C6", "B1"]}
+{"dialogue_id": 66, "types": ["C5", "C1"]}
+{"dialogue_id": 68, "types": ["A1", "C3", "C6", "C5"]}
+{"dialogue_id": 72, "types": ["A1", "B1"]}
+{"dialogue_id": 70, "types": ["A1", "C1"]}
+{"dialogue_id": 73, "types": ["A2", "C1", "C3", "D4", "B2"]}
+{"dialogue_id": 74, "types": ["A2", "C6", "C1", "D1"]}
+{"dialogue_id": 75, "types": ["A1", "C1", "C3", "D1"]}
+{"dialogue_id": 69, "types": ["A2", "C2", "C3", "C5", "D4"]}
+{"dialogue_id": 71, "types": ["A1", "C1", "C2", "C6", "D1"]}
+{"dialogue_id": 76, "types": ["A1", "C2", "C1"]}
+{"dialogue_id": 79, "types": ["A1", "A3"]}
+{"dialogue_id": 81, "types": ["A1"]}
+{"dialogue_id": 78, "types": ["A1", "C6", "B2", "D1"]}
+{"dialogue_id": 82, "types": ["A2", "C3", "D4", "D3"]}
+{"dialogue_id": 77, "types": ["A2", "C2", "C5", "D1"]}
+{"dialogue_id": 83, "types": ["C1", "C2", "B1"]}
+{"dialogue_id": 80, "types": ["C6", "C1", "C2", "B2"]}
+{"dialogue_id": 86, "types": ["A2", "B2", "C3", "C5", "D1"]}
+{"dialogue_id": 84, "types": ["A2", "B2", "D4"]}
+{"dialogue_id": 85, "types": ["A2", "C3", "C5", "D4"]}
+{"dialogue_id": 91, "types": ["A2", "C3", "D4"]}
+{"dialogue_id": 88, "types": ["A1", "B1"]}
+{"dialogue_id": 87, "types": ["C1", "C3", "C6", "D1", "D3"]}
+{"dialogue_id": 89, "types": ["A1", "C2"]}
+{"dialogue_id": 90, "types": ["A1", "C1", "C2", "C3", "C5", "D1"]}
+{"dialogue_id": 92, "types": ["A1", "A2", "B2", "C3", "C2"]}
+{"dialogue_id": 94, "types": ["C1", "C3", "C6", "D1", "D4"]}
+{"dialogue_id": 93, "types": []}
+{"dialogue_id": 97, "types": ["A1"]}
+{"dialogue_id": 95, "types": ["A2", "C2", "C3", "C5", "D1"]}
+{"dialogue_id": 96, "types": ["A2", "C6", "C1", "D1", "D3"]}
+{"dialogue_id": 99, "types": ["A1", "C6"]}
+{"dialogue_id": 98, "types": []}
+{"dialogue_id": 100, "types": []}
+{"dialogue_id": 102, "types": ["A1"]}
+{"dialogue_id": 101, "types": ["A1", "C1", "A2", "C3"]}
+{"dialogue_id": 104, "types": ["C3", "C6", "D1"]}
+{"dialogue_id": 107, "types": ["C3", "D4"]}
+{"dialogue_id": 103, "types": ["A2", "B2", "C1", "C2", "C3", "D3"]}
+{"dialogue_id": 105, "types": ["A2", "C1", "C3", "B2", "D4"]}
+{"dialogue_id": 106, "types": ["A2", "B2", "C1", "C2", "C3", "C4", "D1", "D3", "D4"]}
+{"dialogue_id": 108, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 109, "types": ["A2", "B2", "C1", "C3", "D4"]}
+{"dialogue_id": 110, "types": ["C1", "C2", "C6", "C3"]}
+{"dialogue_id": 111, "types": ["A1"]}
+{"dialogue_id": 113, "types": ["C1", "C2", "C6", "C5"]}
+{"dialogue_id": 112, "types": ["A1", "B1", "C6", "C3"]}
+{"dialogue_id": 114, "types": ["D1", "C6"]}
+{"dialogue_id": 115, "types": ["A2", "C3", "D4", "D3"]}
+{"dialogue_id": 117, "types": ["A2", "C3", "D4"]}
+{"dialogue_id": 116, "types": ["A1", "C6"]}
+{"dialogue_id": 118, "types": ["A1", "C5", "C1"]}
+{"dialogue_id": 119, "types": ["A2", "B2", "C1", "C2", "C3", "D1", "D4"]}
+{"dialogue_id": 120, "types": ["C3", "D4"]}
+{"dialogue_id": 123, "types": ["C6", "C2"]}
+{"dialogue_id": 122, "types": ["A1"]}
+{"dialogue_id": 121, "types": ["A1", "C3", "C5", "A2"]}
+{"dialogue_id": 126, "types": ["C6", "D1"]}
+{"dialogue_id": 125, "types": []}
+{"dialogue_id": 127, "types": ["C3", "C5", "C1", "A2"]}
+{"dialogue_id": 124, "types": ["A1", "C1", "C2", "C3", "C5", "D1"]}
+{"dialogue_id": 128, "types": ["A1", "C5", "D1"]}
+{"dialogue_id": 129, "types": ["C5"]}
+{"dialogue_id": 130, "types": ["A1", "C6", "C3", "D1"]}
+{"dialogue_id": 131, "types": ["A2", "C1", "C2", "C3"]}
+{"dialogue_id": 133, "types": []}
+{"dialogue_id": 134, "types": ["C1", "C6"]}
+{"dialogue_id": 135, "types": ["A2", "D4"]}
+{"dialogue_id": 132, "types": ["A1", "C1", "C2", "C5"]}
+{"dialogue_id": 136, "types": ["A1"]}
+{"dialogue_id": 139, "types": ["A1", "C6", "D1"]}
+{"dialogue_id": 137, "types": ["A1", "C3", "D4", "C6"]}
+{"dialogue_id": 140, "types": ["C1", "C3", "C5", "D1"]}
+{"dialogue_id": 142, "types": ["C6", "D1"]}
+{"dialogue_id": 138, "types": ["A1", "B1", "C1", "C6", "C3", "D1"]}
+{"dialogue_id": 141, "types": ["A2", "C3", "D4"]}
+{"dialogue_id": 143, "types": []}
+{"dialogue_id": 146, "types": ["C3", "C6", "B2"]}
+{"dialogue_id": 145, "types": ["C3", "D3", "D4"]}
+{"dialogue_id": 144, "types": ["A2", "C1", "C3", "B2", "D4"]}
+{"dialogue_id": 147, "types": ["A2", "C1", "C3", "C6", "D1"]}
+{"dialogue_id": 148, "types": ["A2", "D4"]}
+{"dialogue_id": 150, "types": ["C1", "C3", "D4", "D3"]}
+{"dialogue_id": 149, "types": ["A2", "C1", "C3", "C2", "B2"]}
+{"dialogue_id": 152, "types": ["A1", "C1", "C6", "D1"]}
+{"dialogue_id": 151, "types": ["A1", "C1"]}
+{"dialogue_id": 154, "types": ["A1", "C3", "B2"]}
+{"dialogue_id": 153, "types": ["A1", "C3", "D3", "D4"]}
+{"dialogue_id": 155, "types": ["A2", "B2", "C1", "C3", "C6", "D1", "D3", "D4"]}
+{"dialogue_id": 156, "types": ["C6", "C5", "D1"]}
+{"dialogue_id": 159, "types": ["C1", "C3", "D1", "A2"]}
+{"dialogue_id": 157, "types": ["C2", "C6", "C1", "D1"]}
+{"dialogue_id": 160, "types": ["A1", "C5", "C6", "D1"]}
+{"dialogue_id": 161, "types": ["C1", "C3", "C5", "C6", "D3"]}
+{"dialogue_id": 162, "types": ["C1", "C3", "C6", "D4"]}
+{"dialogue_id": 158, "types": ["C1", "C2", "C3", "D4"]}
+{"dialogue_id": 165, "types": ["C6", "D1"]}
+{"dialogue_id": 163, "types": ["A2", "C6", "C5", "C3", "B2"]}
+{"dialogue_id": 164, "types": ["C3"]}
+{"dialogue_id": 166, "types": ["A2", "D4"]}
+{"dialogue_id": 169, "types": ["A1", "C6", "D1"]}
+{"dialogue_id": 168, "types": ["A2", "C3", "D3", "D4"]}
+{"dialogue_id": 167, "types": ["C1", "C3", "C6"]}
+{"dialogue_id": 170, "types": ["A2", "C2", "C3"]}
+{"dialogue_id": 171, "types": ["A1", "B1", "C3", "C6"]}
+{"dialogue_id": 172, "types": ["A1", "C1", "C3", "C5"]}
+{"dialogue_id": 173, "types": ["A1", "C2", "C5"]}
+{"dialogue_id": 176, "types": []}
+{"dialogue_id": 174, "types": ["A2", "B2", "C1", "C2", "C3", "D4"]}
+{"dialogue_id": 175, "types": ["A2", "C6", "C5", "C3"]}
+{"dialogue_id": 178, "types": ["A2", "C3", "C5", "B2"]}
+{"dialogue_id": 177, "types": ["A1", "C2", "C6", "C5"]}
+{"dialogue_id": 180, "types": []}
+{"dialogue_id": 179, "types": ["A1", "C1", "C6"]}
+{"dialogue_id": 183, "types": ["C3", "D4"]}
+{"dialogue_id": 182, "types": ["A1", "B1"]}
+{"dialogue_id": 181, "types": ["C3", "C6", "D4", "D3"]}
+{"dialogue_id": 184, "types": ["C1", "C2", "C3", "D3"]}
+{"dialogue_id": 185, "types": ["A1", "B1", "C3", "C5", "D4"]}
+{"dialogue_id": 186, "types": ["C1", "C2", "C3", "C6"]}
+{"dialogue_id": 188, "types": ["C1"]}
+{"dialogue_id": 187, "types": ["A2", "C2", "C3", "D3"]}
+{"dialogue_id": 191, "types": []}
+{"dialogue_id": 189, "types": ["A1", "C1", "C6", "D1"]}
+{"dialogue_id": 194, "types": []}
+{"dialogue_id": 192, "types": ["A2", "B2", "C1", "C3", "C5", "C6", "D4"]}
+{"dialogue_id": 195, "types": ["A1", "B1"]}
+{"dialogue_id": 190, "types": ["A2", "C3", "C6"]}
+{"dialogue_id": 193, "types": ["C1", "C6", "D1"]}
+{"dialogue_id": 196, "types": ["A1", "C6", "C3"]}
+{"dialogue_id": 197, "types": ["C1", "C2", "C3"]}
+{"dialogue_id": 199, "types": ["A1", "C6", "C1"]}
+{"dialogue_id": 198, "types": ["A1"]}
+{"dialogue_id": 200, "types": ["A1", "B1", "C5"]}
+{"dialogue_id": 202, "types": ["C1", "C3", "C5", "C6"]}
+{"dialogue_id": 201, "types": ["A1", "C3", "D4"]}
+{"dialogue_id": 203, "types": ["A3", "B1", "C5"]}
+{"dialogue_id": 205, "types": ["A1", "B1"]}
+{"dialogue_id": 206, "types": ["C3", "D4"]}
+{"dialogue_id": 204, "types": ["C1", "C3", "C5", "D1"]}
+{"dialogue_id": 211, "types": ["A1", "D1"]}
+{"dialogue_id": 207, "types": ["C2", "C3", "C5"]}
+{"dialogue_id": 208, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 210, "types": ["A2", "C1", "C2", "C3", "D3"]}
+{"dialogue_id": 209, "types": []}
+{"dialogue_id": 212, "types": ["A2"]}
+{"dialogue_id": 213, "types": ["A2", "D4"]}
+{"dialogue_id": 218, "types": ["C6", "C3"]}
+{"dialogue_id": 217, "types": ["A1", "C6", "B2"]}
+{"dialogue_id": 215, "types": ["C6"]}
+{"dialogue_id": 214, "types": ["A2", "B1", "C5", "C3", "D3"]}
+{"dialogue_id": 219, "types": []}
+{"dialogue_id": 216, "types": ["A2", "C1", "C3", "C6", "D4"]}
+{"dialogue_id": 220, "types": ["C1", "C3", "D1", "D3"]}
+{"dialogue_id": 221, "types": ["A1", "C6", "B2"]}
+{"dialogue_id": 222, "types": ["A1", "C1", "C3", "D1"]}
+{"dialogue_id": 225, "types": ["A1", "C6", "C1"]}
+{"dialogue_id": 226, "types": ["B2", "C1", "C2", "D1"]}
+{"dialogue_id": 227, "types": ["A2", "C3", "D3", "D4"]}
+{"dialogue_id": 228, "types": []}
+{"dialogue_id": 223, "types": ["A1", "C2", "C1", "C3", "B2"]}
+{"dialogue_id": 230, "types": ["A2", "C2", "C5", "C3"]}
+{"dialogue_id": 231, "types": ["C1", "C2", "C3", "D4"]}
+{"dialogue_id": 224, "types": ["C1", "C3", "B2", "C6", "D1"]}
+{"dialogue_id": 229, "types": ["A2", "C2", "C3", "C5", "D3"]}
+{"dialogue_id": 233, "types": []}
+{"dialogue_id": 235, "types": ["A1"]}
+{"dialogue_id": 232, "types": ["A2", "C2", "C3", "D3"]}
+{"dialogue_id": 234, "types": ["C1", "C5", "C6"]}
+{"dialogue_id": 236, "types": ["A1", "B1"]}
+{"dialogue_id": 239, "types": ["C3", "D4"]}
+{"dialogue_id": 238, "types": ["C1", "C6", "D1"]}
+{"dialogue_id": 237, "types": ["A1", "C1", "C3", "C5", "C6", "D1"]}
+{"dialogue_id": 241, "types": ["A1", "C5", "C6", "D1"]}
+{"dialogue_id": 240, "types": ["A2", "C1", "C2", "C3", "B2", "D4"]}
+{"dialogue_id": 242, "types": ["C2", "C3", "D3"]}
+{"dialogue_id": 243, "types": ["A1", "C3", "D4"]}
+{"dialogue_id": 244, "types": ["A1", "C1", "C2"]}
+{"dialogue_id": 245, "types": ["A1", "C1", "C2", "C3"]}
+{"dialogue_id": 247, "types": ["A1"]}
+{"dialogue_id": 246, "types": ["C1", "C3", "C5"]}
+{"dialogue_id": 248, "types": ["A2", "C1", "C3", "D4"]}
+{"dialogue_id": 250, "types": ["A1", "B1"]}
+{"dialogue_id": 249, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 252, "types": ["C6", "C3", "D4"]}
+{"dialogue_id": 251, "types": ["A1", "C1", "C3", "D1"]}
+{"dialogue_id": 255, "types": []}
+{"dialogue_id": 254, "types": ["A1"]}
+{"dialogue_id": 253, "types": ["A2", "C3", "C5", "C6", "D4"]}
+{"dialogue_id": 257, "types": ["A2", "B2", "C1", "C2", "C3", "D4"]}
+{"dialogue_id": 258, "types": []}
+{"dialogue_id": 256, "types": ["A1", "C5", "D3"]}
+{"dialogue_id": 260, "types": ["C1", "C3", "C5", "C6", "D1"]}
+{"dialogue_id": 263, "types": ["A2", "D4"]}
+{"dialogue_id": 259, "types": ["A1", "C3"]}
+{"dialogue_id": 262, "types": ["C2", "C6", "D3"]}
+{"dialogue_id": 264, "types": ["A1", "C3", "D4"]}
+{"dialogue_id": 261, "types": ["C1", "C2", "C3", "C6", "D1"]}
+{"dialogue_id": 266, "types": []}
+{"dialogue_id": 265, "types": ["A1", "B1", "C3", "C6", "D1"]}
+{"dialogue_id": 268, "types": ["A2", "C1", "C2", "C3", "D3"]}
+{"dialogue_id": 269, "types": ["C2", "A3"]}
+{"dialogue_id": 267, "types": ["C1", "C2", "C6", "D1"]}
+{"dialogue_id": 270, "types": ["A2", "C1", "C3", "D3"]}
+{"dialogue_id": 272, "types": ["A1", "C5", "C3", "D3"]}
+{"dialogue_id": 273, "types": ["A2", "C2", "C1"]}
+{"dialogue_id": 271, "types": ["A1", "C5", "B1", "C2"]}
+{"dialogue_id": 274, "types": ["A1", "C1"]}
+{"dialogue_id": 275, "types": ["C3", "D4"]}
+{"dialogue_id": 276, "types": ["A1", "C6", "B1"]}
+{"dialogue_id": 277, "types": ["C3", "D4"]}
+{"dialogue_id": 278, "types": ["D4", "C3", "D3"]}
+{"dialogue_id": 279, "types": ["A1", "C1", "C5", "C2", "D3"]}
+{"dialogue_id": 280, "types": ["A1", "B1"]}
+{"dialogue_id": 281, "types": ["A1", "B1", "C6"]}
+{"dialogue_id": 283, "types": ["C6", "D1"]}
+{"dialogue_id": 282, "types": ["C1", "C2", "C3", "A2"]}
+{"dialogue_id": 287, "types": ["A2", "B2", "C3", "D3", "D4"]}
+{"dialogue_id": 285, "types": ["C6", "C1"]}
+{"dialogue_id": 286, "types": ["C1", "C3", "D3"]}
+{"dialogue_id": 284, "types": ["C3", "D4", "C6"]}
+{"dialogue_id": 288, "types": ["A2", "D4"]}
+{"dialogue_id": 289, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 290, "types": ["C1", "C3", "C2", "D4"]}
+{"dialogue_id": 291, "types": ["C2", "C6"]}
+{"dialogue_id": 293, "types": ["A1", "C5", "C1"]}
+{"dialogue_id": 294, "types": ["C3", "D4"]}
+{"dialogue_id": 296, "types": ["A2", "C1", "C3", "C5"]}
+{"dialogue_id": 295, "types": ["C1", "C2", "C3", "C5", "A2"]}
+{"dialogue_id": 292, "types": ["A1", "C1", "C2", "C3", "C6", "D1", "D3"]}
+{"dialogue_id": 297, "types": ["A2", "C2", "C3", "C5"]}
+{"dialogue_id": 298, "types": ["C1", "C6", "B1"]}
+{"dialogue_id": 299, "types": ["A1", "C1", "C5"]}
+{"dialogue_id": 300, "types": ["A1", "C3", "C6", "B1"]}
+{"dialogue_id": 302, "types": ["C5", "D1"]}
+{"dialogue_id": 304, "types": ["A1", "C1"]}
+{"dialogue_id": 303, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 301, "types": ["A1", "C3", "D3", "B2"]}
+{"dialogue_id": 305, "types": ["A2", "C2", "C3", "D1"]}
+{"dialogue_id": 306, "types": ["A1", "C1", "C6"]}
+{"dialogue_id": 307, "types": ["A1", "B1", "D1"]}
+{"dialogue_id": 309, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 310, "types": ["A1"]}
+{"dialogue_id": 308, "types": ["C6"]}
+{"dialogue_id": 311, "types": ["A1", "A2"]}
+{"dialogue_id": 312, "types": ["A2", "B2", "C1", "C2", "C3", "C5", "C6", "D1", "D3", "D4"]}
+{"dialogue_id": 313, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 314, "types": ["A1", "C6"]}
+{"dialogue_id": 315, "types": []}
+{"dialogue_id": 316, "types": ["A2", "C2", "C3", "C5", "D1"]}
+{"dialogue_id": 317, "types": ["A1", "C6"]}
+{"dialogue_id": 319, "types": ["C1", "C2", "C3", "C5", "C6"]}
+{"dialogue_id": 318, "types": ["C1", "C6", "C3"]}
+{"dialogue_id": 320, "types": ["A1", "C6"]}
+{"dialogue_id": 322, "types": ["A1", "C6"]}
+{"dialogue_id": 321, "types": ["A1", "C5", "C1", "C3", "D1"]}
+{"dialogue_id": 323, "types": []}
+{"dialogue_id": 327, "types": []}
+{"dialogue_id": 324, "types": ["B2", "C6", "D1"]}
+{"dialogue_id": 326, "types": []}
+{"dialogue_id": 325, "types": ["C2", "C3", "D1", "D3"]}
+{"dialogue_id": 331, "types": ["A2", "B2", "C1", "C3", "C6", "D1", "D4"]}
+{"dialogue_id": 330, "types": ["A1", "C5"]}
+{"dialogue_id": 328, "types": ["A1", "C1", "C3", "D3", "D4", "B2"]}
+{"dialogue_id": 329, "types": ["A2", "B1", "C1", "C2", "C3", "C5", "D1"]}
+{"dialogue_id": 334, "types": ["A1", "C1", "C2", "C3", "C6"]}
+{"dialogue_id": 333, "types": ["A1", "C1", "C6"]}
+{"dialogue_id": 332, "types": ["B2", "C3", "D4"]}
+{"dialogue_id": 335, "types": ["A2", "C3", "D4"]}
+{"dialogue_id": 336, "types": ["A1", "B1", "C1", "C6"]}
+{"dialogue_id": 338, "types": ["C1", "C3", "D1"]}
+{"dialogue_id": 339, "types": ["A1"]}
+{"dialogue_id": 337, "types": ["A1", "C1", "C2", "C3", "B2", "D4"]}
+{"dialogue_id": 341, "types": ["C6", "C1"]}
+{"dialogue_id": 340, "types": ["A2", "B2", "C3", "C5", "D1"]}
+{"dialogue_id": 342, "types": []}
+{"dialogue_id": 346, "types": []}
+{"dialogue_id": 344, "types": ["A1"]}
+{"dialogue_id": 343, "types": ["C6", "C3", "D4", "B2"]}
+{"dialogue_id": 345, "types": ["A1", "C1", "C5", "C2"]}
+{"dialogue_id": 348, "types": ["A1", "C2", "C3", "D1"]}
+{"dialogue_id": 349, "types": ["A2", "B2", "C2", "C3", "D4"]}
+{"dialogue_id": 347, "types": ["A2", "C5", "C1"]}
+{"dialogue_id": 350, "types": ["C1", "C3", "D1", "D3"]}
+{"dialogue_id": 352, "types": ["C1", "C2", "C3", "C5"]}
+{"dialogue_id": 353, "types": []}
+{"dialogue_id": 354, "types": ["A1", "D4"]}
+{"dialogue_id": 355, "types": ["B2", "D4"]}
+{"dialogue_id": 351, "types": ["C1", "C5", "C6"]}
+{"dialogue_id": 357, "types": ["C1", "C3", "C6", "D1", "D3"]}
+{"dialogue_id": 356, "types": ["B2", "C3", "D4"]}
+{"dialogue_id": 358, "types": ["A2", "C2", "C3", "C1"]}
+{"dialogue_id": 359, "types": []}
+{"dialogue_id": 362, "types": ["C1", "D1"]}
+{"dialogue_id": 363, "types": ["A1", "C5"]}
+{"dialogue_id": 361, "types": ["A2", "C3", "C5", "D1"]}
+{"dialogue_id": 364, "types": ["C6", "D1", "D3"]}
+{"dialogue_id": 360, "types": ["A1"]}
+{"dialogue_id": 365, "types": ["A1", "B2", "D4"]}
+{"dialogue_id": 366, "types": ["A1", "B1"]}
+{"dialogue_id": 367, "types": ["A1", "C6", "D1"]}
+{"dialogue_id": 369, "types": []}
+{"dialogue_id": 372, "types": ["C1", "C6"]}
+{"dialogue_id": 371, "types": ["C3", "C5", "D4"]}
+{"dialogue_id": 373, "types": ["A1", "C6", "D4"]}
+{"dialogue_id": 370, "types": ["A2", "C1", "C2", "C3", "D3", "D4"]}
+{"dialogue_id": 368, "types": ["A2", "C3", "D4"]}
+{"dialogue_id": 374, "types": ["A1", "C5", "D1"]}
+{"dialogue_id": 375, "types": ["A1", "B1"]}
+{"dialogue_id": 376, "types": ["A2", "C6", "C1", "C2", "C3"]}
+{"dialogue_id": 380, "types": ["C6", "B2"]}
+{"dialogue_id": 379, "types": ["A2", "C3", "D4"]}
+{"dialogue_id": 377, "types": ["A2", "C3", "D4"]}
+{"dialogue_id": 378, "types": ["A1", "D4"]}
+{"dialogue_id": 382, "types": ["C3", "C5", "C6"]}
+{"dialogue_id": 381, "types": ["A1", "C1", "C3", "C5", "D4"]}
+{"dialogue_id": 383, "types": ["A1", "C1", "C3", "C5", "C6"]}
+{"dialogue_id": 384, "types": ["C6", "C1", "C3", "D1"]}
+{"dialogue_id": 386, "types": ["A1", "C1", "C2", "D1"]}
+{"dialogue_id": 387, "types": ["A1", "C1", "C2", "C3", "D1"]}
+{"dialogue_id": 388, "types": ["A1", "B2", "C1", "C3", "C6", "D1"]}
+{"dialogue_id": 385, "types": ["C5", "C3", "C1", "B2", "A2"]}
+{"dialogue_id": 390, "types": ["A1"]}
+{"dialogue_id": 391, "types": ["A1", "C5"]}
+{"dialogue_id": 389, "types": ["A1", "C1", "C2", "C3", "C5", "C6", "D1"]}
+{"dialogue_id": 392, "types": ["A1", "B1", "C6", "D1"]}
+{"dialogue_id": 393, "types": ["A1", "C3", "C5", "D1"]}
+{"dialogue_id": 395, "types": []}
+{"dialogue_id": 394, "types": ["A1", "C1", "D1"]}
+{"dialogue_id": 396, "types": ["A1"]}
+{"dialogue_id": 397, "types": ["C2", "C1", "D1"]}
+{"dialogue_id": 398, "types": ["A1", "C6", "B2"]}
+{"dialogue_id": 399, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 403, "types": ["A1", "C6"]}
+{"dialogue_id": 402, "types": ["A1", "B1"]}
+{"dialogue_id": 400, "types": ["A2", "C1", "C3", "C5", "D1"]}
+{"dialogue_id": 401, "types": ["A2", "B2", "C3", "C6", "D3", "D4"]}
+{"dialogue_id": 404, "types": ["A1", "C5", "C6", "D1"]}
+{"dialogue_id": 405, "types": ["A1"]}
+{"dialogue_id": 406, "types": ["C1", "C2", "C5"]}
+{"dialogue_id": 407, "types": ["A2", "B2", "C3", "C5", "D4"]}
+{"dialogue_id": 408, "types": ["A2", "B2", "D3", "D4"]}
+{"dialogue_id": 411, "types": ["C1", "C3", "C2", "D4"]}
+{"dialogue_id": 412, "types": ["A2", "C1", "C2", "C3", "D4"]}
+{"dialogue_id": 410, "types": ["A1", "B1", "C1", "C6", "D1"]}
+{"dialogue_id": 409, "types": ["A2", "B2", "C1", "C3", "C6", "D1", "D3", "D4"]}
+{"dialogue_id": 413, "types": ["A1", "C5", "C2"]}
+{"dialogue_id": 415, "types": ["A1", "C6"]}
+{"dialogue_id": 414, "types": ["C6", "C5", "D1"]}
+{"dialogue_id": 416, "types": ["A1", "C5", "D1"]}
+{"dialogue_id": 420, "types": ["C1", "C2", "C6", "D1"]}
+{"dialogue_id": 418, "types": ["C1", "C2", "C3", "D1", "D3"]}
+{"dialogue_id": 417, "types": ["C1", "C2", "C6", "D1"]}
+{"dialogue_id": 419, "types": ["C5", "C6", "C2"]}
+{"dialogue_id": 422, "types": ["A2", "C2", "C3", "D4"]}
+{"dialogue_id": 421, "types": []}
+{"dialogue_id": 424, "types": ["C3", "D4"]}
+{"dialogue_id": 423, "types": ["A1"]}
+{"dialogue_id": 428, "types": ["A1", "C6"]}
+{"dialogue_id": 426, "types": ["A2", "C5", "B2", "C1"]}
+{"dialogue_id": 425, "types": ["A2", "C1", "C3", "C5", "D4"]}
+{"dialogue_id": 427, "types": ["A1"]}
+{"dialogue_id": 430, "types": ["A2", "D4"]}
+{"dialogue_id": 429, "types": ["C6", "C3", "A2"]}
+{"dialogue_id": 432, "types": ["C2", "C1", "C3", "C6"]}
+{"dialogue_id": 431, "types": ["A2", "B2", "D4"]}
+{"dialogue_id": 433, "types": ["A2", "C1", "C3", "D1"]}
+{"dialogue_id": 434, "types": ["A1", "C1"]}
+{"dialogue_id": 436, "types": ["A2", "C3", "D3", "D1"]}
+{"dialogue_id": 437, "types": ["A2", "B2", "C1", "C3", "C6", "D3", "D4"]}
+{"dialogue_id": 435, "types": []}
+{"dialogue_id": 438, "types": ["A1", "D4"]}
+{"dialogue_id": 439, "types": ["C6", "B1", "C3", "D4"]}
+{"dialogue_id": 441, "types": ["A1", "C6", "B1"]}
+{"dialogue_id": 440, "types": ["A2", "C1", "C2", "C3", "D1"]}
+{"dialogue_id": 442, "types": ["A1", "A2", "A3", "C2"]}
+{"dialogue_id": 443, "types": ["A1", "C1", "C3", "D3"]}
+{"dialogue_id": 444, "types": ["A1"]}
+{"dialogue_id": 446, "types": ["C6", "B1"]}
+{"dialogue_id": 447, "types": ["A2", "C2", "C3", "D4"]}
+{"dialogue_id": 448, "types": ["A1", "C5", "C1"]}
+{"dialogue_id": 449, "types": ["A1", "C6"]}
+{"dialogue_id": 445, "types": ["C1", "C2", "C3", "C5"]}
+{"dialogue_id": 451, "types": ["A1"]}
+{"dialogue_id": 450, "types": ["C2", "C5", "C1"]}
+{"dialogue_id": 452, "types": []}
+{"dialogue_id": 455, "types": ["A1", "C2"]}
+{"dialogue_id": 453, "types": ["A1"]}
+{"dialogue_id": 454, "types": ["D4"]}
+{"dialogue_id": 456, "types": ["A1", "C5"]}
+{"dialogue_id": 458, "types": ["A2", "C3", "C5", "D4"]}
+{"dialogue_id": 457, "types": ["A2", "C1", "C6", "B2", "C3", "D3", "D4"]}
+{"dialogue_id": 459, "types": ["A1", "C3", "D4"]}
+{"dialogue_id": 460, "types": ["C3", "D4"]}
+{"dialogue_id": 464, "types": ["A1", "C5", "C3", "D1"]}
+{"dialogue_id": 463, "types": ["D4"]}
+{"dialogue_id": 461, "types": ["A2", "C1", "C3", "C5", "C6", "D1"]}
+{"dialogue_id": 462, "types": ["A2", "C3", "C6", "D4"]}
+{"dialogue_id": 466, "types": ["A1", "C6", "B1"]}
+{"dialogue_id": 465, "types": ["A2", "B2", "C3", "D3", "D4"]}
+{"dialogue_id": 467, "types": ["A1", "C6", "D1"]}
+{"dialogue_id": 468, "types": ["A1", "C2", "C3", "C5"]}
+{"dialogue_id": 469, "types": ["C1", "C3", "D1", "A2"]}
+{"dialogue_id": 470, "types": ["C1", "C2", "C3", "C6"]}
+{"dialogue_id": 471, "types": ["A1", "C6"]}
+{"dialogue_id": 472, "types": ["A1", "B1"]}
+{"dialogue_id": 473, "types": ["C1", "C3", "D1", "D3"]}
+{"dialogue_id": 474, "types": ["C6", "D1"]}
+{"dialogue_id": 475, "types": ["C6", "B1"]}
+{"dialogue_id": 476, "types": ["A2", "C5", "C6", "D1"]}
+{"dialogue_id": 477, "types": ["A1", "C2", "C3", "B2"]}
+{"dialogue_id": 478, "types": ["A1", "C2", "C3", "C5", "D1"]}
+{"dialogue_id": 479, "types": ["A1", "A2", "C2", "C3", "D3"]}
+{"dialogue_id": 481, "types": ["C5", "C2", "D1"]}
+{"dialogue_id": 480, "types": ["C2", "C6", "C3", "D1"]}
+{"dialogue_id": 483, "types": []}
+{"dialogue_id": 482, "types": ["A1"]}
+{"dialogue_id": 485, "types": ["C3", "C5", "D4"]}
+{"dialogue_id": 484, "types": ["A1", "C6", "B1"]}
+{"dialogue_id": 486, "types": ["C1", "C2", "C3", "C5"]}
+{"dialogue_id": 487, "types": ["A1", "C3", "D4", "D3"]}
+{"dialogue_id": 490, "types": ["C1", "C2", "C6", "D1"]}
+{"dialogue_id": 489, "types": ["C5", "C3", "C2"]}
+{"dialogue_id": 488, "types": ["A2", "D4", "B2"]}
+{"dialogue_id": 492, "types": ["A1", "B1"]}
+{"dialogue_id": 494, "types": ["A1", "A3", "B1", "B2"]}
+{"dialogue_id": 491, "types": ["A1"]}
+{"dialogue_id": 495, "types": []}
+{"dialogue_id": 493, "types": ["A2", "C1", "C2", "C3", "C5", "D3", "D4"]}
+{"dialogue_id": 496, "types": ["A1", "B1", "B2", "C1", "C3", "C5", "D1"]}
+{"dialogue_id": 498, "types": ["C1", "C3", "B2"]}
+{"dialogue_id": 497, "types": ["A2", "C2", "C1"]}
+{"dialogue_id": 501, "types": ["A1", "C6", "D1"]}
+{"dialogue_id": 500, "types": ["A1", "C1", "C2", "C6", "D1"]}
+{"dialogue_id": 499, "types": ["A1", "D1"]}
+{"dialogue_id": 502, "types": ["C3", "D4", "C6", "B2"]}
+{"dialogue_id": 504, "types": ["A1", "C3", "D4"]}
+{"dialogue_id": 503, "types": ["A1", "C6", "D1"]}
+{"dialogue_id": 506, "types": ["A2", "D4"]}
+{"dialogue_id": 505, "types": ["C1", "C3", "D4"]}
+{"dialogue_id": 508, "types": ["A1"]}
+{"dialogue_id": 509, "types": ["A1"]}
+{"dialogue_id": 507, "types": ["C3", "D4"]}
+{"dialogue_id": 510, "types": ["A1", "C3", "D1", "C6"]}
+{"dialogue_id": 513, "types": ["C2", "C3", "B2", "C6"]}
+{"dialogue_id": 512, "types": ["A1"]}
+{"dialogue_id": 511, "types": ["C2", "C3"]}
+{"dialogue_id": 514, "types": ["A1", "B1"]}
+{"dialogue_id": 515, "types": ["C1", "C2", "C3", "C5", "C6", "D1", "D3"]}
+{"dialogue_id": 517, "types": ["C1", "C3", "D1", "A2"]}
+{"dialogue_id": 516, "types": ["A1", "C6", "C1", "C2", "C3"]}
+{"dialogue_id": 518, "types": ["A1", "C2", "C6"]}
+{"dialogue_id": 519, "types": ["C5", "C6", "D2"]}
+{"dialogue_id": 520, "types": ["C1", "C2", "C3", "B2", "D4"]}
+{"dialogue_id": 521, "types": ["C1", "C2", "C3", "C5", "D1"]}
+{"dialogue_id": 522, "types": ["A1"]}
+{"dialogue_id": 523, "types": ["A2", "C1", "C3", "C4", "C5", "D1"]}
+{"dialogue_id": 525, "types": ["C3", "D4"]}
+{"dialogue_id": 524, "types": ["C3", "D4"]}
+{"dialogue_id": 527, "types": ["D4"]}
+{"dialogue_id": 526, "types": ["A2", "B2", "C1", "C3", "D4"]}
+{"dialogue_id": 529, "types": ["C6", "C1", "D1"]}
+{"dialogue_id": 528, "types": ["C5", "C6", "B1"]}
+{"dialogue_id": 530, "types": ["C1", "C3", "C5", "A2"]}
+{"dialogue_id": 531, "types": ["A1", "D1", "C6"]}
+{"dialogue_id": 533, "types": ["A2", "C2", "C3", "D4"]}
+{"dialogue_id": 532, "types": ["C1", "C2", "C6", "C5"]}
+{"dialogue_id": 534, "types": ["C2", "C6", "C1", "D1"]}
+{"dialogue_id": 536, "types": ["A1", "C1", "D1"]}
+{"dialogue_id": 537, "types": []}
+{"dialogue_id": 535, "types": ["A2", "C1", "C3", "C5", "B2", "D1"]}
+{"dialogue_id": 540, "types": ["A2", "B2", "D4"]}
+{"dialogue_id": 539, "types": []}
+{"dialogue_id": 538, "types": ["A1", "C6"]}
+{"dialogue_id": 541, "types": ["A1", "B2", "C1", "C6", "D1"]}
+{"dialogue_id": 545, "types": ["C3", "D4"]}
+{"dialogue_id": 544, "types": ["C6", "D1"]}
+{"dialogue_id": 548, "types": ["C3", "D4"]}
+{"dialogue_id": 543, "types": ["C1", "C3", "D4", "D3"]}
+{"dialogue_id": 547, "types": ["A1", "C1", "C6"]}
+{"dialogue_id": 542, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 546, "types": ["A1"]}
+{"dialogue_id": 550, "types": ["A1"]}
+{"dialogue_id": 549, "types": ["A2", "C1", "C6", "D1"]}
+{"dialogue_id": 551, "types": ["C1", "C3", "A2", "B2", "D4"]}
+{"dialogue_id": 552, "types": ["A2", "C1", "C3", "C5", "D4"]}
+{"dialogue_id": 555, "types": ["C1", "C2", "C3", "C5", "C6"]}
+{"dialogue_id": 556, "types": ["A1"]}
+{"dialogue_id": 554, "types": ["A1", "C3", "B2"]}
+{"dialogue_id": 553, "types": ["A1", "C1", "C2", "C3", "D3"]}
+{"dialogue_id": 557, "types": ["C1", "C2", "C6", "D1"]}
+{"dialogue_id": 558, "types": ["A2", "C1", "C2", "C3", "D4"]}
+{"dialogue_id": 560, "types": ["A2", "D4"]}
+{"dialogue_id": 559, "types": ["A1", "C6"]}
+{"dialogue_id": 561, "types": ["A2", "C2", "C1"]}
+{"dialogue_id": 563, "types": ["A1", "B1"]}
+{"dialogue_id": 562, "types": ["A1", "C1", "C6", "C3", "D1"]}
+{"dialogue_id": 4196, "types": ["B2", "C3", "D4"]}
+{"dialogue_id": 4200, "types": ["C3", "D4"]}
+{"dialogue_id": 4197, "types": ["C3", "D4"]}
+{"dialogue_id": 4199, "types": ["B2", "C6", "D3", "D4"]}
+{"dialogue_id": 4201, "types": ["C1", "C3", "D4"]}
+{"dialogue_id": 4198, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 4203, "types": ["C3", "D4"]}
+{"dialogue_id": 4202, "types": ["C3", "D4", "B1", "C6"]}
+{"dialogue_id": 4204, "types": ["A2", "C3", "D4"]}
+{"dialogue_id": 4205, "types": ["C3", "D1"]}
+{"dialogue_id": 4206, "types": ["C3", "D4"]}
+{"dialogue_id": 4209, "types": ["C3", "D4"]}
+{"dialogue_id": 4210, "types": ["A2", "C3", "D1"]}
+{"dialogue_id": 4208, "types": ["A2", "D4", "C6"]}
+{"dialogue_id": 4212, "types": ["C3"]}
+{"dialogue_id": 4211, "types": ["D4"]}
+{"dialogue_id": 4213, "types": []}
+{"dialogue_id": 4207, "types": ["C1", "C3", "D1"]}
+{"dialogue_id": 4214, "types": ["C3", "D4"]}
+{"dialogue_id": 4217, "types": ["A2", "D4"]}
+{"dialogue_id": 4216, "types": ["C3", "D1", "D4"]}
+{"dialogue_id": 4215, "types": ["A2", "C3", "D4", "D3"]}
+{"dialogue_id": 4218, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 4221, "types": []}
+{"dialogue_id": 4219, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 4222, "types": ["C3", "D4"]}
+{"dialogue_id": 4220, "types": ["C3", "D4"]}
+{"dialogue_id": 4223, "types": ["C3", "D1"]}
+{"dialogue_id": 4225, "types": ["C3", "D1"]}
+{"dialogue_id": 4224, "types": ["B2", "D4"]}
+{"dialogue_id": 4226, "types": ["C3", "D4"]}
+{"dialogue_id": 4227, "types": ["B2", "C3", "D3", "D4"]}
+{"dialogue_id": 4228, "types": ["C3", "D4"]}
+{"dialogue_id": 4230, "types": ["A2", "B2", "C3", "D4"]}
+{"dialogue_id": 4229, "types": ["C3", "D4", "B2", "D1"]}
+{"dialogue_id": 4667, "types": ["A1", "D1"]}
+{"dialogue_id": 4666, "types": ["A1", "B1"]}
+{"dialogue_id": 4668, "types": ["A2", "C2", "D1"]}
+{"dialogue_id": 4669, "types": ["A1", "B1"]}
+{"dialogue_id": 4670, "types": ["C1", "C2", "C3", "D1"]}
+{"dialogue_id": 4672, "types": ["C3", "D1"]}
+{"dialogue_id": 4673, "types": ["D1"]}
+{"dialogue_id": 4671, "types": ["A2", "D1"]}
+{"dialogue_id": 4676, "types": ["D1"]}
+{"dialogue_id": 4674, "types": ["A1", "A2"]}
+{"dialogue_id": 4675, "types": ["A1", "C1", "D1"]}
+{"dialogue_id": 4678, "types": ["C1", "D1"]}
+{"dialogue_id": 4681, "types": ["A1", "C1", "D1"]}
+{"dialogue_id": 4679, "types": ["C1", "D1"]}
+{"dialogue_id": 4680, "types": ["D1"]}
+{"dialogue_id": 4677, "types": ["D1"]}
+{"dialogue_id": 4682, "types": ["A1", "D1"]}
+{"dialogue_id": 4684, "types": ["D1"]}
+{"dialogue_id": 4685, "types": ["C3", "D1"]}
+{"dialogue_id": 4686, "types": ["C1", "D1"]}
+{"dialogue_id": 4687, "types": ["A1", "D1"]}
+{"dialogue_id": 4688, "types": ["C1", "D1"]}
+{"dialogue_id": 4683, "types": ["D1", "C1"]}
+{"dialogue_id": 4689, "types": ["D1", "C1"]}
+{"dialogue_id": 4690, "types": ["D1"]}
+{"dialogue_id": 4694, "types": ["D1"]}
+{"dialogue_id": 4691, "types": ["A1", "C1", "D1"]}
+{"dialogue_id": 4696, "types": ["A1", "D1"]}
+{"dialogue_id": 4693, "types": ["D1", "A2"]}
+{"dialogue_id": 4697, "types": ["C1", "C3", "D1"]}
+{"dialogue_id": 4692, "types": ["D1"]}
+{"dialogue_id": 4695, "types": ["C2", "D1"]}
+{"dialogue_id": 4698, "types": ["D1", "C1"]}
+{"dialogue_id": 4700, "types": ["C3", "D1"]}
+{"dialogue_id": 4699, "types": ["C6"]}

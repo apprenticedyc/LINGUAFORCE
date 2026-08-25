@@ -1,0 +1,1 @@
+python train.py --is_train > train.log 2>&1 &

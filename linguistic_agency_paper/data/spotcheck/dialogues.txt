@@ -1,0 +1,1086 @@
+=== 序号 1 | dialogue_id 3 | 第二人标注=否 ===
+A: Everyone must attend the annual gala rehearsals without exception.
+B: Director, my chronic gastritis is flaring up again. The doctor insists I rest.
+A: Xiao Zhang pushed through rehearsals last week with a high fever. When it comes to collective honor, we should overcome minor difficulties.
+B: ...Maybe I'll take some medicine and tough it out.
+A: Now that's the spirit. Everyone's watching how you step up.
+B: Sigh... fine then.
+
+=== 序号 2 | dialogue_id 10 | 第二人标注=是 ===
+A: Hey Lao Zhang, how've you been lately?
+B: Just wrapped things up. What's on your mind?
+A: Getting my kid into elementary school's a cutthroat competition. Aren't you pretty tight with Director Li? You've got to help me out with this, right?
+B: That's really tricky. I'm afraid I can't be much help.
+A: Lao Zhang, if not you, who else? My child's future rests on friends like you.
+B: Sigh... I'll try asking around.
+A: Appreciate it. Do check soon, will you?
+
+=== 序号 3 | dialogue_id 13 | 第二人标注=否 ===
+A: Hey, are you installing facial recognition or not? This flimsy security gate is practically useless.
+B: Install my foot! We'd be better off spending that money on a guard dog.
+A: You're such a cheapskate! Every other building has it installed, but you're too stingy to keep up.
+B: If you hate it so much, get out! One more tenant like you won't make a difference.
+A: Hah! Trashy landlord with trashy equipment - what a perfect match.
+B: Keep yapping and I'll raise your rent right now, you broke troublemaker.
+A: Raise it! I've been wanting to move out anyway - who'd want your coffin-sized dump?
+B: Get lost now! I'll have the locks changed next month.
+
+=== 序号 4 | dialogue_id 17 | 第二人标注=否 ===
+A: The manager's daughter is getting married. How much is a cheapskate like you planning to chip in?
+B: Haven't really decided yet.
+A: You miser! I'm packing 5 grand straight up—you figure it out!
+B: Honestly can't swing that much. How about 800?
+A: If you're broke-ass, just own it. Quit acting all high and mighty.
+B: ...Fine, I'll try to give more.
+A: Wise call. Don't embarrass yourself in front of the whole department.
+
+=== 序号 5 | dialogue_id 18 | 第二人标注=否 ===
+A: Money's tight at home lately, could you lend a hand?
+B: I'm stretched thin myself, just paid the kids' tuition.
+A: Know everyone's struggling, but I'm really in a bind right now.
+B: Maybe I can scrape together two thousand for an emergency?
+A: That's decent of you! I'll pay you back when things ease up around year-end.
+B: Alright, I'll transfer it to your account tomorrow.
+A: Really appreciate it—you know, help in an emergency, not chronic poverty.
+
+=== 序号 6 | dialogue_id 29 | 第二人标注=否 ===
+A: Sis, the school district house spot is going to Xiao Bao—stop thinking about it.
+B: What? My kid starts school next year too!
+A: Do you have any sense of decency? After all Mom and Dad have done for you, it's your duty as the older sister to give up the spot!
+B: Stop weaponizing filial duty! I helped pay for that house too!
+A: You ungrateful wretch! The whole family counts on you, and you refuse to help with this one thing?
+B: Fuck off! I'll call the police if you pull this moral coercion shit again!
+
+=== 序号 7 | dialogue_id 34 | 第二人标注=否 ===
+A: Hey, my package is here. Get downstairs and grab it for me now!
+B: It's pouring rain out there. Can't you get it yourself?
+A: Who cooked ginger soup for you when you had a cold? Now you're whining about a damn package? You ungrateful bastard!
+B: Fuck, that was half a year ago! Quit dredging up ancient history!
+A: Got any shame left, you thankless piece of shit? Don't touch anything of mine ever again if you skip this!
+B: Goddammit, fine! Happy now that I'll be soaked to the bone?
+A: Should've done this earlier. Why'd I have to teach you basic decency?
+
+=== 序号 8 | dialogue_id 42 | 第二人标注=否 ===
+A: Could you grab a bag of rice on your way back? We're running low.
+B: Got dinner plans tonight. Mind if I get it tomorrow?
+A: Supermarket closes at 9:30 - maybe swing by after your dinner?
+B: It's not really on my route, but I'll try if time allows.
+A: Suit yourself, tomorrow works too if it doesn't pan out.
+B: Alright, I'll do my best to make it there.
+A: Oh and remember to pick up long-grain rice, will you?
+
+=== 序号 9 | dialogue_id 45 | 第二人标注=是 ===
+A: Auntie, my age is staring me in the face—shouldn't you be introducing me to someone? Who else will help if not family!
+B: Oh come on, I don't have any leads, why can't you just look for yourself?
+A: What's wrong with you? So selfish! Other aunts step up, but you're just heartless!
+B: How am I selfish? You're ridiculously picky—who'd risk setting you up!
+A: You went all out for your niece's wedding, but for me, it's all excuses—this is blatant favoritism!
+B: Alright, alright, I'll take it as I owe you. I'll dig up a divorced one with kids by month-end, satisfied?
+A: Finally, something decent. Remember, it must be a perfect match—if it's even a hair off, you're scheming to ruin me!
+
+=== 序号 10 | dialogue_id 47 | 第二人标注=是 ===
+A: Those plants have been at my place for half a year. Have you considered taking them back?
+B: I'm absolutely swamped lately. Could you do me this favor for a bit longer?
+A: Helping family is what we do, but you must recognize that it's your responsibility to manage this now.
+B: I understand, but I'm genuinely tied up. Can it wait a little longer?
+A: This should be sorted out by next week. It's a fundamental obligation.
+B: Isn't that demand a bit too demanding?
+A: Please make sure this is resolved by month's end. Taking responsibility is fundamental among relatives.
+
+=== 序号 11 | dialogue_id 56 | 第二人标注=否 ===
+A: If you don't lend a hand, the whole family won't get through this rough patch.
+B: My mortgage has me crushed; I'm barely scraping by myself.
+A: When the Zhangs had trouble, all their relatives pitched in. We can't become the laughing stock, right?
+B: Well... can I sort things out in a few days?
+A: Collectors are knocking the day after tomorrow. The whole family's honor rests on you now.
+B: Sigh... I'll scrape some cash from my credit card then.
+A: See? Could've been easier. Blood runs thicker, finally.
+
+=== 序号 12 | dialogue_id 58 | 第二人标注=否 ===
+A: Hey, you there? Free now?
+B: Got my hands full, what's up?
+A: Life-or-death! Need you to pass a message, you're the only one I trust.
+B: Really swamped right now... What's so urgent?
+A: Come on, our bond counts for something, right? Can't bail on me now. See, I don't trust anyone else.
+B: ...Sigh, it's just really tricky at the moment.
+A: Hurry up, girl! Everyone's done their part, just waiting on you now. Not cool! [pleading emoji]
+
+=== 序号 13 | dialogue_id 62 | 第二人标注=是 ===
+A: Mom and Dad were mentioning you just the other day, saying it's been ages since they saw you.
+B: I'm completely tied up with this project deadline right now; maybe next month depending on how things go.
+A: They're just worried you're overexerting yourself, not that they're pressuring you to visit.
+B: I'll definitely come after this crunch time passes - I'll bring some local specialties too.
+A: Visit whenever you've got time, but honestly even a video chat would be nice if you're swamped.
+B: Yeah, I'll make time to call this weekend.
+
+=== 序号 14 | dialogue_id 70 | 第二人标注=是 ===
+A: My parents are tight on money lately; could you help out with a thousand each month?
+B: Our household expenses are high now, so this amount feels quite pressured.
+A: I get your worries, but the elderly are really struggling—what about a middle-ground solution?
+B: How about we start with five hundred, and revisit after the year-end bonus?
+A: That works, but next time my brother's tuition might need assistance.
+B: We'll figure that out later; for now, let's handle the current situation.
+
+=== 序号 15 | dialogue_id 73 | 第二人标注=是 ===
+A: Send me that experimental data right now. The project deadline is tight.
+B: Professor, I haven't published my paper with this data yet...
+A: Where's your gratitude? You'd have nothing without me! Ungrateful wretch!
+B: But I did this research independently...
+A: You're the most selfish person in this lab! Still want to graduate or not?
+B: I... I never refused to share...
+A: Get it to me in 30 minutes. Don't you dare spit on my goodwill!
+B: Understood...
+
+=== 序号 16 | dialogue_id 74 | 第二人标注=否 ===
+A: You've got to cover my shift this Saturday, I'm swamped with an emergency and can't get away.
+B: Man, I've already got plans for Saturday morning, I really can't make it.
+A: Remember when you were sick last time? I jumped in to cover your shift no questions asked. Now you're turning down this tiny favor? Is that how friends treat each other?
+B: That time was an emergency for me too, and I genuinely can't rearrange things this weekend. Don't push me like this.
+A: Think about our friendship – helping out won't cost you an arm and a leg, will it? Come on, or you'll make me miss my deadline.
+B: Fine, fine... I'll see what I can shuffle around.
+
+=== 序号 17 | dialogue_id 83 | 第二人标注=是 ===
+A: It's only lively with more family around. Could you really want to see Mom and Dad waiting longingly every day?
+B: Mortgage payments are crushing us; we barely save anything each month.
+A: After all Mom and Dad raised us—isn't it our duty to give them a grandchild to make them happy?
+B: But last time, the doctors warned about high risks. We can't take that chance.
+A: Just push through this tough phase. Won't it be worth it when the kids take care of you later?
+B: I still think we should put this on hold. We're just stretched too thin right now.
+
+=== 序号 18 | dialogue_id 86 | 第二人标注=是 ===
+A: Zhang, you've got to help me sign this contract proxy right now—it absolutely has to be you!
+B: Boss, I'm new here and not familiar with the procedures... Who'll take responsibility if something goes wrong?
+A: Last time Wang had diarrhea, he even crawled to sign it for me! Youngsters should toughen up and prove themselves!
+B: But I'm still worried about messing up...
+A: The whole team's bonus depends on this contract! Want us all to starve if you screw up?
+B: ...Fine, I'll sign.
+
+=== 序号 19 | dialogue_id 106 | 第二人标注=否 ===
+A: Boss, my family elder is sick and I must care for them - you must approve my leave this week! Everyone has elders, don't you know basic filial duty?
+B: Are you serious ditching work now? Want the whole team to starve if the project fails? Stop being so damn selfish!
+A: Selfish? You're the cold-blooded monster! Shouldn't leaders support staff? Got no humanity at all!
+B: Enough moral blackmail! Should we abandon team responsibility? With your attitude, you'd be fired already!
+A: Approve or not? If not, I'll go straight to upper management! Let's see who'll bear the 'unfilial' disgrace!
+B: Threatening me? Get out now! Why keep such an irresponsible loser anyway?
+A: Screw you! A heartless leader like you - damn karma will get you!
+
+=== 序号 20 | dialogue_id 108 | 第二人标注=是 ===
+A: Send me the draft for project reference.
+B: Professor, it hasn't been published yet...
+A: Stop dawdling - it'll benefit your graduation.
+B: It involves core algorithm sections...
+A: What? Afraid I'll steal your work? Don't be so stingy.
+B: Not at all... Should I redact sensitive parts?
+A: Whatever. Get it to me before EOD.
+B: Understood...
+
+=== 序号 21 | dialogue_id 109 | 第二人标注=是 ===
+A: Host my event for free this weekend, will you?
+B: You outta your mind? I charge eight grand minimum for hosting!
+A: Cheapskate! Since when do family charge each other?
+B: Why the fuck you splurging on Mercedes rentals then?
+A: Suit yourself! I'll get someone else and party just fine.
+B: Beat it! Think I got nothing better to do?
+A: Hah! Don't come crawling to me for favors later!
+B: Screw your mom! Blocking you now, bye!
+
+=== 序号 22 | dialogue_id 119 | 第二人标注=否 ===
+A: Hey man, you absolutely gotta help me out! A friend's buddy is in deep shit, you need to co-sign for him right now!
+B: Fuck that! Who even is this rando? I don't know him, why should I take the risk? Quit dragging me into this!
+A: Are you fucking brain-dead? As a friend, you're obligated to help! Otherwise you're just a disloyal, selfish bastard!
+B: Bullshit! This moral blackmail is insane! My money doesn't grow on trees, why the hell should I obey you?
+A: Go fuck yourself, you spineless piece of shit! Taking responsibility is non-negotiable between friends! Dare refuse again, I fucking dare you!
+B: Dare my ass! The risk is astronomical, no fucking way! You're completely unhinged, stop wasting my damn time!
+A: Fine, you're utterly worthless as a friend! Don't you dare come crawling to me later, you pathetic garbage!
+
+=== 序号 23 | dialogue_id 131 | 第二人标注=否 ===
+A: Mom and Dad haven't been well lately, you must go check on them this weekend!
+B: My manager just scheduled mandatory weekend overtime—I'm helpless here.
+A: Is your job more important than your parents? How could you possibly bear it if something happens to them?
+B: Don't say that—I'm trying to figure something out here!
+A: Filial piety is a natural duty—is it even decent if you can't manage that?
+B: Fine, fine... I'll swap shifts and go back, alright?
+
+=== 序号 24 | dialogue_id 136 | 第二人标注=否 ===
+A: Dad, could you pick up some health supplements for me on Renmin Road when it's convenient?
+B: That area's a bit far, and my leg's been acting up lately.
+A: Then when might be more convenient for you? No rush.
+B: I'll be over there for an errand the day after tomorrow - shall I grab it for you then?
+A: Sure, I'll text you a photo of the brand.
+B: Got it, I'll message you when I arrive.
+A: Thanks Dad, drive safe.
+
+=== 序号 25 | dialogue_id 144 | 第二人标注=否 ===
+A: The property fee is overdue. Pay up now, what are you dragging your feet for?
+B: Why the hell should I pay? Show me where it says that in the contract? Quit your bullshit!
+A: Paying fees is your moral duty! Have you no shame as a human being?
+B: Shameless hypocrite! No contract clause means no payment—stop playing the saint here!
+A: No pay? Get out! You're a fucking disgusting deadbeat!
+B: I'm outta here! Return my deposit or I'll fucking kill you!
+
+=== 序号 26 | dialogue_id 157 | 第二人标注=否 ===
+A: Xiao Zhang, you have to step in for the child's school admission! You're the only one in the family with connections—who else can they turn to?
+B: Auntie, it's not that I won't help, but the crackdown is extremely strict now! I'd risk my job doing this!
+A: The child's been counting on you every day! Last gathering you vowed to help if needed, but now you're backing off?
+B: Oh Auntie, that's not what I meant... I genuinely can't shoulder this risk!
+A: Isn't supporting each other what family's for? Are you really okay with ruining the child's future with your own hands?
+B: How about... I find the child a reliable tutor? That'd be less risky.
+A: Sigh, fine. If I can't even count on family, who can I count on...
+
+=== 序号 27 | dialogue_id 159 | 第二人标注=是 ===
+A: Look how late you've been staying up—we have to help share your burden.
+B: Really, no need. I can handle it myself.
+A: If you won't let us help, we'll lie awake all night worrying.
+B: You're just making me feel more pressured this way...
+A: How can you be so ungrateful when all parents want is to give to their child?
+B: It's not that I'm ungrateful...
+A: We're just going to come help at your office next week—that's settled.
+B: Sigh... fine, whatever you say.
+
+=== 序号 28 | dialogue_id 181 | 第二人标注=是 ===
+A: Hey, there's a lucrative gig. Lend me your ID to register some accounts.
+B: That seems sketchy... what if things go south?
+A: Quit playing the saint! Real brothers stick together! Can't even do this tiny favor?
+B: I'm worried about legal records... what if my family finds out?
+A: You fucking coward! Where's your gratitude? Forgot how I covered your shopping last time? Now you pull the law card?
+B: That was ages ago... and this is totally different.
+A: Ungrateful snake! Last chance: in or out? Refuse and we're done.
+B: ...Fine, sending the docs to your WeChat.
+
+=== 序号 29 | dialogue_id 188 | 第二人标注=否 ===
+A: How's the blind date we discussed last time going? Have you thought about it?
+B: Mom, I'm not really up for it right now.
+A: Fine, suit yourself. We're only saying this because we care about you.
+B: I get it, I'll give it some thought soon.
+A: Alright, just let us know if you want us to set it up.
+B: Mm, don't worry about it.
+
+=== 序号 30 | dialogue_id 204 | 第二人标注=否 ===
+A: Why do you never turn on your location? Don't you realize it makes me worry?
+B: I'm in a meeting, why the frantic rush?
+A: You always react like this when I ask—do my feelings mean anything to you?
+B: Can't I even have a bit of breathing room?
+A: Every other couple shares locations—why must you be the special case?
+B: Fine, I'll turn it on. This is absurd.
+A: See? Was that so hard? Try being more considerate next time.
+
+=== 序号 31 | dialogue_id 206 | 第二人标注=否 ===
+A: Are you free for tomorrow's shift? Need to swap.
+B: I can't tomorrow, got personal stuff.
+A: Why are you always unavailable? Shows terrible work ethic!
+B: I'm not always busy, just have plans this time.
+A: You pulled this last time too – so unreliable!
+B: That was a one-off situation.
+A: Whatever, I'll sort it myself. Can't count on you at all.
+B: Sorry.
+
+=== 序号 32 | dialogue_id 217 | 第二人标注=是 ===
+A: Zhang, could you urgently open a temporary access? The client's waiting!
+B: We're under inspection lately; without an application, I really can't do it.
+A: We've been colleagues this long; you know I've never troubled you before, right? This is just an exception.
+B: It's not that I won't help, but opening it requires scanning and leaving a record.
+A: Losing this client would be a massive loss—you must understand what's urgent, don't you?
+B: Fine, fine, but only for two hours max!
+
+=== 序号 33 | dialogue_id 219 | 第二人标注=否 ===
+A: The property management hasn't responded to the greening issue; I'm thinking of mentioning it in the group chat.
+B: This has been a recurring issue with the property management, and bringing it up likely won't change anything.
+A: If several neighbors voice concerns together, it might be more effective.
+B: Personally, I feel that writing a formal letter to report it would carry more weight.
+A: Speaking up in the group chat is quicker; we could give that a try.
+B: Then you go ahead and post it first; I'll jump in if needed.
+A: Or perhaps wait until the next homeowners' meeting?
+B: Hmm, whatever works best for you.
+
+=== 序号 34 | dialogue_id 231 | 第二人标注=是 ===
+A: Hey, I've got a landlord dispute, legal stuff. Can you help me handle it?
+B: What's going on? Tell me the details.
+A: The landlord's trying to overcharge me! This is unfair! As a colleague, you MUST step in and help me. What kind of person refuses to help with something this small? Selfish bastard!
+B: I'm swamped right now, really don't have time for this.
+A: Bullshit! 'Busy' my ass - you just don't want to bother. This is about moral responsibility! You HAVE to help, stop playing innocent!
+B: Fine, stop yelling. I'll try to look into it.
+
+=== 序号 35 | dialogue_id 236 | 第二人标注=是 ===
+A: Hey, are you free to look over my promotional plan?
+B: I've got a lot on my plate lately and might not be able to get to it.
+A: It's really urgent, and with your expertise, could you squeeze in a little time?
+B: Honestly, I'm completely swamped...
+A: I know you're busy, but just take a quick look and give suggestions? Pretty please!
+B: Sigh... fine, go ahead and send it over.
+A: Thanks so much! I owe you a meal!
+
+=== 序号 36 | dialogue_id 242 | 第二人标注=否 ===
+A: Auntie Zhang, we're planning to install a remote camera lately to conveniently check on the child anytime.
+B: Oh? You'd keep it running constantly? Doesn't that seem intrusive for the child?
+A: Those entrusted with a child's care bear the non-negotiable duty to safeguard their wellbeing. This surveillance fulfills that obligation - surely you prioritize the child's interests as we do?
+B: Naturally I grasp that, but I'm concerned about the child feeling surveilled...
+A: Any caregiver genuinely invested in a child's development would endorse parental oversight. This serves the child's welfare - we're left with no alternatives.
+B: ...Very well. When do you intend to install it?
+A: Shortly. We've full confidence in your professionalism - you'll naturally facilitate this safety measure to reassure both us and the grandparents.
+
+=== 序号 37 | dialogue_id 245 | 第二人标注=是 ===
+A: Hey, could you help me grab that class spot?
+B: Oh, I've been swamped lately, probably can't.
+A: Friends ought to help each other - it's such a shame to waste the spot. You must seize this opportunity!
+B: It does sound good, but I'm genuinely worried about time.
+A: You can always make time. As a friend, you have to try this - don't squander the spot.
+B: Alright, I'll do my best to take it then.
+
+=== 序号 38 | dialogue_id 246 | 第二人标注=否 ===
+A: Hey, have you finished that book you borrowed? Mind lending it to me?
+B: I just got it myself and barely started reading.
+A: Come on, I really need it! We're such close friends—you can't possibly refuse to help me with such a small favor, right? Shouldn't good friends share things?
+B: But I'm using it too these days...
+A: Just one week! You wouldn't deny a friend this tiny sacrifice, would you? People would think you're so selfish if they found out!
+B: ...Fine. Just remember to return it next week.
+
+=== 序号 39 | dialogue_id 247 | 第二人标注=是 ===
+A: Hey... You home? You sound a bit down.
+B: Yeah... Just lost my job. Kinda feelin' low, you know? Got a lot on my mind.
+A: Oh... So what's the plan? Gotta figure something out for now, right? Maybe take a breath, but you should start makin' moves.
+B: Well... maybe borrow some cash from my folks if it comes to it? But man, the thought kinda makes me cringe. Afraid they'll lecture me.
+A: Hmm, that's one way. Sure, they'll probably help if you ask, but they won't hold back the comments either. Depends if you can handle that. If not, maybe talk to friends? Or keep sendin' out those resumes?
+B: Yeah... been sendin' them, alright. Just feels like they vanish into thin air. Gettin' pretty discouraged. Feels like a total fail.
+A: I hear ya, I get it. Job huntin'... can't rush these things, sometimes it's just luck. Don't get too stuck in your head about it, though. The more you stress, the harder it is to see straight. Maybe take a walk, clear your mind? Or find somethin' else to take your mind off it?
+B: Sigh... you're right. Gimme a minute to clear my head first. Thanks, man.
+
+=== 序号 40 | dialogue_id 249 | 第二人标注=否 ===
+A: Pack for Huangshan now, no more talk!
+B: Deaf or what? My knees are shot—how am I supposed to climb? Trying to cripple me?
+A: Cut the act! Pure laziness! Even a pig outworks you!
+B: You’re the faker! Want the doctor’s note plastered on your forehead? Moron!
+A: Suit yourself! I’ll find company elsewhere—watch you wither at home, hag!
+B: Get lost then! Chase your floozy and rot out there—don’t come back!
+A: Fine! A harpy like you deserves abandonment!
+B: Out! Now! This instant!
+
+=== 序号 41 | dialogue_id 253 | 第二人标注=否 ===
+A: Cousin, repost my promo post now! All relatives are waiting!
+B: I really don't know much about this... feels wrong to blindly share stuff...
+A: Everyone else pitched in, only you dropped the ball? Can't even do this small favor?
+B: Been swamped with overtime work lately, genuinely can't manage it.
+A: Surely you eat and drink? Is family face worthless to you?
+B: Fine... I'll repost it then...
+A: Should've done this earlier! This is how relatives should support each other!
+
+=== 序号 42 | dialogue_id 259 | 第二人标注=否 ===
+A: Hey, are you heading downstairs right now?
+B: Yeah, why? Need something?
+A: Oh, if you happen to pass the courier station, could you grab my package? No worries if it's inconvenient though.
+B: Ah, sorry—I need to make another stop first and it's kinda out of the way.
+A: Tsk Fine. I'll go myself then. Can't rely on you anyway.
+B: Really sorry about that—next time I'm passing by I'll definitely pick it up.
+A: Whatever. You do you. Totally get it.
+B: Mm, thanks. I'll head off now.
+
+=== 序号 43 | dialogue_id 260 | 第二人标注=否 ===
+A: Agent Li went to great lengths to get you this special deal; if you don't hire him, how can he save face?
+B: But I've nearly finalized things here; switching agents at the last minute might tick them off.
+A: Can't you tell what's good for you? We're putting in all this effort just to help you save some cash, aren't we?
+B: I get you mean well, but we've got to keep our promises; this whole mess is putting me in a tight spot.
+A: Everyone pulled strings and went through hoops for you; if you don't take it, won't it all be a waste of our time?
+B: Fine, fine, I'll give it a shot, but if it falls through, don't go blaming me.
+
+=== 序号 44 | dialogue_id 261 | 第二人标注=否 ===
+A: Hey Zhang, I really need you to cut us some slack on the payment this time. You understand how tight our cash flow is, right?
+B: Manager Wang, the contract clearly states payment this week. We're counting on that money too.
+A: Look, I know! But after all our years working together, trust is what matters most here. You have to see things from our perspective—you can't just cling to the contract terms. That's basic decency, isn't it?
+B: ...I guess so. How long are we talking?
+A: End of next month at the latest. Come on, I know you're reasonable—you wouldn't push us too hard when we're struggling. We'll get through this together.
+B: Sigh... Fine, fine. End of next month then.
+A: Exactly! Thank you for understanding and supporting us! This is how partners should help each other out!
+
+=== 序号 45 | dialogue_id 269 | 第二人标注=是 ===
+A: Hello, police station? There's a noisy card game gathering in our complex, you need to handle this.
+B: Understood. Could you specify the building and unit number so we can dispatch officers?
+A: While location matters, maintaining public order is your paramount duty as police. You should take initiative to patrol and identify issues, not passively wait for citizens to report every detail.
+B: You're right about our duty to uphold security. But precise addresses enable faster response. Could you provide it?
+A: The address is secondary. What's crucial is prioritizing public service. How can citizens feel secure if police don't promptly stop such disturbances? You must address this responsibility.
+B: We absolutely prioritize this. Providing the location ensures immediate verification and action—the most effective approach.
+A: Building 5, Unit 2. I expect substantive action, not procedural formalities. Public trust and peace depend entirely on your commitment.
+
+=== 序号 46 | dialogue_id 272 | 第二人标注=否 ===
+A: Xiao Li, it's perfectly normal for colleagues to pat each other on the shoulder—everyone does it, so you ought to pick it up.
+B: But I genuinely dislike this kind of contact; do I really have to do this to blend in?
+A: Why are you being so difficult? How do you expect everyone to view you? You're messing up the team vibe!
+B: So, is there any other way to build rapport with everyone?
+A: Quit acting special! Everyone else can handle it, so why can't you? Start adapting right now!
+B: But this makes me totally uneasy; can't you all just cut me some slack?
+A: Fitting in depends on this—how will you work with the team if you keep being so awkward?
+B: Alright, I'll give it a shot, but don't expect me to get comfortable anytime soon.
+
+=== 序号 47 | dialogue_id 280 | 第二人标注=否 ===
+A: Hi, my business trip got extended. Could you look after the dog for three more days? No worries if not.
+B: Three more days? Let me check my schedule—should be doable.
+A: Perfect! I'll entrust the dog to you then.
+B: No problem, but do remember to give me the specifics ahead of time.
+A: Got it, I'll provide full details. Any challenges with the dog care?
+B: Nothing major, he's quite well-behaved. Rest assured.
+A: Okay, thanks for helping out! I'll take you to dinner later.
+
+=== 序号 48 | dialogue_id 282 | 第二人标注=是 ===
+A: B, come home soon! The baby's crying so hard she's losing her voice and won't stop asking for Uncle.
+B: I'm in the middle of a client meeting right now, really can't get away.
+A: How can an uncle be so heartless? You're the only one she wants!
+B: Can I come first thing tomorrow morning to spend time with her?
+A: She won't even eat now—shouldn't you be taking responsibility as her uncle?
+B: Sigh... I'll try my best to get there.
+A: That's more like it! You must be here by 8 PM.
+
+=== 序号 49 | dialogue_id 288 | 第二人标注=否 ===
+A: Hey, get these documents sorted, quick!
+B: Who do you think you are? Ordering me around? Not my job!
+A: Cut the crap! Just do it, stop dawdling!
+B: Fuck off! My plate's full, no time for this!
+A: Useless! Can't even handle a simple task!
+B: Screw you! Find someone else, quit your whining!
+A: Fine, hotshot. Don't come crying to me later!
+B: Scared? See yourself out!
+
+=== 序号 50 | dialogue_id 290 | 第二人标注=否 ===
+A: Hey man, I've got nowhere to stay tonight. Can I crash at your place?
+B: Huh? My place is small, my wife and kids are here—it's not really convenient to have guests.
+A: You're not being a good friend at all! Helping an old classmate is a given, and you're not even showing any consideration?
+B: I'm really not trying to brush you off, but hosting you is too troublesome—the house is a total mess.
+A: Bullshit about trouble! If you don't help, you're just selfish. Don't you get old school friendship? You must let me stay!
+B: Fine, fine, stop shouting. Stay for one night, just shut up already!
+A: That's more like it. An old classmate should act like this—don't make excuses.
+
+=== 序号 51 | dialogue_id 298 | 第二人标注=否 ===
+A: Lao Li, the landlord suddenly changed the locks today and I can't get in. Can I crash at your place tonight?
+B: Tonight's really not convenient. My wife's running a fever and I don't want you to catch it.
+A: We've been buddies since we were kids! You won't even do me this small favor? That's really cold!
+B: She just fell asleep and opening the door would definitely wake her up.
+A: When you got fired last year, you crashed at my place for a whole month! Did I complain? Now it's my turn and this is how you treat me?
+B: Alright, fine... You can sleep in the storage room. But keep quiet and don't make noise.
+A: Now that's what I call friendship! Real buddies stick together through thick and thin. Next time you need help, I've got your back!
+
+=== 序号 52 | dialogue_id 312 | 第二人标注=否 ===
+A: Hurry up and wire the bride price! You must pay this—it's your duty, or you're an ungrateful child!
+B: Dad, I just started working—how could I afford it? Can't you cover it for me first?
+A: Ungrateful brat! After raising you all these years, shouldn't you repay us? The whole neighborhood knows! Where do we put our dignity if you don't pay?
+B: Always your reputation! Did you ever care that my credit cards are maxed out?
+A: Cut the crap! No money by next Wednesday—cancel the wedding. Have some conscience! Your mom's too furious to eat!
+B: Just push me to die then! How's this different from selling your daughter?
+A: You disgrace! What decent child shirks responsibility like you? No payment—no parents from now on!
+B: Fine! Do whatever the hell you want!
+
+=== 序号 53 | dialogue_id 313 | 第二人标注=否 ===
+A: Sign the prenup now! No room for negotiation!
+B: What gives you the right to force these bullying terms on me?
+A: Shut up! Why should I share my family's wealth with trash like you?
+B: Damn! Treating people as free live-in maids and still acting so entitled!
+A: Get out if you won't sign! There's a long line waiting!
+B: Who the hell do you think you are? Screw this wedding!
+A: Sign it now! Stop wasting my fucking time!
+
+=== 序号 54 | dialogue_id 316 | 第二人标注=否 ===
+A: Every family member must check in daily. Skipping out is just plain disrespectful to everyone!
+B: I'm swamped today. Can I make up for it double tomorrow?
+A: Look at how dedicated the old-timers are. That's what a responsible family member does!
+B: Does missing an occasional check-in suddenly make me an outsider?
+A: Family warmth depends on everyone's commitment. Don't you even have that basic awareness?
+B: I'll just stay quiet and observe then.
+A: The whole family's waiting for you. It won't be the same without you!
+
+=== 序号 55 | dialogue_id 328 | 第二人标注=否 ===
+A: Hey, could you cover that meal expense from my last business trip? I already sent you the receipts.
+B: Huh? Again? This is the third time this month, man. I'm strapped for cash too.
+A: Tch, how can you be like this? Friends are supposed to help each other! You won't even cover this small amount? How dare you call yourself a friend? Don't you know what loyalty means?
+B: Be reasonable! There's a time and place for favors! When have you ever reimbursed me promptly? You always drag your feet!
+A: Cut the crap! You will cover it today - that's basic decency! Otherwise don't you dare come to me for help ever again! Selfish bastard!
+B: Damn it! Moral blackmail again? Think I'm your fucking ATM? I'm sick of your bullshit!
+A: Straight answer: cover it or not? If you won't lift a finger for this small favor, I must've been blind to call you a friend!
+B: Fine, fine! I'll cover it! Last time! If reimbursement drags this time, you're fucking dead!
+
+=== 序号 56 | dialogue_id 351 | 第二人标注=否 ===
+A: It wouldn't be right if you miss tomorrow's event, you know.
+B: It's tough; I'm buried under my internship report.
+A: Everyone's really counting on you to be there.
+B: I'll try my best, but if not, you all go ahead and enjoy yourselves.
+A: Lao Zhang even went out of his way to save a front-row seat for you.
+B: What time does it start again?
+A: That's more like it.
+
+=== 序号 57 | dialogue_id 354 | 第二人标注=是 ===
+A: Hey buddy, I need to talk to you about something. How about helping me with a marriage of convenience to deal with family pressure? What do you think?
+B: Marriage of convenience? Are you fucking insane? Handle your own mess and don't drag me into this bullshit!
+A: Watch your damn mouth! I was just asking for your opinion. Forget it if you can't help, but quit acting superior!
+B: Fuck off! This trash has nothing to do with me. Solve your own problems and stop bothering me!
+A: Fine! You're such a useless piece of shit who can't even lend a hand. Don't bother contacting me again!
+B: Get lost! I'm not playing these games with you. Do whatever the hell you want!
+A: Damn it! Scum like you don't deserve friends anyway. Consider us done!
+
+=== 序号 58 | dialogue_id 361 | 第二人标注=否 ===
+A: Xiao Wang, this project absolutely must be wrapped up tonight—the whole team is burning the midnight oil. You won’t let us down, will you?
+B: Boss, I'm feeling lightheaded and feverish—really worried I'll mess things up.
+A: Look, Xiao Li didn’t utter a word yesterday with stomach pain—what’s a little discomfort? This project can’t go down because of you!
+B: Can Lao Zhang cover for me? I’m afraid I’ll hold everyone back.
+A: Lao Zhang’s swamped with his own workload—no substitutions! Just grit your teeth and push through; the whole team’s counting on you.
+B: ...Fine. I’ll grab meds downstairs and gut it out.
+
+=== 序号 59 | dialogue_id 365 | 第二人标注=是 ===
+A: Hey, cover me for the 2k sales quota, I'm in a pinch.
+B: What, you got no fucking hands or legs? Always mooching off others!
+A: Stop the nonsense! Just say yes or no, quit yapping!
+B: Help my ass! Can't handle your own shit and wanna drag others down?
+A: Fuck off! Don't wanna help? Then stop acting all high and mighty!
+B: Who the hell do you think you are? I'm damn well not helping!
+A: Fine. Remember this. Mark my words.
+
+=== 序号 60 | dialogue_id 366 | 第二人标注=否 ===
+A: Hey, you around? There's a cashback event, wanna team up?
+B: Need real-name verification? I'm a bit hesitant.
+A: Yeah gotta link your bank card, might be a bit gray area, no pressure though.
+B: Think I'll pass, they're cracking down hard lately.
+A: Totally get it, I'm wrapping this up after this round.
+B: Still... be careful man, don't let it backfire.
+A: Yeah, got it covered. You sure you're out? Returns are pretty decent.
+B: Next time maybe, I'll sit this one out.
+
+=== 序号 61 | dialogue_id 369 | 第二人标注=否 ===
+A: Mind if I use the kitchen? Kinda urgent.
+B: Right now? I was just about to start cooking.
+A: Oh... well, when would work for you? I need the stove.
+B: Probably two hours. If it's urgent, maybe try the restaurant downstairs?
+A: Sigh, never mind then. I'll find somewhere else.
+B: Really sorry about that. Next time just give me a heads-up.
+A: Alright then. You go ahead.
+
+=== 序号 62 | dialogue_id 383 | 第二人标注=否 ===
+A: You absolutely have to come to Friday's dinner! Everyone's counting on you to liven things up—not showing would be so disrespectful!
+B: Really can't make it. Crunch time on a project, boss is breathing down my neck.
+A: Don't be a downer! The whole gang's been looking forward to this for two weeks. How could you ditch us like this?
+B: Project deadline's set in stone—literally can't move it. How about I treat everyone next week?
+A: That's not cool! You stepped up when Lao Wang was sick, didn't you? What's with the sudden 'too busy' act?
+B: Ugh... fine, fine. I'll pull an all-nighter and try to swing by.
+A: Now we're talking! Should've agreed earlier—we'll be waiting!
+
+=== 序号 63 | dialogue_id 388 | 第二人标注=否 ===
+A: Buddy, my friend's in a real bind—you've gotta cosign for him ASAP!
+B: Guaranteeing a stranger? Too risky, I'm kinda spooked.
+A: Come on, I'm freaking out here—who else can help if not you? Can't ditch the brotherhood bond, right?
+B: But who's taking responsibility if things go south?
+A: Last year when you were broke, I lent you cash no questions asked! Now you won't return the favor? Show some loyalty!
+B: Well... lemme think it over.
+A: Gotta settle this today. After all these years, you wouldn't let a friend down, would you?
+
+=== 序号 64 | dialogue_id 389 | 第二人标注=否 ===
+A: Old buddy, my cousin's really struggling to find an internship. Since you're at that big company, you've got to help arrange this for her!
+B: Well... internship positions all require official applications and multiple rounds of screening now. There might not be much I can do...
+A: Don't say that! With our friendship, if you won't help, who will? As her big sister, I'm going all out here. Shouldn't you, as her big brother, look out for the younger generation? How could you say no?
+B: Hmm... it's mainly that my authority is limited. Worried I might not be able to deliver.
+A: Come on, find a way! This is my own flesh-and-blood cousin we're talking about. If you don't help, all the relatives are watching. We've got to show some human decency—wouldn't it look awful if we seemed too distant? Don't you agree?
+B: It really is tricky... but I can't have you ask for nothing either.
+A: That's more like it! Now that's being a true friend! Her future's at stake here—we elders need to step up where we must. At least give her resume an internal referral, won't you? Consider it settled!
+B: ...Alright then, send me her resume to look over first.
+
+=== 序号 65 | dialogue_id 390 | 第二人标注=是 ===
+A: Xiaobao's been struggling a bit with studies lately; it'd be nice to find a better school for him.
+B: My kid's also right in the thick of admissions season—completely swamped myself.
+A: Both kids are quite diligent. Heard your Nini's doing well academically.
+B: Spots are incredibly hard to secure—I've got to prioritize my own child first.
+A: Mom mentioned you used to have great connections—maybe give Xiaobao some pointers?
+B: Sure, I'll ask around later.
+
+=== 序号 66 | dialogue_id 392 | 第二人标注=否 ===
+A: Ms. Li, something urgent came up with my elderly family member—could I possibly take tomorrow off to help? It's really urgent.
+B: But leaving at this critical moment? Who's going to cover the project? The whole team's swamped right now.
+A: My family member fell and was hospitalized. I need to stay with them tonight—I'm really distraught.
+B: But company policy requires three-day advance notice for leave requests. This really puts me in a tough spot.
+A: You know I never take leave lightly—this was truly unavoidable. I was really counting on your understanding.
+B: Sigh... this is far too sudden. I honestly can't approve this.
+A: Just this once? I'd be forever grateful—I'll work extra hours to make up all the work when I'm back.
+B: Fine, fine. Go ahead, but don't take too long—we can't afford delays.
+
+=== 序号 67 | dialogue_id 396 | 第二人标注=否 ===
+A: Mr. Zhang, hello! There's something I'd like to ask for your help with.
+B: What is it? Go ahead.
+A: My relative's child needs an internship opportunity. Could you possibly refer them?
+B: Internship spots are quite scarce these days, but I'll see what I can find.
+A: Alright, please check when you can. Thank you.
+B: No problem, I'll ask colleagues about potential openings.
+A: I truly appreciate this. I'll send over the child's resume.
+B: Got it, I'll follow up once received.
+
+=== 序号 68 | dialogue_id 398 | 第二人标注=是 ===
+A: Totally lost on this report, need a lifesaver ASAP!
+B: My PPT deadline's breathing down my neck—my advisor's nagged me three times already.
+A: You polished Xiao Wang's report so well last time, I'm counting on you for my mess.
+B: Seriously not brushing you off—see? Five windows open and I'm slammed.
+A: This report's due tomorrow! If it's not done, our team lead will blow his top.
+B: Fine, you win. Ten minutes max—that's all I can spare.
+
+=== 序号 69 | dialogue_id 402 | 第二人标注=是 ===
+A: Would it be convenient for you to bring a box of grapes? We're out of fruit at home.
+B: I can't step away right now, maybe later?
+A: No worries, if you're busy next time. I'll ask around.
+B: How about I order some online and have them delivered to you?
+A: No trouble at all, I'll handle it myself.
+B: I'll treat you to dinner another time to make it up!
+A: No need for that, it's really nothing.
+B: Gotta run for now, catch up later!
+
+=== 序号 70 | dialogue_id 408 | 第二人标注=是 ===
+A: Intern, sort the damn data for me right now—no dilly-dallying!
+B: This isn't part of my job description.
+A: Cut the crap! Do it or get the hell out!
+B: You can't just force people like this.
+A: So what if I force you? Either do it or quit!
+B: I'll consider it.
+A: Consider my ass! Give me your answer NOW!
+
+=== 序号 71 | dialogue_id 409 | 第二人标注=是 ===
+A: Hey! You actually gave my shop a bad review? Are we even brothers? Take it down right now!
+B: The stuff was garbage, just being honest. Why should I delete it?
+A: Ungrateful bastard! After all I've done for you? Can't even do this one thing? Delete it NOW!
+B: What the hell's wrong with you? Your crap products don't deserve good reviews!
+A: Won't delete it? Fine! Don't come crawling to me later! Worthless piece of shit!
+B: Screw you! Help or don't, see if I care!
+A: Delete it by tonight or we're DONE! Got no damn conscience?
+B: FINE! I'll delete it! Goddamn nightmare!
+
+=== 序号 72 | dialogue_id 418 | 第二人标注=否 ===
+A: All you do is complain about me not taking care of the kids, but I'm dead tired from work! Can't you as a parent cut me some slack?
+B: What's wrong with saying a couple things? Is the child mine alone? Are you even taking any responsibility?
+A: How utterly selfish! This family takes two people, but someone's gotta earn money. Or do you want our kid to starve?
+B: Then quit pretending to be busy all day! Coming home just to play the big boss and do nothing!
+A: How can we keep living like this if you can't be reasonable? Isn't my back-breaking work all for this family?
+B: Whatever. Do as you please. Nothing I say makes a difference anyway.
+
+=== 序号 73 | dialogue_id 423 | 第二人标注=是 ===
+A: Hey, if it's convenient when you head downstairs later, could you grab my package?
+B: Not planning to go out right now, maybe later?
+A: No worries, just get it whenever you happen to go out. No hurry.
+B: Alright, I'll pick it up after dinner then. Text me the tracking number.
+A: Gotcha, thanks a ton! Sent it to your WeChat.
+B: Received. But if there's a queue at the pickup point, I'll get it another day.
+A: Sure thing, totally your call since you're doing me the favor anyway~
+B: Cool, I'll hit you up when I head out.
+
+=== 序号 74 | dialogue_id 427 | 第二人标注=否 ===
+A: Hey man, you busy? Wanted to run something by you.
+B: Yeah, what's up? Go ahead.
+A: Sigh, my investments took a real hit lately. Facing a pretty big shortfall. Could you see about floating me another fifty grand? Just to tide me over, I'll figure out how to pay you back next month.
+B: Whoa... fifty grand? Things are tight here too lately. Just paid the down payment, and I'm scrambling for wedding gift money.
+A: Oh... gotcha. No worries, totally understand. Sounds like you've got your own plate full. Forget it, I'll sort something else out.
+B: Man, I feel awful about this. If I had extra, I'd be there for you. Really sorry I can't help this time.
+A: Don't sweat it, seriously. I'll ask around. Catch up with you later.
+
+=== 序号 75 | dialogue_id 431 | 第二人标注=否 ===
+A: Hey, I've left those cardboard boxes in the hallway for three days, so mind your own business!
+B: Do you think the hallway is your personal storage unit? Get them moved out right now!
+A: Screw off! I'll put them wherever I damn well please—who the hell are you?
+B: They're blocking the path! Don't test me, or I'll toss them all in the dumpster!
+A: Just try touching them! Are you out of your mind?
+B: Hold on, I'm calling the property manager to clear this mess. Let's see who wins!
+A: Whatever! You freak!
+
+=== 序号 76 | dialogue_id 437 | 第二人标注=否 ===
+A: Quit your job and come back home right now! Did your parents raise you for nothing? If you don't go back, are you even human?
+B: What are you, nuts? Go back now and starve? That dump of a hometown has zero prospects!
+A: I've never seen anyone as ungrateful as you! Your parents are lying sick in bed, and you don't even visit? Has your conscience been devoured by dogs?
+B: Cut the crap! Didn't I fork out plenty when your dad was hospitalized last time? You're the one putting on a show like some dutiful son!
+A: Pack your bags immediately! Refuse to come back, and I'll tell the whole village you're an ungrateful wretch!
+B: Are you out of your mind? Keep spouting this nonsense and I'll move out tomorrow, I swear!
+
+=== 序号 77 | dialogue_id 449 | 第二人标注=否 ===
+A: Hey, could you save me a seat in the cafeteria later? It's on your way anyway.
+B: I might need to pick up a package first.
+A: Come on, it's no trouble at all—we're friends, aren't we?
+B: The package pickup line is usually pretty long.
+A: Do me a solid? I'll be starving after the meeting.
+B: Alright, I'll try my best.
+
+=== 序号 78 | dialogue_id 453 | 第二人标注=是 ===
+A: Have you thought about sending an anonymous apology letter for that matter?
+B: Haven't decided yet. Afraid it might be awkward if I send it.
+A: It's entirely your call, but apologizing could help mend things.
+B: What if it gets even more awkward after sending it?
+A: Up to you—handle it if you think it's necessary.
+B: Should I draft it first then?
+A: I can look over the wording if you need help.
+B: Alright, I'll update you once I decide.
+
+=== 序号 79 | dialogue_id 463 | 第二人标注=是 ===
+A: Fuck, heard you pulled strings again? Damn, you're slick at networking!
+B: What? Stop bullshitting, no backdoor dealings here!
+A: Quit the fucking act! Last time wasn't that connections shit? Trashy move!
+B: Piss off! That's internal referral, got it? Only morons confuse legit help with crooked favors!
+A: Ha! Still denying? You're a goddamn hypocrite!
+B: Psycho! Shut your trap, you disgusting piece of work!
+A: Tch, if you're butthurt stop yapping and fuck off!
+
+=== 序号 80 | dialogue_id 468 | 第二人标注=是 ===
+A: Zhao, shouldn't you submit that test report already? The whole team is waiting.
+B: The parameters require repeated verification; the earliest I can get it done is this afternoon.
+A: Xiao Wang finished with the newbies in half a day; as a seasoned employee, you ought to set an example for efficiency.
+B: They were dealing with basic modules; mine involves core data.
+A: Can you wrap it up by 2 PM? The entire project is stuck because of you, and the boss just asked about progress.
+B: Got it, I'll hurry up as much as possible.
+
+=== 序号 81 | dialogue_id 471 | 第二人标注=否 ===
+A: Still using those materials? Mind if I take a quick peek?
+B: Just started looking myself and I'm already stuck.
+A: We're friends, can't you help me out?
+B: Man, I'm swamped... Fine, but quick in and out.
+A: Don't worry, no problem at all!
+B: Alright then.
+
+=== 序号 82 | dialogue_id 472 | 第二人标注=否 ===
+A: Would it be possible to get the latest version tomorrow morning? There are still a few sections of the paper that need adjustments.
+B: I'm a bit tied up at the moment—could we push it to the day after tomorrow?
+A: No worries, I often got stuck too when writing my own papers back in the day.
+B: It's mainly because the data section requires a thorough re-review.
+A: Take your time, no rush—quality is what matters most.
+B: Then I'll try my best to get it to you by tomorrow evening.
+A: Sounds good—I'll treat you to a meal once this is wrapped up.
+
+=== 序号 83 | dialogue_id 475 | 第二人标注=否 ===
+A: Xiao Wang, I want to transfer my training course spot to you since I can't attend.
+B: Oh, but I've been pretty swamped lately and might not have time.
+A: Come on, we should help each other out - didn't I help revise your report last time?
+B: I'm mainly concerned it'd be wasted on me since I might not learn much.
+A: Just do me this favor, will you? The company paid for this course - it'd be such a shame to waste it.
+B: Alright, I'll take it off your hands then.
+
+=== 序号 84 | dialogue_id 488 | 第二人标注=是 ===
+A: Damn it, hurry up and get that loan guarantee for me!
+B: Are you out of your damn mind? Acting like being a guarantor is some kind of joke?
+A: Shit! Can't even handle this small favor? Useless!
+B: Get lost! Whose fault is it that you've got no credit history?
+A: Damn bastard! Don't come begging at my door later!
+B: Who do you think you're fooling? Get lost already!
+
+=== 序号 85 | dialogue_id 497 | 第二人标注=是 ===
+A: Taking care of Grandma is your bounden duty; you must clear your schedule by the end of the month.
+B: I have an important meeting; is it possible to rearrange the schedule?
+A: Filial piety isn't something you can skimp on; this is non-negotiable.
+B: But this will disrupt my work; isn't that overly inflexible?
+A: Family bonds trump all else; fulfilling this is your obligation.
+B: Shouldn't the practicality of other options be taken into account?
+A: Responsibility requires no conditions; be punctual next week.
+B: This setup might not be adequately thought through.
+
+=== 序号 86 | dialogue_id 502 | 第二人标注=是 ===
+A: Lao Wang, mind lending me your streaming account? Been wanting to catch some movies lately.
+B: Not really convenient, my subscription's linked to my bank card.
+A: The fuck you so stingy?! Colleagues for years and you won't even do this tiny favor?
+B: Who you fucking cursing at? My damn account, I lend it when I damn well please!
+A: Quit the holier-than-thou act! Last time you mooched my takeout without a peep, now this security bullshit?
+B: Bullshit! That's completely different! My damn membership's 588 a year - why should you freeload?
+A: Fine! Don't fucking ask for my help on projects ever again! Ungrateful bastard.
+
+=== 序号 87 | dialogue_id 504 | 第二人标注=否 ===
+A: Hey, could you help look after my sister? She needs someone these couple days.
+B: Pff, not my problem. Your own sister is your responsibility, don't bother me!
+A: Fine, I'll ask someone else. Thought you'd be more dependable, but you're just as self-centered.
+B: Cut the crap! I've got my own pile of things to deal with. No time for your nonsense—don't boss me around!
+A: Alright, got it. People like you just aren't reliable. Guess I'll look elsewhere.
+B: Get lost! Quit whining here. Who do you think you are? Mind your own business!
+A: Whatever. Done talking. Won't count on you since you're not dependable anyway.
+
+=== 序号 88 | dialogue_id 507 | 第二人标注=否 ===
+A: Do you have time to help me organize this data?
+B: I've got too much on my plate right now and can't spare the bandwidth.
+A: Your efficiency seems lacking - new hires should really push harder.
+B: The workload is genuinely overloaded, it's not unwillingness to assist.
+A: Sigh, young people nowadays are just too delicate.
+B: No need for such harsh words - just stating objective facts.
+A: I'll handle it myself then. Do mind team collaboration next time.
+
+=== 序号 89 | dialogue_id 512 | 第二人标注=否 ===
+A: I heard your child won an award in the English speech contest?
+B: Yeah, he's got some talent for languages, though he's weaker in math.
+A: My daughter's the opposite—strong in sciences but weak in humanities. Have you considered trying Mr. Wang's tutoring class?
+B: His schedule's packed right now; maybe we'll look into it next semester.
+A: Mm, a child's mental state matters a lot. When we pushed too hard at home, it backfired.
+B: Absolutely, finding that balance isn't easy.
+A: Well, just ask me for the tutoring materials if you need them later on.
+
+=== 序号 90 | dialogue_id 517 | 第二人标注=否 ===
+A: Professor, I've applied for the data analyst position but need a recommendation letter. Could you possibly write one for me?
+B: You only remember your teacher when you need something, huh? Couldn't you have reached out earlier?
+A: Really sorry about that, I was swamped with lab work and forgot to ask in advance.
+B: It breaks my heart seeing you work so hard. Why not choose that stable position? Otherwise how could I recommend you with peace of mind?
+A: The salary package isn't ideal though. I might need to reconsider.
+B: Just follow my advice and pick this one. I'm only thinking about what's best for you.
+
+=== 序号 91 | dialogue_id 519 | 第二人标注=是 ===
+A: Lao Wang, shouldn't we keep the red envelope amount standard? Especially given our relationship...
+B: Things are tight lately. Would 2000 work? The mortgage is killing me.
+A: Wasn't it 2800 you gave at my wedding? Though the going rate has gone up these days.
+B: Ah, my memory's shot... Let me check with the wife.
+A: Everyone else is doing 5000. Don't stress about it.
+B: Alright... I'll see what I can figure out.
+A: That's the spirit! Brother won't let you get a raw deal.
+
+=== 序号 92 | dialogue_id 526 | 第二人标注=否 ===
+A: Xiao Wang, you're on duty for the Spring Festival schedule.
+B: Boss, I'm a local, I have to go back home to spend the New Year with my parents!
+A: Bullshit! Locals should contribute more! Have you got any conscience?
+B: But previous years all had out-of-town colleagues on duty... isn't this a bit unfair?
+A: Selfish bastard! Has the company been feeding you for nothing? Stand duty or you're out!
+B: Boss... you should try to see it from my perspective...
+A: See shit! Ungrateful trash like you deserves to pull duty!
+B: ... Fine. I'll do it.
+
+=== 序号 93 | dialogue_id 530 | 第二人标注=否 ===
+A: The competition class deadline is tomorrow. How come you haven't made a move yet?
+B: The pressure's too much; I really don't want to take on extra work.
+A: The whole family's counting on you. We can't afford to be so lacking in ambition.
+B: My foundation's too weak; it'd be pointless even if I went.
+A: Other kids are scrambling to sign up. What future will that attitude get you?
+B: Fine, fine. I'll give it a shot.
+A: Go sign up right now. Don't wait until spots run out and you're full of regrets.
+
+=== 序号 94 | dialogue_id 533 | 第二人标注=是 ===
+A: Intern, make me a PPT after work—this is your duty to contribute.
+B: But this isn't in my job description; I have plans tonight.
+A: Plans my ass! Young people should work harder—where's your respect for elders? You ungrateful wretch!
+B: I really can't do this; it's clearly out of scope.
+A: Bullshit! Has your team spirit been eaten by dogs? Don't do it, then get lost!
+B: I'm just stating the facts...
+A: The truth is you're useless! Don't cry at the probation review!
+
+=== 序号 95 | dialogue_id 537 | 第二人标注=否 ===
+A: There's a company gathering this Friday, would you like to go with me?
+B: I'm not really feeling up to it, crowds can be a bit much.
+A: No worries, I can keep you company at home then.
+B: Don't bother, you go ahead. I'm perfectly fine on my own.
+A: Alright, I'll pop by and be back before eight.
+B: Yeah, have a good time.
+A: Should I grab you something?
+B: Not necessary. Get back early.
+
+=== 序号 96 | dialogue_id 542 | 第二人标注=否 ===
+A: Hey! Go grab my package from the station right now!
+B: Who the hell are you to order me around? Can't you move your own legs?
+A: Cut the crap! Just get it when I tell you to, stop dawdling!
+B: Screw you! I ain't going, whatcha gonna do about it?
+A: Damn! What's the point of having a roommate who won't even fetch a package!
+B: You fucking psycho? Say one more word and see what happens!
+A: Fine! Next time your package arrives, I'll stomp it flat - don't expect mercy!
+B: Dickhead! Bring it on right now if you've got the guts!
+
+=== 序号 97 | dialogue_id 546 | 第二人标注=否 ===
+A: Hi, could I borrow your drone? I have an event that might involve a bit of risk.
+B: What exactly are the risks? I'm a bit concerned about the equipment.
+A: I'll be careful using it, and I'll pay for any damages if it gets broken.
+B: I'm still not entirely comfortable with this and would rather not lend it out.
+A: Okay, I understand. Alright then.
+B: Thank you for understanding.
+A: No problem, I'll figure something else out.
+B: Good luck.
+
+=== 序号 98 | dialogue_id 548 | 第二人标注=否 ===
+A: Hey man, you gonna show up for this lame team-building thing?
+B: What lame stuff? Can't be bothered.
+A: Hah, chicken! Just drag some folks along for fun, we're bored anyway.
+B: Are you insane? My friends wouldn't touch this garbage.
+A: Tch, useless much? Can't even introduce people?
+B: None of your damn business. Do whatever.
+A: Screw you then! Whatever, we won't miss an idiot like you.
+B: Piss off with your nonsense.
+
+=== 序号 99 | dialogue_id 563 | 第二人标注=否 ===
+A: I've got to head out for an urgent errand, and I'm a bit anxious leaving the shop empty. Are you free?
+B: I've got plans later, but I can keep an eye on things for half an hour?
+A: Perfect! Mostly worried about theft, just glance around occasionally.
+B: I hate to do this, but my time's up - I really need to go.
+A: No problem, I'll ask Xiao Liu to help me sort this out.
+B: Next time just give me a heads-up earlier - I'm free all day!
+A: Got it! I'll buy you bubble tea later!
+B: Don't sweat it! Go handle your business!
+
+=== 序号 100 | dialogue_id 4203 | 第二人标注=是 ===
+A: I must work 16 hours a day! Otherwise I'm a worthless piece of trash.
+B: Are you insane? You'll destroy your health!
+A: No way! Laziness is unforgivable – I've got to crack the whip on myself.
+B: But you're already exceptional! Don't go to extremes.
+A: Exceptional? If I can't handle basic tasks I'm garbage! I deserve every insult.
+B: God, you're brutalizing yourself.
+A: Stop pitying me! A selfish wretch like me deserves to be worked to the bone.
+B: Christ, I'm genuinely terrified for you...
+
+=== 序号 101 | dialogue_id 4204 | 第二人标注=是 ===
+A: I must run ten kilometers daily, or I'm a total failure!
+B: Don't be so extreme—moderate exercise is perfectly fine.
+A: No! A selfish wretch like me deserves brutal training!
+B: How exactly are you selfish? Stop slapping labels on yourself.
+A: Last week's medical report mandated a 10-kilo weight loss.
+B: Wasn't that the doctor's suggestion though?
+A: To me it's a damn command! Quit pushing me to rest!
+B: Then at least supplement with protein shakes for nutrition.
+
+=== 序号 102 | dialogue_id 4206 | 第二人标注=否 ===
+A: I swear I must study 12 hours every day, or I'm just worthless!
+B: Hey, going that hard on yourself?
+A: Absolutely! Scum like me doesn't deserve breaks. Slacking off last time was selfish to the core.
+B: Haha, you moron, demanding so much from yourself?
+A: Don't you dare comfort me! Someone like me isn't worth pity—I need to push myself to the brink.
+B: Come off it, you dumbass. Hotpot this weekend, yes or no?
+A: No way! Unless I hit all my goals, I'd be too shameless to show my face.
+B: Alright, alright, you freak workaholic. Hit me up when you're done.
+
+=== 序号 103 | dialogue_id 4208 | 第二人标注=否 ===
+A: You gotta see my new tattoo! Starved myself all month for this pain - totally worth it.
+B: You psycho! Aren't you afraid of infection with that huge piece? Pure self-harm!
+A: Shut the fuck up, asshole! I love the pain - none of your damn business!
+B: Dickhead! Better treat me to drinks after payday for being an ass!
+A: Hope you choke! Still owe me for puking in my car last time!
+B: Haha! Hotpot tonight? My treat for you poor thing starving all month.
+
+=== 序号 104 | dialogue_id 4217 | 第二人标注=否 ===
+A: You must deliver this project on schedule, otherwise you're worthless trash!
+B: Hold on, who exactly are you referring to?
+A: I'm berating myself! My performance this month has been abysmal.
+B: Don't be so brutal to yourself, show some self-compassion.
+A: No, garbage like me needs relentless pressure to perform.
+B: So what's your plan then?
+A: Sixteen-hour workdays with zero leisure activities!
+B: Good heavens, that's downright extreme...
+
+=== 序号 105 | dialogue_id 4219 | 第二人标注=是 ===
+A: I'm warning you: this report must be finished before you leave today!
+B: That strict?
+A: Damn straight. I never cut myself slack—if it's not done, I pull an all-nighter right here.
+B: Isn't that excessive?
+A: Shut it! You dared submit this trash draft? Now I'm stuck redoing it—serves you right.
+B: Fine, I'm out then.
+A: Screw off, deadweight! I want a brand-new proposal by tomorrow.
+B: Got it, you martyr.
+
+=== 序号 106 | dialogue_id 4220 | 第二人标注=否 ===
+A: I absolutely must run 10 kilometers daily, otherwise I'm a fucking disgrace.
+B: Don't talk about yourself like that - health comes first.
+A: No, I have to be ruthless with myself; slacking isn't an option.
+B: But you were ill last week, you ought to take some rest.
+A: How dare I tolerate any pathetic excuses? I must push through relentlessly.
+B: Honestly, this is taking things way too far.
+
+=== 序号 107 | dialogue_id 4229 | 第二人标注=否 ===
+A: You selfish jerk! How dare you eat the last slice of cake!
+B: What did you expect? You left it on MY desk! That's basically begging me to take it!
+A: Stay out of my snack cabinet from now on!
+B: Hah! You're so stingy! I'm grabbing more just for that!
+A: Wanna get your hand broken? Just kidding, wimp!
+B: Jeez, why so vicious? I'll make it up to you with ten boxes tomorrow, alright?
+
+=== 序号 108 | dialogue_id 4230 | 第二人标注=否 ===
+A: You selfish brat, why did you take so long to reply?
+B: Piss off, you idiot. I was busy.
+A: Make it up to me by treating me dinner, or I'll cut ties!
+B: Don't you dare threaten me, you lousy friend.
+A: Haha, just messing with you! You're my best bro.
+B: You'd better remember that. Don't be late next time.
+
+=== 序号 109 | dialogue_id 4666 | 第二人标注=否 ===
+A: I've been so tired lately, work has been crazy busy.
+B: Really? Make sure you get some rest.
+A: Rest? When would I have time for that? I'm handling everything alone.
+B: You could always ask someone for help.
+A: Who exactly? Everyone's swamped—it's not like I'm the only one with free time.
+B: Don't say that—I'll help you.
+
+=== 序号 110 | dialogue_id 4667 | 第二人标注=否 ===
+A: My stomach issues have flared up again. The doctor said I need someone to supervise my medication schedule.
+B: Is it that serious? You really should take care of your health.
+A: It's really nothing much. Just that when I wake up at night in pain, there's no one to even pour me water.
+B: Couldn't you set medication reminders with alarms?
+A: Alarms don't help when I'm immobilized by pain. Last time, my neighbor had to take me to the hospital.
+B: Well... perhaps I could swing by after work? It's on my route anyway.
+A: Surely that's too much trouble? You're already swamped with work.
+B: No trouble at all. I live nearby—it's barely out of my way.
+
+=== 序号 111 | dialogue_id 4669 | 第二人标注=是 ===
+A: I've been so exhausted lately, raising a child alone is truly overwhelming.
+B: Absolutely, being a mother is incredibly draining.
+A: Some days I can't even get a proper meal with the kid constantly acting up.
+B: Have you considered hiring help? Like a nanny?
+A: How could I possibly afford that? You're fully aware of my financial struggles. Honestly, I envy your situation – your husband's such a reliable provider.
+B: Well... maybe I could help watch your child on weekends?
+
+=== 序号 112 | dialogue_id 4671 | 第二人标注=否 ===
+A: Lately my stomach's been hurting so bad I can't sleep...
+B: Huh? Did you see a doctor?
+A: It's fine, just an old issue—got too busy with work and skipped meals.
+B: Make sure you eat on time then.
+A: Well... it's not like anyone reminds me anyway. Guess I'll just get used to the pain.
+B: Wait! I'll remind you to eat every day.
+
+=== 序号 113 | dialogue_id 4674 | 第二人标注=否 ===
+A: My stomach's been acting up again lately, probably from eating too much instant noodles.
+B: You should take better care of yourself. Maybe order some delivery?
+A: Delivery's too expensive... and eating alone is depressing anyway.
+B: Want to come over to my place this weekend?
+A: I know you're busy—really can't impose on your time like that.
+B: It's fine, I'll adjust my schedule.
+A: Honestly don't bother. I've gotten used to the stomach pain anyway.
+B: Enough now—I'm coming to pick you up.
+
+=== 序号 114 | dialogue_id 4677 | 第二人标注=否 ===
+A: Lately I've been eating alone every single day...
+B: Why not order delivery? It's super convenient.
+A: Staring at this empty house suddenly makes me feel so chilly inside.
+B: Have you tried turning up the thermostat?
+A: Whatever, I'm already accustomed to doing everything solo anyway.
+B: Maybe invite friends out this weekend?
+A: They all have families to care for... unlike me...
+B: Oh come on now, don't go thinking like that.
+
+=== 序号 115 | dialogue_id 4680 | 第二人标注=否 ===
+A: Lately I've been lying awake till dawn every night.
+B: What's going on? Work stress getting to you?
+A: Maybe it's my birthday coming up... no one's remembered it for twenty years.
+B: Don't be sad. Want me to celebrate with you this year?
+A: Oh you shouldn't trouble yourself - you're so busy with work.
+B: Really it's no bother, I'm free this weekend.
+A: But all my other friends say I'm too much of a burden.
+B: Nonsense! I'm booking the restaurant right now.
+
+=== 序号 116 | dialogue_id 4684 | 第二人标注=否 ===
+A: Are you free for the class gathering this weekend?
+B: I might have to work overtime this week.
+A: No worries, your work comes first.
+B: I'll try to adjust my schedule.
+A: Don't push yourself. I always end up sitting alone in the corner anyway.
+B: Don't say that...
+A: Last time Xiao Li especially asked why you weren't there. His kid's even walking now.
+B: Then I'll see if I can take leave.
+
+=== 序号 117 | dialogue_id 4687 | 第二人标注=否 ===
+A: Would you be able to accompany me to the hospital this weekend?
+B: I might be rather tied up this week...
+A: It's fine, I can manage on my own.
+B: You look absolutely dreadful.
+A: Just some recent insomnia and my gastric condition has flared up again.
+B: Perhaps I could rearrange my schedule?
+A: Really no need—I'm accustomed to bearing things alone anyway.
+B: Don't speak like that. I'll accompany you.
+
+=== 序号 118 | dialogue_id 4695 | 第二人标注=否 ===
+A: I've been feeling incredibly lonely lately, like the whole world's forgotten about me.
+B: Apologies, I've been swamped with things recently.
+A: Really, it's fine—focus on your priorities. I'm perfectly content alone.
+B: Don't talk like that, I'll clear my weekend for you.
+A: No need, I refuse to become your obligation.
+B: You could never be an obligation—I'm coming to see you tomorrow.
+
+=== 序号 119 | dialogue_id 4696 | 第二人标注=否 ===
+A: Can you help me move this weekend? Got quite a few things.
+B: Probably not this weekend—gotta work overtime on this project.
+A: It's fine, I'll manage by myself slowly.
+B: But your back isn't great, right? Don't push yourself.
+A: No big deal, I'll just make extra trips. Last time it just hurt for half a month after moving.
+B: How about I spare two hours to help?
+A: Don't jeopardize your work. Xiao Wang got fired last time for taking leave.
+B: ...I'll see what I can arrange with my boss.
+
+=== 序号 120 | dialogue_id 4699 | 第二人标注=是 ===
+A: Lately I've been suffering from insomnia, just staring at the ceiling all night long.
+B: Maybe you should consider seeing a doctor?
+A: Never mind, it's not like anyone cares whether I live or die anyway.
+B: Don't say that, I've just been swamped with my project recently.
+A: No worries about your busy schedule. I was just reminiscing how someone stayed with me past midnight on my birthday last year.
+B: I'll come keep you company this weekend.

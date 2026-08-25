@@ -1,0 +1,38 @@
+# ============ secrets ============
+api_config.json
+*.key
+.env
+.env.*
+
+# ============ third-party raw datasets (licensed, large) ============
+COERCION/inputters/c_data/
+
+# ============ trained models / logs / large artifacts ============
+COERCION/save/
+*.log
+
+# ============ LaTeX build artifacts ============
+*.aux
+*.bbl
+*.blg
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+main.pdf.tmp
+
+# ============ backups / temp ============
+*.bak*
+*_render_*.png
+_chk_*.png
+_dump_*.txt
+_scan_*.py
+
+# ============ IDE / python ============
+.idea/
+__pycache__/
+*.pyc
+.DS_Store
+# ============ senior under-review paper ============
+COERCION/*.pdf
+_verify_*.py
