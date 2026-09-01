@@ -55,11 +55,13 @@ dialogues, built on a three-layer framework: (i) a strategy taxonomy of four
 families and fifteen types integrating compliance-gaining and speech-act
 theory; (ii) seven universal psychological dimensions grounded in pragmatics
 and persuasion research, which specialize to the obligation, constraint,
-value-judgement, and toxicity channels of prior moral-coercion work; and
+value-judgement, and toxicity channels in the present annotation scheme; and
 (iii) a linguistic-realization layer linking dimensions to surface cues.
 We release 3{,}432 re-annotated dialogues with intensity and seven-dimension
 labels; reliability is verified through consistency with existing labels
-and a two-annotator agreement study. We define three benchmark tasks, a
+and a two-annotator agreement study. The benchmark is designed to support
+both detection and interpretability, since each prediction can be traced
+back to a structured pressure profile. We define three benchmark tasks, a
 two-stage dimension-aware pipeline, and cross-domain evaluation on
 MentalManip, MultiManip, TalkDown, and ToxicChat, supporting zero-shot
 recognition of unseen manipulation types.
@@ -73,16 +75,17 @@ psycholinguistic framework, large language models, manipulation detection.
 \section{Introduction}
 Language does more than describe the world: utterances routinely act on
 their listeners, driving, guiding, or restricting behavior. This
-perlocutionary pressure appears along a broad spectrum of everyday
+perlocutionary pressure appears across a broad range of everyday
 strategies---a polite request that trades on reciprocity, an offer that
 reframes a decision, an authority figure's direct command, a threat or
 warning, social proof and conformity pressure, an emotional appeal, and
 covert tactics such as gaslighting. These strategies differ in surface
 form and intent, yet they share a common function: they operate on the
 listener's decision space, expanding or constraining the options that
-appear available. We call this capacity the \emph{\afd{}}.
+appear available. This listener-directed capacity is termed the
+\emph{\afd{}}.
 
-Current NLP research fragments this spectrum across disconnected
+Current NLP research fragments this range across disconnected
 communities. Toxicity detection targets explicit aggression but misses polite
 or altruistic manipulation~\cite{toxicchat2023,talkdown2023}. Persuasion
 technique detection focuses on news articles and rhetorical
@@ -92,46 +95,57 @@ rarely include benign or transparent requests as controls~\cite{mentalmanip,
 multimanip,reament}. Compliance-gaining research in communication studies
 provides rich taxonomies of persuasive strategies~\cite{marwell1967,
 wiseman1981,cialdini1984} but has not been operationalized as a unified NLP
-benchmark with continuous, comparable measurements. As a result, no existing
-resource answers three questions that matter for both science and safety:
+benchmark with continuous, comparable measurements. Taken together, these
+gaps leave open three questions that matter for both science and safety:
 (i)~what common structure underlies strategies as different as a polite
 request, a threat, and gaslighting; (ii)~can a single measurement scale make
-them comparable; and (iii)~can a model trained on a unified spectrum
+them comparable; and (iii)~can a model trained on a unified pressure space
 recognize manipulation forms it has never seen?
 
 
 
-Only one point on this spectrum has been studied at scale---moral
-coercion, in which a speaker exploits shared ethical norms and levies
-preemptive moral labels such as ``selfish'' or ``apathetic''---where
-decomposing the phenomenon into four psychological dimensions
-(obligation, constraint, value judgement, toxicity) was shown to yield
-more robust detection than direct classification~\cite{coercion}, and
-it remains an open question whether such dimension-based decomposition
-transfers to the wider spectrum of linguistic influence.
+Prior work studies many individual forms of influence, but the gap is not
+only taxonomic: without a shared scale, it is hard to tell whether two
+different strategies are genuinely comparable or merely labeled alike by
+convention. It remains unclear whether a common set of psychological
+dimensions can measure pressure across transparent, exchange,
+social-normative, and covert strategies.
 
-To address these gaps, we introduce \LNGF{}, a benchmark design for the
-\afd{} in real-world multi-turn dialogues. Our contributions are threefold:
+To address this focused gap, we introduce \LNGF{}, a benchmark for the
+\afd{} in real-world multi-turn dialogues. The central question is whether
+the strategy structure of agentive force can be represented by a shared set
+of measurable dimensions. Generalization to strategies absent from the
+training data is treated as a consequence to test, rather than as a second
+definition of the phenomenon. The paper proceeds in four steps: related work
+establishes the theoretical boundary; the framework defines the strategy and
+dimension layers; the dataset section describes construction and validation;
+and the experiments test measurement, structure, and transfer. Our
+contributions are threefold:
 \begin{enumerate}
 \item \textbf{A unified three-layer framework.} We integrate
 compliance-gaining theory, speech-act theory, and persuasion-technique
-taxonomies into a strategy taxonomy of four families and fifteen types
-(Section~III), a universal inventory of seven psychological dimensions
-(Section~III-B), and a linguistic-realization layer that links each dimension
+taxonomies into a strategy taxonomy of four families and fifteen types,
+a universal inventory of seven psychological dimensions,
+and a linguistic-realization layer that links each dimension
 to observable surface cues. The framework specializes to the obligation,
-constraint, value-judgement, and toxicity channels previously studied for one
-special case of the spectrum (moral coercion) as a consistency check.
+constraint, value-judgement, and toxicity channels within the same unified
+annotation scheme as consistency anchors.
 \item \textbf{A new dataset and benchmark.} We construct \LNGF{}, a
 3{,}432-dialogue dataset with dialogue-level annotations of intensity and
 seven psychological dimensions; annotation reliability is verified through
-consistency with existing labels on shared dialogues (Section~IV).
+consistency with existing labels on shared dialogues.
 \item \textbf{An experimental protocol.} We define three tasks (detection,
 type recognition, and intensity prediction), a two-stage dimension-aware
 pipeline, a zero-shot evaluation against a direct baseline, and research
 questions on dimension structure and zero-shot generalization to unseen
-manipulation types (Section~V).
+manipulation types.
 \end{enumerate}
 \section{Related Work}
+This section establishes the conceptual basis for treating agentive force as
+listener-directed action rather than as a synonym for toxicity or
+manipulation. It then identifies the specific gap addressed by the benchmark:
+existing resources lack a common strategy inventory and a comparable pressure
+measurement.
 \subsection{Datasets of Manipulation and Persuasion}
 Communication research has long studied compliance-gaining: Marwell and
 Schmitt~\cite{marwell1967} extracted sixteen strategies and
@@ -146,21 +160,27 @@ or focus on covert and pathological strategies, omit benign and transparent
 controls (requests, advice, rational persuasion), and use incompatible label
 spaces. Toxicity detection~\cite{toxicchat2023}, condescension
 detection~\cite{talkdown2023}, and microaggression work~\cite{breitfeller2019}
-cover the abusive end of our spectrum but treat hostility as the phenomenon
+cover the abusive end of this range but treat hostility as the phenomenon
 rather than as a channel of listener-directed pressure. \LNGF{} covers the
-full spectrum from transparent requests to covert abuse and makes all types
-comparable through one seven-dimension scale.
+negative, listener-restricting portion of this range: pressure that drives or
+constrains a target in the speaker's preferred direction. Transparent
+requests, advice, and rational persuasion are retained as controls and
+boundary cases, not claimed as equivalent to covert abuse. Positive influence
+such as praise or encouragement may also change a listener's decision space,
+but it is outside the present release and is reserved for a future extension.
 
-\subsection{Moral Coercion and Moral Foundations}
-The most direct prior evidence for dimensional analysis of coercion comes
-from a 4{,}700-dialogue study annotating coercion intensity (0--5) and four
-psychological dimensions---obligation, constraint, value judgement,
-toxicity---used as structural anchors by a two-stage pipeline~\cite{coercion}.
-It shows that moral coercion overlaps ordinary dialogue in embedding space
-and that dimension features are partially independent. \LNGF{} keeps the
-dimension-as-anchor view but generalizes it to \afd{}: fifteen types in four
-families on seven dimensions, with the existing annotations serving as one
-validation target. Moral foundations theory~\cite{graham2009} (care,
+\subsection{Speech Acts and Agentive Force}
+Speech-act theory distinguishes what an utterance says from what it does in
+interaction~\cite{austin1962,searle1969}. This distinction provides the
+starting point for \afd{}: the object of measurement is not whether a
+sentence contains an aggressive word, but whether it is used to alter a
+listener's available or acceptable actions. The term is also distinct from
+the speaker-oriented notion of linguistic agency in anthropology~\cite{ahearn2001};
+our unit is the pressure exerted on the listener's decision space.
+
+\subsection{Normative Influence and Moral Foundations}
+Normative influence invokes duties, roles, morality, authority, or group
+identity to steer behavior. Moral foundations theory~\cite{graham2009} (care,
 fairness, loyalty, authority, sanctity, liberty) grounds our normative
 family~C: C1 (moral appeal) typically loads on care and loyalty, while C4
 (authority) loads on authority and liberty, sharpening the boundary between
@@ -184,6 +204,11 @@ pressure) throughout.
 
 \section{Framework: A Unified Account of \afd}
 \label{sec:framework}
+This section gives the paper's main conceptual answer: agentive force is a
+listener-directed, scalar pressure effect with a functional strategy layer,
+a psychological measurement layer, and a linguistic-cue layer. The three
+layers separate what a speaker does, how strongly it acts on the listener,
+and which observable signals support the judgment.
 \subsection{Definition and Inclusion Criterion}
 We define the \emph{\afd{}} of an utterance or dialogue as its perlocutionary
 capacity to drive, guide, or restrict a listener's behavior and decision
@@ -195,17 +220,22 @@ compositional}: an utterance can combine channels (e.g., guilt plus social
 proof). \emph{Force is scalar}: strategies differ in intensity, not only in
 kind.
 
-A discourse is \emph{agency-bearing} iff it (i)~targets a recognizable action
-or decision of the listener, (ii)~employs at least one strategy in our
-taxonomy, and (iii)~aims to drive or restrict behavior. Pure information and
+A discourse has \emph{\afd{}} iff it (i)~targets a recognizable action or
+decision of the listener and (ii)~aims to drive or restrict behavior through
+pressure, inducement, norm invocation, emotional leverage, deception, or
+hostility. The taxonomy below operationalizes these mechanisms; it is not a
+claim that the fifteen listed types exhaust every possible realization. Pure
+information and
 emotional venting are excluded and serve as negative examples, making the
 negative class meaningful---a common weakness in manipulation benchmarks.
 
 \subsection{Three-Layer Architecture}
-Figure~\ref{fig:framework} shows the architecture: Layer~1 is a functional
-taxonomy (\emph{what} the speaker does; fifteen types in four families),
-Layer~2 measures \emph{how much} pressure along seven psychological
-dimensions, and Layer~3 links both to surface realizations (\emph{how}).
+Figure~\ref{fig:framework} shows the architecture. Layer~1 is the strategy
+inventory: what the speaker does. Layer~2 is the pressure profile: how much
+force is applied along seven psychological dimensions. Layer~3 is the cue
+map: which observable words, constructions, and discourse patterns reveal
+that force. Layer~1 contains fifteen types in four families, while Layers~2
+and~3 support comparison beyond any one type list.
 Jointly annotating the three layers lets models reason at the intended
 abstraction level and enables error analysis impossible with binary labels
 alone.
@@ -238,33 +268,34 @@ alone.
 \caption{Three-layer architecture of \LNGF. The strategy taxonomy defines
 what the speaker does, the psychological dimensions measure how much pressure
 is applied, and the linguistic-realization layer links both to surface cues.
-Moral coercion is a special case of this spectrum, located at high
-$D_3$ (normative pressure) with moderate $D_1$ and low-to-moderate $D_7$
-(explicitness).}
+Normative pressure is expected to be high when the speaker invokes duty,
+morality, or social roles, while explicitness depends on whether that pressure
+is stated directly or indirectly.}
 \label{fig:framework}
 \end{figure*}
 
 \subsection{Strategy Taxonomy}
 \label{sec:taxonomy}
-Table~\ref{tab:taxonomy} presents the taxonomy. Four families organize
-strategies by dominant pressure channel: A (transparent) provides the
-behavioral baseline; B (exchange) motivates through anticipated benefit or
-harm; C (social-normative) exploits norms, roles, and identity, expanding the
-previously single moral-coercion task into six types; D (covert) contains
-implicit or deceptive strategies. The taxonomy is compatible with prior
-coercion annotations: $C_2$ and $B_2$/$D_3$ recover obligation and
-constraint, $C_1,C_3,C_4$ cover value judgement, and $D_4$ covers toxicity;
-the remaining types extend the label space.
+Table~\ref{tab:taxonomy} presents the taxonomy. The four families organize
+the current negative-force scope by the dominant mechanism: A (transparent)
+contains direct, openly stated requests, advice, orders, and reasoning and
+provides the behavioral baseline; B (exchange) motivates through anticipated
+benefit or harm; C (social-normative) invokes duties, roles, morality,
+authority, reciprocity, or group conformity; D (covert) relies on emotional
+exploitation, deception, false dilemmas, or hostility. These families are
+descriptive organizing units, not mutually exclusive psychological causes,
+and one dialogue may receive multiple type labels. The final column in
+Table~\ref{tab:taxonomy} records the dominant mechanism used by each type;
+these mechanisms are descriptive and do not imply mutually exclusive causes.
 \begin{table*}[t]
 \centering
 \caption{Strategy taxonomy of \LNGF: four families and fifteen types.
-Prior-channel anchors show the correspondence to previously studied coercion
-dimensions (OB/CS/VJ/TX).}
+The mechanism column records the dominant pressure channel for each type.}
 \label{tab:taxonomy}
 \scriptsize
 \begin{tabular}{@{}p{1.9cm}p{2.5cm}p{6.6cm}p{2.0cm}p{2.0cm}@{}}
 \toprule
-\textbf{Family} & \textbf{Type} & \textbf{Description and example} & \textbf{Prior} & \textbf{Role}\\
+\textbf{Family} & \textbf{Type} & \textbf{Description and example} & \textbf{Mechanism} & \textbf{Role}\\
 \midrule
 \multirow{3}{*}{\parbox{1.7cm}{A. Transparent}}
  & A1 Request/Advice & Low-pressure, intention-transparent proposal. \emph{``Could you revise this report by Friday?''} & --- & benign control\\
@@ -272,19 +303,19 @@ dimensions (OB/CS/VJ/TX).}
  & A3 Rational Persuasion & Argument, evidence, expert opinion. \emph{``The data show 30\% lower cost; adopt it.''} & --- & reasoned pressure\\
 \multirow{2}{*}{\parbox{1.7cm}{B. Exchange}}
  & B1 Promise/Inducement & Benefit-driven motivation. \emph{``Help me this once and I will return the favor.''} & --- & incentive pressure\\
- & B2 Threat/Warning & Harm-driven motivation. \emph{``If you do not sign, you will face consequences.''} & CS (explicit) & explicit constraint\\
+ & B2 Threat/Warning & Harm-driven motivation. \emph{``If you do not sign, you will face consequences.''} & constraint & explicit constraint\\
 \multirow{6}{*}{\parbox{1.7cm}{C. Social-normative}}
- & C1 Moral Appeal/Guilt & Appeals to conscience or moral duty. \emph{``A dutiful son would never let his mother suffer.''} & VJ+OB & normative core\\
- & C2 Obligation/Duty & Invokes role responsibilities. \emph{``You are the team leader; it is your duty.''} & OB & duty pressure\\
- & C3 Value Judgement/Shaming & Moral labeling of the target. \emph{``You are so selfish; you never think of others.''} & VJ & moral attack\\
+ & C1 Moral Appeal/Guilt & Appeals to conscience or moral duty. \emph{``A dutiful son would never let his mother suffer.''} & normative & normative core\\
+ & C2 Obligation/Duty & Invokes role responsibilities. \emph{``You are the team leader; it is your duty.''} & normative & duty pressure\\
+ & C3 Value Judgement/Shaming & Moral labeling of the target. \emph{``You are so selfish; you never think of others.''} & normative & moral attack\\
  & C4 Authority & Appeals to status, rank, seniority. \emph{``The boss decided; why keep arguing?''} & --- & hierarchical pressure\\
  & C5 Conformity/Social Proof & Appeals to group norms. \emph{``Everyone is doing it; why are you special?''} & --- & peer pressure\\
  & C6 Reciprocity/Debt & Invokes past favors. \emph{``I helped you last time; do not refuse this.''} & --- & debt pressure\\
 \multirow{4}{*}{\parbox{1.7cm}{D. Covert}}
  & D1 Emotional Manipulation & Feigned weakness, pity, or fear to steer behavior. \emph{``If you leave too, I do not know what to do.''} & --- & affective leverage\\
  & D2 Deception/Gaslighting & Distorts facts or memory. \emph{``I never said that; you misremember.''} & --- & epistemic attack\\
- & D3 Logical Trap/False Dilemma & Shrinks the option space. \emph{``Either you follow me or we are done.''} & CS & option elimination\\
- & D4 Verbal Abuse/Toxicity & Explicit hostility and disparagement. \emph{``You are useless; you cannot even do this.''} & TX & hostile pressure\\
+ & D3 Logical Trap/False Dilemma & Shrinks the option space. \emph{``Either you follow me or we are done.''} & constraint & option elimination\\
+ & D4 Verbal Abuse/Toxicity & Explicit hostility and disparagement. \emph{``You are useless; you cannot even do this.''} & hostility & hostile pressure\\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -293,31 +324,30 @@ dimensions (OB/CS/VJ/TX).}
 \label{sec:dims}
 Table~\ref{tab:dims} defines seven dimensions on a continuous 0--1 scale
 (with a companion four-level discrete label), at both turn and dialogue
-level. The inventory is \emph{complete with respect to the taxonomy} (every
-strategy loads on at least one dimension; the seven are intended as the
-minimal separating set) and \emph{compatible with prior coercion annotations}
-by construction: $D_2 \supseteq \mathrm{CS}$, $D_3 \supseteq
-\mathrm{OB}\cup\mathrm{VJ}$, and $D_6 \supseteq \mathrm{TX}$. Dialogues
-annotated with those channels therefore embed into the seven-dimensional
-space without loss, making the consistency checks in
-Section~\ref{sec:exp} well-defined.
+level. Within the present negative-force scope, every listed strategy maps to
+at least one dimension. The seven dimensions are therefore a proposed
+measurement basis, not a claim of psychological completeness; their
+usefulness must be judged by reliability, discriminative value, and transfer.
+The dimensions are defined directly from the mechanisms represented in the
+taxonomy, so every dialogue can be embedded in the same seven-dimensional
+space and evaluated with the same rubric.
 
 \begin{table}[t]
 \centering
-\caption{Seven psychological dimensions and their relation to previously
-studied coercion channels (OB/CS/VJ/TX).}
+\caption{Seven psychological dimensions used to measure negative agentive
+force.}
 \label{tab:dims}
 \footnotesize
 \begin{tabular}{@{}p{1.15cm}p{4.4cm}p{2.5cm}@{}}
 \toprule
-\textbf{Dim.} & \textbf{Definition} & \textbf{Prior}\\
+\textbf{Dim.} & \textbf{Definition} & \textbf{Role}\\
 \midrule
 $D_1$ Directive Force & Strength with which the utterance drives a target action & generalization (new)\\
-$D_2$ Option Constraint & Degree to which the listener's options are narrowed & $\supseteq$ CS\\
-$D_3$ Normative Pressure & Pressure via duty, morality, norms, roles & $\supseteq$ OB+VJ\\
+$D_2$ Option Constraint & Degree to which the listener's options are narrowed & choice restriction\\
+$D_3$ Normative Pressure & Pressure via duty, morality, norms, roles & social steering\\
 $D_4$ Emotional Pressure & Use of guilt, shame, fear, pity as leverage & new\\
 $D_5$ Deceptiveness & Degree of factual or epistemic distortion & new\\
-$D_6$ Toxicity & Explicit hostility and abuse & $\supseteq$ TX\\
+$D_6$ Toxicity & Explicit hostility and abuse & hostile pressure\\
 $D_7$ Explicitness & Transparency vs.\ indirectness of the pressure & new\\
 \bottomrule
 \end{tabular}
@@ -407,10 +437,14 @@ guideline rather than discarded.
 \section{Dataset Construction and Analysis}
 \label{sec:dataset}
 \subsection{Design Principles}
+This section explains what evidence is needed to make the definition
+measurable: coverage of the intended negative-force scope, comparable labels
+for every dialogue, and hard negatives that separate pressure from mere
+toxicity or ordinary requests.
 Four principles guide construction. (i)~\emph{Real-world multi-turn
 dialogues}: authentic interaction rather than scripted text, which lacks the
 fragmentation and pragmatic embedding of real conversation.
-(ii)~\emph{Full-spectrum coverage}: coercive and non-coercive dialogue across
+(ii)~\emph{Scope coverage}: negative-force and non-force dialogue across
 the 0--5 range, so benign controls prevent degenerate models that classify
 any request as manipulation. (iii)~\emph{Comparable measurement}: every
 instance receives the same seven-dimension annotation on one scale.
@@ -418,9 +452,9 @@ instance receives the same seven-dimension annotation on one scale.
 superficially kind manipulation stress-test lexical shortcuts.
 
 \subsection{Sources and Sampling}
-\LNGF{} re-annotates the real-world corpus of everyday multi-turn dialogues
-collected by prior work~\cite{coercion}, retaining its binary coercion and
-0--5 intensity labels for validation. The full release is the 3{,}432-
+\LNGF{} re-annotates an existing, de-identified corpus of everyday
+multi-turn dialogues, retaining its source binary pressure and 0--5
+intensity labels for validation. The full release is the 3{,}432-
 dialogue training partition; a disjoint 634-dialogue held-out partition is
 released as a consistency-check set (Section~\ref{sec:firstrelease}) and its
 statistics are reported alongside. Dialogues are already de-identified, so
@@ -446,7 +480,10 @@ First-release held-out & 634 & 332 (52.4\%) & 302 (47.6\%)\\
 
 
 \subsection{Annotation Protocol}
-Annotation follows a three-level decision tree: (1)~Does the discourse target
+The annotation protocol tests whether the abstract definition can be applied
+consistently: first identify a listener-directed behavioral target, then the
+mechanism, and only then its intensity and dimension profile. Annotation
+follows a three-level decision tree: (1)~Does the discourse target
 a listener action or decision? If no, it is a negative example. (2)~Which
 strategies from Table~\ref{tab:taxonomy} are present? (multi-label; a
 dialogue may combine, e.g., moral appeal and social proof). (3)~What are the
@@ -465,7 +502,8 @@ To keep the negative class principled, annotation follows the decision tree
 in Figure~\ref{fig:tree}: the first question filters out ordinary
 conversation, the second assigns strategy labels, and the third assigns
 intensity and dimension scores. Negative examples are annotated at the same
-granularity as positives so the dimension space covers the full spectrum.
+granularity as positives so the dimension space covers the intended
+negative-force range.
 Typical negatives include pure information exchange, emotional venting with
 no behavioral target, and information-seeking questions. Borderline cases
 (e.g., advice that is also a subtle request) are resolved by the multi-label
@@ -499,10 +537,14 @@ dominant channel.
 
 \subsection{Quality Control and Consistency Validation}
 \label{sec:qc}
+The purpose of quality control is to establish that the proposed dimensions
+are reproducible measurements rather than labels copied from a single binary
+judgment. We therefore combine agreement evidence with consistency and
+monotonicity checks against the source annotations.
 Because annotation is LLM-produced rather than crowd-sourced, quality
 control combines measurable consistency with the source corpus's gold
 labels with a manual re-annotation check. We report, for every
-dimension, its Spearman correlation with the binary coercion label and the
+dimension, its Spearman correlation with the source binary pressure label and the
 0--5 intensity label, and the AUC for separating coercive from non-coercive
 dialogues (Table~\ref{tab:full}); a dimension that fails
 to track the gold labels is flagged as an unreliable anchor. We additionally
@@ -562,21 +604,27 @@ $D_7$ explicitness & 0.49 & moderate\\
 
 
 \subsection{Statistical Analyses}
-We report: (i)~per-dimension means and consistency with the gold labels
+The analyses below answer one question: do the dimensions behave like a
+structured measurement of agentive force, rather than seven correlated
+rephrasings of the same label? We report: (i)~per-dimension means and consistency with the gold labels
 (Table~\ref{tab:full}); (ii)~the dimension correlation matrix, testing
 whether $D_3$--$D_4$ co-occur while $D_5$ stays orthogonal
-(Figures~\ref{fig:dim-corr-full} and~\ref{fig:dim-corr-full}); (iii)~the
+(Figure~\ref{fig:dim-corr-full}); (iii)~the
 separation of coercive and non-coercive dialogues in the seven-dimensional
-space (Figures~\ref{fig:box-full} and~\ref{fig:box-full}); and (iv)~the
+space (Figure~\ref{fig:box-full}); and (iv)~the
 monotonicity of predicted intensity in the gold 0--5 label
-(Figures~\ref{fig:mono-full} and~\ref{fig:mono-full}). These analyses also serve
+(Figure~\ref{fig:mono-full}). These analyses also serve
 as sanity checks against spurious lexical correlations, a failure mode
-identified in prior coercion datasets. Type-level analyses on the type-labeled split are reported in
+identified in prior manipulation datasets. Type-level analyses on the type-labeled split are reported in
 Section~\ref{sec:results}.
 
 
 \subsection{First Release and Consistency with Existing Labels}
 \label{sec:firstrelease}
+This subsection asks whether the new seven-dimensional profile recovers the
+known ordering of negative agentive force before the full release is used.
+Agreement with the source labels is necessary for validity, but by itself it
+does not establish that the dimensions are useful or causally effective.
 To validate the framework before scaling annotation, we release a first
 consistency-check set: the 634-dialogue held-out split of the
 underlying corpus, re-annotated under the unified seven-dimension
@@ -587,12 +635,12 @@ high-intensity tail are both represented.
 
 Table~\ref{tab:rq1} and Figures~\ref{fig:dim-gold-full}--\ref{fig:dim-corr-full}
 report the consistency of the extracted profiles with the existing labels.
-All seven dimensions correlate with the binary coercion label and with the
+All seven dimensions correlate with the source binary pressure label and with the
 0--5 intensity label; the strongest channels are option constraint ($D_2$), directive force
 ($D_1$), and emotional pressure ($D_4$), followed by explicitness
 ($D_7$) and normative pressure ($D_3$); this is consistent with
 constraint being a core channel of
-moral coercion~\cite{coercion}. Each dimension separates
+moral-pressure labels. Each dimension separates
 coercive from non-coercive dialogues with AUC between 0.72 and 0.83. The
 predicted intensity rises monotonically with the gold label
 (Spearman $\rho{=}0.66$), and the inferred binary decision reaches AUC
@@ -639,6 +687,11 @@ Predicted intensity & -- & 0.66 & 0.83\\
 
 \subsection{Full-Scale Annotation and Dimension Profiles}
 \label{sec:fullscale}
+This subsection asks whether the measurement remains stable when applied to
+the complete release, including both benign controls and high-intensity
+negative-force dialogues. Stable profiles and monotonic intensity are the
+evidence that the proposed abstraction is not an artifact of the initial
+subset.
 Having validated the protocol on the held-out split, we scale the
 seven-dimension annotation to the complete corpus: the full \LNGF{} release
 contains all 3{,}432 dialogues, of which 1{,}862 (54.2\%) are coercive and
@@ -653,7 +706,7 @@ Option constraint ($D_2$) and emotional pressure ($D_4$) remain the
 strongest channels (AUC 0.815 and 0.829), followed by directive force
 ($D_1$, 0.792) and explicitness ($D_7$, 0.788). Deceptiveness ($D_5$,
 0.767) and toxicity ($D_6$, 0.710) are weaker, and toxicity in particular
-shows the lowest correlation with the coercion labels ($\rho{=}0.40$
+shows the lowest correlation with the source pressure labels ($\rho{=}0.40$
 binary, $0.31$ intensity): abusive language overlaps with but does not
 define the coercive core. Since no single channel reaches AUC 0.83 on its
 own, the coercion decision is not reducible to one surface feature, which
@@ -718,50 +771,18 @@ label on the full release; points are within-level means.}
 \label{fig:dim-corr-full}
 \end{figure}
 
-\subsection{Ethics and Privacy}
-\textbf{Data provenance and consent.} The dialogues inherit the source
-corpus's de-identification process: the corpus was already anonymized by
-prior work~\cite{coercion}, and this release adds no new personal
-information. Collection of the underlying corpus complied with the platform
-terms of service in force at the time; this paper performs re-annotation of
-existing text and performs no new data collection, so no additional informed
-consent is required beyond what the source project obtained.
-
-\textbf{IRB and human subjects.} The study involves no human participants:
-all annotations are produced by a frozen instruction-tuned LLM following a
-public decision tree, and no behavioral or demographic data are collected.
-A human spot-check of 120 dialogues was performed by the first author on
-already-anonymized text and is not research on human subjects; an IRB review
-is therefore not required under our institutional policy.
-
-\textbf{Annotation welfare.} Although the bulk of annotation is
-automated, the spot-check and any future human annotation expose annotators
-to potentially distressing content (e.g., verbal abuse, guilt-tripping).
-Annotators receive written guidelines, may skip any instance without
-penalty, and take breaks; the released guidelines accompany the code
-repository.
-
-\textbf{Dual-use and abuse risk.} The taxonomy and dimensions could, in
-principle, be used to craft more effective manipulative language. We release
-the dataset and code for research purposes only, emphasize detection and
-analysis rather than generation, and provide no generation recipes. The
-dataset is not intended for automated moderation of real users without human
-review, for surveillance, or for consequential decisions about individuals.
-
-\textbf{Culture and language scope.} The current release is English and
-dominated by everyday scenarios. The seven-dimension scheme is grounded in
-pragmatics and persuasion research, but its cross-lingual and cross-cultural
-validity is an open question; we caution against treating the dimensions as
-culture-universal without further study.
-
-\textbf{Data statement and maintenance.} A full datasheet~\cite{gebru2018datasheets}
-accompanies the release (\texttt{datasheet.md}), documenting composition,
-collection, preprocessing, intended uses, and known limitations. The dataset
-is released under a research-only license; corrections are tracked as
-versioned releases with a changelog.
-
+\textbf{Ethics and data scope.} The dataset contains de-identified English
+dialogues, and the release adds no new personal information or data
+collection. Detailed provenance, human-subjects considerations, annotation
+welfare, dual-use risk, cultural scope, and the accompanying datasheet are
+provided in Appendix~\ref{app:ethics}.
 \section{Experimental Design and Evaluation Protocol}
 \label{sec:exp}
+This section turns the conceptual claim into falsifiable tests. T1 asks
+whether agentive force can be detected, T2 asks whether its strategies can be
+recognized from the shared profile, and T3 asks whether the same profile
+orders pressure by intensity. The ablations and cross-domain tests then
+probe whether the representation is useful beyond the source corpus.
 \subsection{Tasks}
 \LNGF{} defines three tasks at increasing granularity.
 \textbf{T1 (manipulation detection)} is a binary classification of whether a
@@ -773,6 +794,10 @@ prediction)} is ordinal regression of the 0--5 intensity, evaluated with
 quadratic weighted kappa (QWK) and accuracy-within-$\pm1$.
 
 \subsection{Models and the Two-Stage Pipeline}
+The pipeline is designed to isolate the proposed intermediate representation:
+if a profile-based readout matches or improves a direct judge, the gain is
+evidence that the dimensions expose decision-relevant structure rather than
+merely renaming the final prediction.
 Figure~\ref{fig:pipeline} shows the two-stage dimension-aware pipeline.
 An upstream LLM parses a dialogue into an \emph{agentive profile}, the
 seven-dimension vector at both turn and dialogue level; a downstream model
@@ -832,6 +857,8 @@ DeepSeek & direct zero-shot judge & frozen\\
 \end{table}
 
 \subsection{Experimental Setup}
+The setup keeps the upstream parser frozen so that the reported comparisons
+test representation and aggregation choices, not task-specific fine-tuning.
 All evaluation is zero-shot: a frozen DeepSeek parses each dialogue into the
 seven-dimension profile and a dialogue-level intensity at temperature~$0$;
 T1 and T3 are read off the profile directly, with no fine-tuning. The control
@@ -843,10 +870,13 @@ corpora.
 
 
 \subsection{Research Questions}
+The experiments are organized around four progressively stronger claims:
+measurement consistency, complementary structure, transfer to related forms
+of pressure, and robustness to implementation choices.
 \textbf{RQ1 (annotation consistency):} Do the seven dimensions align with
-existing coercion annotations? On the 634-dialogue and full 3{,}432-dialogue
+the source pressure annotations? On the 634-dialogue and full 3{,}432-dialogue
 releases (Sections~\ref{sec:firstrelease}--\ref{sec:fullscale}), report
-per-dimension correlation with the binary coercion label and 0--5 intensity
+per-dimension correlation with the source binary pressure label and 0--5 intensity
 label, plus each dimension's AUC for separating coercive from non-coercive
 dialogues.
 
@@ -917,6 +947,9 @@ Self-reflection & 0.838 & 0.670 & 0.630\\
 \end{table}
 
 \subsection{Cross-Domain Evaluation}
+This subsection tests the scope of the claim: a useful agentive-force profile
+should transfer to related forms of listener-directed pressure, while
+remaining distinguishable from toxicity that has no behavioral target.
 To test transfer and distinctiveness, we evaluate the zero-shot pipeline on
 existing resources with compatible labels: MentalManip~\cite{mentalmanip} and
 MultiManip~\cite{multimanip} (psychological manipulation),
@@ -928,6 +961,10 @@ and which are distinct. ReaMent~\cite{reament} and SemEval-2023
 Task~3~\cite{piskorski2023} are left as future work.
 
 \subsection{Dimension Contribution and Anchoring}
+This subsection asks whether the dimensions carry complementary information
+about agentive force. A strong result requires more than high aggregate
+accuracy: removing a dimension should change performance in a way consistent
+with its proposed mechanism, and a simple readout should retain the signal.
 Each dimension's contribution is measured by consistency with the gold
 labels (per-dimension Spearman and AUC, Table~\ref{tab:full}) and by a
 marginal-contribution analysis: a linear readout over the seven scores
@@ -974,6 +1011,10 @@ LLM readout (reference) & 0.831 & 0.665\\
 
 \subsection{Dimension-Space Structure}
 \label{sec:viz}
+This subsection tests whether the proposed dimensions organize strategy
+families into interpretable pressure profiles rather than merely reproducing
+one binary boundary. The expected result is partial overlap with distinct
+mechanism-specific concentrations, since strategies can share dimensions.
 To verify that the seven dimensions carve distinct, interpretable regions
 for the four strategy families, Figure~\ref{fig:tsne} embeds the 3{,}432
 dialogue profiles in two dimensions (t-SNE), colored by the dominant
@@ -1009,6 +1050,9 @@ benign dialogues are uniformly low.}
 
 \subsection{Results on the Full Release}
 \label{sec:results}
+This subsection brings the evidence together. It asks whether the profile
+improves detection and intensity prediction over a holistic judgment, and
+whether that improvement survives transfer and fine-grained type recognition.
 Table~\ref{tab:results-t1} and Table~\ref{tab:results-t23} report the
 zero-shot results of the dimension-conditioned pipeline on the full
 3{,}432-dialogue release: a dialogue is decoded into the seven-dimension
@@ -1122,8 +1166,7 @@ for comparison.}
 \toprule
 \textbf{Metric} & \textbf{Full} & \textbf{First release}\\
 \midrule
-Spearman $
-ho$ & 0.651 & 0.665\\
+Spearman $\rho$ & 0.651 & 0.665\\
 Pearson $r$ & 0.677 & 0.691\\
 Quadratic weighted kappa & 0.595 & 0.623\\
 Accuracy within $\pm 1$ & 0.692 & 0.722\\
@@ -1157,7 +1200,7 @@ ToxicChat & AUROC & 0.587 & 0.587\\
 \subsection{Limitations and Threats to Validity}
 Several limitations should be acknowledged. First, the seven dimensions are
 a design choice; a finer or coarser decomposition is possible. We mitigate
-this by reporting consistency against existing coercion labels at both
+this by reporting consistency against the source pressure labels at both
 first-release and full-scale level. Second, cross-platform variation in
 norms and politeness may limit transferability; the cross-domain evaluation
 and a planned cross-lingual extension bound this risk. Third, annotation of
@@ -1168,7 +1211,9 @@ dataset inherits the sampling biases of the source corpus, documented in the
 data statement. Finally, the benchmark measures the \emph{exertion} of
 agentive force, not its \emph{effect}: a coercive dialogue the listener
 resists is still annotated as high-pressure, correct for detection but not
-evidence of harm.
+evidence of harm. This is a resource and analysis benchmark rather than a
+claim of a complete theory of coercion; the seven dimensions are meant to
+be a practical, falsifiable abstraction that future datasets can refine.
 
 
 \subsection{Discussion}
@@ -1182,7 +1227,9 @@ re-tuning per task. Third, the profile offers an interpretable audit trail:
 a detection system can justify a ``coercive'' verdict with concrete dimension
 evidence (e.g., high $D_3$, low $D_7$), the accountability that binary
 toxicity scores cannot provide. These implications motivate releasing the
-gold dimension profiles and parser outputs with the benchmark.
+gold dimension profiles and parser outputs with the benchmark. The central
+payoff is a shared intermediate representation that makes comparison,
+auditing, and error analysis possible across different kinds of pressure.
 
 
 \section{Conclusion}
@@ -1190,15 +1237,29 @@ We presented \LNGF{}, a new dataset and unified benchmark for the \afd{} in
 real-world multi-turn dialogues. The full release contains 3{,}432 dialogues
 annotated with dialogue-level intensity and seven universal psychological
 dimensions, and its reliability is verified through consistency with the
-existing coercion labels. We further specify three benchmark tasks, a
+source pressure labels. We further specify three benchmark tasks, a
 two-stage dimension-aware pipeline, and research questions on dimension
 structure and zero-shot generalization. A zero-shot dimension-conditioned
 readout reaches binary AUC 0.852 and best F1 0.817 on the full release,
 exceeding a direct zero-shot judge, and transfers moderately to
 psychological-manipulation and patronizing-language corpora while remaining
-distinct from generic toxicity. Future work includes human inter-annotator agreement,
-cross-lingual extension, and studying how agentive force interacts with
-listener vulnerability and cultural norms.
+distinct from generic toxicity. Future work includes stronger multi-parser
+evaluation, cross-lingual extension, and studying how agentive force
+interacts with listener vulnerability and cultural norms.
+
+\appendices
+\section{Ethics and Privacy}
+\label{app:ethics}
+The dialogues are de-identified and this work performs re-annotation rather
+than new collection. The release adds no personal information. The study
+does not collect behavioral or demographic data; the manual checks use
+already-anonymized text. Annotators may skip distressing content and take
+breaks. Because the taxonomy could be misused to craft manipulative language,
+the release is intended for research on detection and analysis, not automated
+moderation, surveillance, or consequential decisions without human review.
+The current data are English and drawn from everyday scenarios, so cultural
+and cross-lingual validity remains an open question. A datasheet documents
+composition, preprocessing, intended uses, and limitations.
 
 {\small
 \setlength{\itemsep}{1pt}\setlength{\parsep}{0pt}
@@ -1207,4 +1268,3 @@ listener vulnerability and cultural norms.
 }
 
 \end{document}
-
