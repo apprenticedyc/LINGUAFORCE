@@ -1,1 +1,0 @@
-python train.py --is_test > test.log 2>&1 &

@@ -8,25 +8,25 @@ For questions about this datasheet, contact the dataset authors.
 
 ## Composition
 - **What do the instances represent?** Each instance is a multi-turn English dialogue (6--8 turns) between two speakers, labeled at the dialogue level with: a binary agentive-pressure flag, a 0--5 intensity score, seven continuous 0--1 dimension scores (each with a companion None/Low/Moderate/High level), and a multi-label set of strategies from a 15-type taxonomy. Where available, the original binary coercion label and 0--5 coercion intensity from the source corpus are retained for validation.
-- **How many instances are there?** Full release: 3,432 dialogues (1,862 coercive / 1,570 non-coercive). First-release held-out set: 634 dialogues (332 / 302). The two partitions are disjoint.
+- **How many instances are there?** The release contains 4,066 dialogues: a 3,432-dialogue training split (1,862 coercive / 1,570 non-coercive) and a 634-dialogue held-out split (332 / 302). The two partitions are disjoint.
 - **Does the dataset contain all possible instances?** No. It is a convenience sample of everyday conversational dialogues from the source corpus described below; it is not a random sample of any broader population.
 - **What data does each instance consist of?** Raw dialogue text, speaker turns, and the annotations described above. No audio, images, or metadata are included.
-- **Is there a label or target associated with each instance?** Yes (see above). Labels are produced by an instruction-tuned LLM at temperature 0 following a three-level decision tree, with a human spot-check of 120 dialogues by the first author and consistency validation against the source corpus labels.
-- **Are there recommended data splits?** The full release is intended as the training partition; the 634-dialogue set is the held-out evaluation partition.
+- **Is there a label or target associated with each instance?** Yes (see above). Labels are produced by an instruction-tuned LLM at temperature 0 following a three-level decision tree. Two independent annotators labeled a stratified sample of 150 dialogues without access to model outputs; agreement is reported in the paper.
+- **Are there recommended data splits?** Use the 3,432-dialogue split for training and the disjoint 634-dialogue split for held-out evaluation.
 - **Are there any errors, sources of noise, or redundancies in the dataset?** Dimension and type labels are LLM-generated and inherit systematic annotation bias; types are highly imbalanced (e.g., A3 n=29, D2 n=7) and 82% of dialogues are multi-label. Redundant fields are removed.
 - **Is the dataset self-contained?** Yes, all required text and labels are included in the released files.
 - **Does the dataset contain data that might be considered confidential?** No. The source corpus was already de-identified by prior work; this release adds no personally identifying information.
 - **Does the dataset relate to people?** The dialogues depict fictional or anonymized everyday scenarios; no real individuals are identified.
 
 ## Collection Process
-- **How was the data associated with each instance acquired?** The dialogues are taken from the source corpus introduced by prior work (COERCION), a real-world corpus of everyday multi-turn dialogues collected under that project's terms of service and de-identification process. This paper re-annotates the existing text; no new data collection was performed.
+- **How was the data associated with each instance acquired?** The dialogues come from the source corpus introduced by prior work (COERCION), a real-world corpus of everyday multi-turn dialogues collected under that project's terms of service and de-identification process. This release adds the LINGUAFORCE annotation scheme and evaluation labels; no new data collection was performed.
 - **Who was involved?** The prior corpus authors collected raw text; the current authors designed the annotation scheme and ran the annotation pipeline.
 - **Over what timeframe?** Annotation and validation were performed during the preparation of this paper.
 
 ## Preprocessing / Cleaning / Labeling
 - **What was done to clean the data?** Dialogues with malformed or empty turns were removed; redundant metadata fields were dropped. The retained fields are dialogue text plus the annotations described above.
 - **What was the raw text language?** English.
-- **How was the label defined and produced?** An instruction-tuned LLM follows a three-level decision tree: (1) does the discourse target a listener action/decision? (2) which strategies are present? (3) what are the intensity and seven dimension scores? Output is constrained to a JSON schema, temperature 0. A random spot-check of 120 dialogues was re-annotated by the first author; agreement statistics are reported in the paper. Reliability is additionally validated via consistency with the source corpus binary/intensity labels.
+- **How was the label defined and produced?** An instruction-tuned LLM follows a three-level decision tree: (1) does the discourse target a listener action/decision? (2) which strategies are present? (3) what are the intensity and seven dimension scores? Output is constrained to a JSON schema, temperature 0. Two independent annotators labeled a stratified sample of 150 dialogues without access to model outputs; agreement statistics are reported in the paper. Reliability is additionally evaluated against the binary and intensity labels supplied with the dialogue release.
 - **Is the software used to preprocess/clean/label available?** Yes, the annotation scripts and prompts are released with the code repository.
 
 ## Uses
@@ -48,4 +48,4 @@ For questions about this datasheet, contact the dataset authors.
 
 ## Additional Notes (added by authors)
 - Culture and language scope: the current release is English, everyday scenarios. The seven-dimension scheme is argued from pragmatics and persuasion theory but its cross-lingual/cross-cultural validity requires future study.
-- Annotation is LLM-generated; human inter-annotator agreement on a larger subsample is planned follow-up work.
+- Annotation is LLM-generated; the paper reports human inter-annotator agreement on a stratified sample of 150 dialogues.

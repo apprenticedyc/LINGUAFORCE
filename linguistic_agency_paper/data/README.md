@@ -1,14 +1,14 @@
 # LINGUAFORCE Dataset (Release v1)
 
-A dataset of 4,066 English multi-turn dialogues annotated with a seven-dimension
-"agentive force" profile. The source corpus is the moral-coercion benchmark
-from the COERCION project; we keep its binary coercion and 0--5 intensity
-labels and re-annotate every dialogue under a unified psychological-dimension
-scheme with a frozen instruction-tuned LLM at temperature 0.
+A dataset of 4,066 English multi-turn dialogues with a seven-dimension
+"agentive force" profile. The release provides a unified dimension scheme,
+strategy taxonomy, and evaluation labels produced with a frozen
+instruction-tuned LLM at temperature 0. The source corpus and license are
+documented below.
 
 ## Files
-- `linguaforce_full.jsonl` -- 3,432 dialogues (training partition of the source corpus)
-- `linguaforce_first_release.jsonl` -- 634 disjoint held-out dialogues
+- `linguaforce_full.jsonl` -- 3,432 dialogues (training split)
+- `linguaforce_first_release.jsonl` -- 634 disjoint held-out dialogues (held-out split)
 
 ## Schema (per line, one JSON object)
 ```json
@@ -34,18 +34,19 @@ scheme with a frozen instruction-tuned LLM at temperature 0.
 ## Statistics
 | Set | Dialogues | Coercive | Non-coercive |
 |-----|-----------|----------|--------------|
-| Full | 3,432 | 1,862 (54.2%) | 1,570 (45.8%) |
-| First release | 634 | 332 (52.4%) | 302 (47.6%) |
+| Training split | 3,432 | 1,862 (54.2%) | 1,570 (45.8%) |
+| Held-out split | 634 | 332 (52.4%) | 302 (47.6%) |
 
 Gold intensity (Full): levels 0-5 = 986/267/317/337/621/904.
 
 ## Provenance & License
-Built from the COERCION moral-coercion corpus (see `references.bib` entry in the
-paper). Dialogues are de-identified everyday scenarios; no personal information
-is released. Annotations were produced by an instruction-tuned LLM at
-temperature 0 and validated against the source gold labels; a human agreement
-study is planned. Please cite the companion paper; check the source corpus
-license before redistribution.
+Built from the COERCION moral-coercion corpus (see the corresponding entry in
+the paper references). Dialogues are de-identified everyday scenarios; no
+personal information is released. Annotations were produced by an
+instruction-tuned LLM at temperature 0 and checked against the source labels.
+The human agreement materials used by the paper are under
+`experiments/data/iaa/`. Please cite the companion paper and check the source
+corpus license before redistribution.
 
 ## Reproduce
 ```bash
