@@ -4,11 +4,7 @@ api_config.json
 .env
 .env.*
 
-# ============ third-party raw datasets (licensed, large) ============
-COERCION/inputters/c_data/
-
-# ============ trained models / logs / large artifacts ============
-COERCION/save/
+# ============ generated logs / large artifacts ============
 *.log
 
 # ============ LaTeX build artifacts ============
@@ -27,9 +23,6 @@ main.pdf.tmp
 _chk_*.png
 _dump_*.txt
 _scan_*.py
-experiments/.tmp_*
-experiments/output/
-experiments/logs/
 outputs/
 
 # ============ IDE / python ============
@@ -37,6 +30,5 @@ outputs/
 __pycache__/
 *.pyc
 .DS_Store
-# ============ senior under-review paper ============
-COERCION/*.pdf
+# ============ local validation artifacts ============
 _verify_*.py
