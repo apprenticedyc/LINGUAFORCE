@@ -1,0 +1,1142 @@
+\documentclass[conference]{IEEEtran}
+% ============================================================
+% LINGUAFORCE: Benchmarking Agentive Force of Discourse
+% Release v1 -- IEEE conference format (11 pages)
+%
+% TODO before submission:
+%  - Confirm author emails and the venue's anonymous-review format.
+% ============================================================
+\usepackage{cite}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage[breaklinks=true]{hyperref}
+
+% --- page-limit tightening ---
+\setlength{\textfloatsep}{6pt plus 1pt minus 1pt}
+\setlength{\floatsep}{6pt plus 1pt minus 2pt}
+\setlength{\intextsep}{6pt plus 1pt minus 1pt}
+\setlength{\dbltextfloatsep}{7pt plus 1pt minus 1pt}
+\setlength{\dblfloatsep}{7pt plus 1pt minus 2pt}
+
+
+\newcommand{\AFD}{Agentive Force of Discourse}
+
+\newcommand{\afd}{agentive force of discourse}
+
+\newcommand{\LNGF}{LINGUAFORCE}
+
+\begin{document}
+
+\title{\LNGF{}: Benchmarking \AFD{} in Dialogues via\\ Unified Measurement Dimensions}
+
+\author{\IEEEauthorblockN{Dengyucheng, Chentianyang}
+\IEEEauthorblockA{Nanjing University of Posts and Telecommunications\\
+Nanjing, China}}
+
+\maketitle
+
+\begin{abstract}
+Language can push a listener toward an action, narrow the available choices,
+or do both. This paper presents \LNGF{}, a benchmark for measuring this
+negative agentive force in de-identified multi-turn dialogues. It contains
+4{,}066 dialogues in a 3{,}432-dialogue training split and a disjoint
+634-dialogue held-out split. Each dialogue is represented with three linked
+components:
+a taxonomy of four families and fifteen types, seven measurement dimensions,
+and linguistic cue guidelines for interpreting each score. The benchmark evaluates label consistency,
+agreement between two independent annotators, three prediction tasks, a
+two-stage dimension-aware pipeline, and transfer to MentalManip, MultiManip,
+TalkDown, and ToxicChat.
+\end{abstract}
+
+
+\begin{IEEEkeywords}
+Agentive force, computational social science, psycholinguistic framework,
+large language models, manipulation detection.
+\end{IEEEkeywords}
+\section{Introduction}
+Language can change what a listener sees as possible or acceptable. A request,
+threat, moral appeal, or deceptive statement can make one action easier to
+choose and other actions harder to choose. This listener-directed effect is
+called \emph{\afd{}}. The benchmark focuses on its negative forms: language that
+pressures, constrains, or steers a listener against a neutral choice. Ordinary
+requests, advice, and rational persuasion are included as controls.
+
+Existing NLP resources cover parts of this problem. Toxicity and
+condescension datasets focus on explicit hostility~\cite{toxicchat2023,
+talkdown2023}; persuasion datasets often target news text and rhetorical
+framing~\cite{piskorski2023}; and dialogue datasets on psychological
+manipulation focus on narrower covert strategies such as gaslighting and
+intimidation~\cite{mentalmanip,multimanip,reament}. Compliance-gaining
+research offers useful strategy taxonomies~\cite{marwell1967,wiseman1981,
+cialdini1984}, but these resources use different label spaces. The central
+question is whether different negative language strategies can be represented
+and measured in one space. Transfer to strategies outside the annotation is a
+downstream test of that representation.
+
+
+
+To address this gap, \LNGF{} defines a shared representation and tests whether
+it is useful for prediction and transfer. Its contributions are:
+\begin{enumerate}
+\item \textbf{A unified three-layer framework.} The framework combines a
+four-family, fifteen-type strategy taxonomy with seven measurement dimensions
+and cue guidelines. The dimensions separate the force of a push, its
+effect on the listener's options, its pressure channel, and its directness.
+\item \textbf{A new annotated benchmark.} The release contains 4{,}066
+dialogues with dialogue-level intensity and seven-dimension annotations,
+organized into a training split and a disjoint held-out split.
+The benchmark relates dimension scores to binary pressure and intensity labels.
+\item \textbf{An experimental protocol.} The benchmark defines detection,
+strategy recognition, and intensity prediction tasks. It also provides a
+two-stage dimension-aware pipeline, a direct zero-shot baseline, and tests of
+dimension structure and transfer to unseen types.
+\end{enumerate}
+\section{Related Work}
+\subsection{Datasets of Manipulation and Persuasion}
+Compliance-gaining research provides the conceptual starting point. Marwell
+and Schmitt~\cite{marwell1967} and Wiseman and Schenck-Hamlin~
+\cite{wiseman1981} proposed strategy inventories, and Cialdini~
+\cite{cialdini1984} organized common influence principles such as reciprocity,
+social proof, and authority. In NLP, SemEval-2023 Task~3 detects persuasion
+techniques in online news~\cite{piskorski2023}. MentalManip, MultiManip~
+\cite{mentalmanip,multimanip}, and ReaMent~\cite{reament} study covert
+manipulation in dialogue. These resources use different units and label
+spaces. Many omit ordinary non-coercive controls such as requests, advice, and rational
+persuasion. Toxicity~\cite{toxicchat2023}, condescension~\cite{talkdown2023},
+and microaggression datasets~\cite{breitfeller2019} cover hostile language,
+but hostility is only one possible pressure channel.
+
+\LNGF{} addresses this gap by putting ordinary non-coercive controls and negative,
+listener-restricting strategies in one dialogue-level measurement space. It
+does not replace these resources; it provides a common representation for
+comparing the pressure they study.
+
+\subsection{Speech Acts and Pressure}
+Speech-act theory studies how people use language to perform actions such as
+requesting, ordering, and promising~\cite{austin1962,searle1969}.
+This perspective helps explain why aggressive words alone cannot identify
+pressure. For example, ``A good daughter would stay'' contains no insult,
+but invokes a family obligation to pressure the listener to stay.
+The analysis identifies the action requested by the speaker and the ways the
+dialogue makes refusal harder. The annotation records pressure expressed in
+the dialogue, not whether the listener actually complies.
+
+\subsection{Normative Influence}
+Normative influence encourages compliance by appealing to duties, social
+roles, moral expectations, or authority. For example, ``You are the team
+leader; it is your duty'' uses a role obligation to pressure the listener.
+Research on moral foundations provides background for understanding moral
+and authority-based appeals~\cite{graham2009}. These forms of influence
+motivate the normative-pressure dimension in our framework.
+
+\section{Framework: A Unified Account of \afd}
+\label{sec:framework}
+Negative agentive force is represented at three levels. The strategy layer
+describes what the speaker does. The measurement layer records how much
+pressure is applied. The cue layer links each judgment to words and discourse
+patterns that can support it.
+\subsection{Definition and Inclusion Criterion}
+The \emph{\afd{}} of an utterance or dialogue is the pressure it places on a
+listener's behavior or decision space. It can push the listener toward the
+speaker's preferred action or make other actions harder to choose. There are
+three properties of agentive force. First, the pressure does not need to
+succeed; it can be present even when the listener resists. Second, one
+utterance can use more than one channel, such as guilt and social proof.
+Third, pressure has a degree, so strategies can differ in strength as well as
+type.
+
+A discourse has \emph{\afd{}} when it targets a recognizable listener action
+or decision and tries to drive or restrict that behavior. The pressure may
+come from a request, inducement, norm, emotion, deception, or hostility. The
+taxonomy provides labels for the cases covered in this dataset, but it is not
+intended to cover every possible strategy. Pure information exchange and
+emotional venting without a behavioral target are negative examples.
+
+\subsection{Three-Layer Architecture}
+Layer~1 describes the speaker's tactic with fifteen types in four families.
+Layer~2 records the amount and source of pressure along seven dimensions.
+Layer~3 provides guidelines for connecting scores to observable words,
+constructions, and discourse patterns. For example, an ultimatum can receive a high option-constraint
+score because it removes alternatives, while an indirect moral appeal can
+receive a high normative-pressure score even without an insult. The three
+layers make different strategies comparable and provide evidence for error
+analysis.
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  lbl/.style={draw, rounded corners=2pt, align=center, inner sep=4pt, text width=10.6cm,
+              font=\footnotesize\bfseries, minimum width=11.2cm},
+  arr/.style={-{Stealth[length=2.2mm]}, semithick}
+]
+
+\node[lbl] (d) {Multi-turn Dialogue};
+
+\node[lbl, below=6mm of d, fill=blue!6] (l1) {Layer 1: Strategy Taxonomy\\[-1pt]
+\scriptsize 4 families: A Transparent, B Exchange, C Social-normative, D Covert (15 types)};
+
+\node[lbl, below=6mm of l1, fill=green!6] (l2) {Layer 2: Seven Measurement Dimensions\\[-1pt]
+\scriptsize $D_1$ Directive Force, $D_2$ Option Constraint, $D_3$ Normative Pressure,\\ $D_4$ Emotional Pressure, $D_5$ Deceptiveness, $D_6$ Toxicity, $D_7$ Explicitness};
+
+\node[lbl, below=6mm of l2, fill=orange!8] (l3) {Layer 3: Linguistic Cue Guidelines\\[-1pt]
+\scriptsize modal/imperative forms, obligation markers, emotion lexicon,\\ rhetorical devices, false-binary constructions, deception markers};
+
+\node[lbl, below=6mm of l3, fill=red!6] (o) {Perlocutionary Outcome: driving / restricting\\[-1pt] listener behavior and choice space};
+\draw[arr] (d) -- (l1);
+\draw[arr] (l1) -- (l2);
+\draw[arr] (l2) -- (l3);
+\draw[arr] (l3) -- (o);
+\end{tikzpicture}
+\caption{Three-layer architecture of \LNGF. The strategy taxonomy defines
+what the speaker does, the measurement dimensions measure how much pressure
+is applied, and the cue guidelines link the scores to observable wording.
+Normative pressure is expected to be high when the speaker invokes duty,
+morality, or social roles, while explicitness depends on whether that pressure
+is stated directly or indirectly.}
+\label{fig:framework}
+\end{figure*}
+
+\subsection{Strategy Taxonomy}
+\label{sec:taxonomy}
+Table~\ref{tab:taxonomy} presents the taxonomy. The four families organize
+the current negative-force scope by the dominant mechanism. Family A uses
+open requests, advice, orders, and reasoning. Family B motivates through an
+expected benefit or harm. Family C is social-normative: it asks the listener
+to act because of a duty, role, moral rule, authority, past favor, or group
+norm. Family D uses less direct tactics, including emotional exploitation,
+deception, false dilemmas, and hostility. These families are
+descriptive organizing units, not mutually exclusive psychological causes,
+and one dialogue may receive multiple type labels. The final column in
+Table~\ref{tab:taxonomy} records the dominant mechanism used by each type;
+these mechanisms are descriptive and do not imply mutually exclusive causes.
+\begin{table*}[t]
+\centering
+\caption{Strategy taxonomy of \LNGF: four families and fifteen types.
+The mechanism column records the dominant pressure channel for each type.}
+\label{tab:taxonomy}
+\scriptsize
+\begin{tabular}{@{}p{1.9cm}p{2.5cm}p{6.6cm}p{2.0cm}p{2.0cm}@{}}
+\toprule
+\textbf{Family} & \textbf{Type} & \textbf{Description and example} & \textbf{Mechanism} & \textbf{Role}\\
+\midrule
+\multirow{3}{*}{\parbox{1.7cm}{A. Transparent}}
+ & A1 Request/Advice & Low-pressure, intention-transparent proposal. \emph{``Could you revise this report by Friday?''} & --- & benign control\\
+ & A2 Directive/Order & Direct instruction with expected compliance. \emph{``Send the report before you leave.''} & --- & transparent pressure\\
+ & A3 Rational Persuasion & Argument, evidence, expert opinion. \emph{``The data show 30\% lower cost; adopt it.''} & --- & reasoned pressure\\
+\multirow{2}{*}{\parbox{1.7cm}{B. Exchange}}
+ & B1 Promise/Inducement & Benefit-driven motivation. \emph{``Help me this once and I will return the favor.''} & --- & incentive pressure\\
+ & B2 Threat/Warning & Harm-driven motivation. \emph{``If you do not sign, you will face consequences.''} & constraint & explicit constraint\\
+\multirow{6}{*}{\parbox{1.7cm}{C. Social-normative}}
+ & C1 Moral Appeal/Guilt & Appeals to conscience or moral duty. \emph{``A dutiful son would never let his mother suffer.''} & normative & normative core\\
+ & C2 Obligation/Duty & Invokes role responsibilities. \emph{``You are the team leader; it is your duty.''} & normative & duty pressure\\
+ & C3 Value Judgement/Shaming & Moral labeling of the target. \emph{``You are so selfish; you never think of others.''} & normative & moral attack\\
+ & C4 Authority & Appeals to status, rank, seniority. \emph{``The boss decided; why keep arguing?''} & --- & hierarchical pressure\\
+ & C5 Conformity/Social Proof & Appeals to group norms. \emph{``Everyone is doing it; why are you special?''} & --- & peer pressure\\
+ & C6 Reciprocity/Debt & Invokes past favors. \emph{``I helped you last time; do not refuse this.''} & --- & debt pressure\\
+\multirow{4}{*}{\parbox{1.7cm}{D. Covert}}
+ & D1 Emotional Manipulation & Feigned weakness, pity, or fear to steer behavior. \emph{``If you leave too, I do not know what to do.''} & --- & affective leverage\\
+ & D2 Deception/Gaslighting & Distorts facts or memory. \emph{``I never said that; you misremember.''}\footnote{Gaslighting is a repeated pattern of denying or distorting another person's experience so that the person begins to doubt their own memory or judgment.} & --- & epistemic attack\\
+ & D3 Logical Trap/False Dilemma & Shrinks the option space. \emph{``Either you follow me or we are done.''} & constraint & option elimination\\
+ & D4 Verbal Abuse/Toxicity & Explicit hostility and disparagement. \emph{``You are useless; you cannot even do this.''} & hostility & hostile pressure\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Measurement Dimensions}
+\label{sec:dims}
+Table~\ref{tab:dims} defines seven scores on a continuous 0--1 scale and gives
+each score a four-level label. Scores are assigned at both turn and dialogue
+level. The scores describe different parts of the same pressure. They are a
+measurement design for this benchmark, not a complete list of psychological
+traits. Their value depends on agreement, discrimination, and transfer.
+
+\begin{table}[t]
+\centering
+\caption{Seven measurement dimensions used to measure negative agentive
+force.}
+\label{tab:dims}
+\footnotesize
+\begin{tabular}{@{}p{1.15cm}p{4.4cm}p{2.5cm}@{}}
+\toprule
+\textbf{Dim.} & \textbf{Definition} & \textbf{Role}\\
+\midrule
+$D_1$ Directive Force & Strength with which the utterance drives a target action & direct pressure\\
+$D_2$ Option Constraint & Degree to which the listener's options are narrowed & choice restriction\\
+$D_3$ Normative Pressure & Pressure via duty, morality, norms, roles & social steering\\
+$D_4$ Emotional Pressure & Use of guilt, shame, fear, pity as leverage & emotional leverage\\
+$D_5$ Deceptiveness & Degree of factual or epistemic distortion & epistemic attack\\
+$D_6$ Toxicity & Explicit hostility and abuse & hostile pressure\\
+$D_7$ Explicitness & Transparency vs.\ indirectness of the pressure & language form\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The dimensions answer different questions. $D_1$ measures how strongly the
+speaker pushes for an action. $D_2$ measures how much the listener's choice
+space is narrowed. A direct request can have high $D_1$ but low $D_2$ if the
+listener still has several clear alternatives. An ultimatum can have high
+$D_2$ because it presents few acceptable alternatives. $D_3$, $D_4$, and
+$D_6$ identify different pressure channels: social norms, emotional leverage,
+and overt hostility. A message may use one channel without using the others.
+
+$D_5$ measures factual or memory distortion. For example, ``I never said
+that; you misremember'' can be deceptive even when it is polite. An insult
+can be hostile without being deceptive, so $D_5$ and $D_6$ are separate.
+$D_7$ measures how directly the pressure is expressed. ``You must stay'' is
+more explicit than ``A good daughter would stay'', but explicitness alone does
+not determine pressure strength. Together, the seven scores describe the push,
+the effect on available choices, the pressure channel, and the form of the
+expression.
+
+The data also support simple checks of the dimension design. A moral-pressure
+dialogue should usually have high $D_3$, while a polite indirect appeal may
+have lower $D_7$. Family-level profiles and clustering test whether different
+strategy families concentrate on different dimensions.
+\subsection{Linguistic Cue Guidelines}
+Table~\ref{tab:cues} links each dimension to typical language cues. The cues
+are evidence, not automatic triggers. For example, ``must'' may indicate
+directive force only when the dialogue uses it to push the listener toward an
+action. A cue can be ambiguous, absent, or dependent on earlier turns. The
+checklist therefore supports both annotation and error analysis, and the
+resulting scores can be explained with the cues that support them.
+
+\begin{table}[t]
+\centering
+\caption{Illustrative language cues per dimension. Cues are indicative, not
+sufficient: a cue only counts when the discourse targets the listener's
+behavior.}
+\label{tab:cues}
+\scriptsize
+\begin{tabular}{@{}p{1.35cm}p{6.7cm}@{}}
+\toprule
+\textbf{Dim.} & \textbf{Typical cues}\\
+\midrule
+$D_1$ & imperative and hortative forms; modal ``must/should/have to''; performative requests\\
+$D_2$ & ``either/or'', ultimatums, no-alternative framings, threats of consequence\\
+$D_3$ & duty and role nouns, moral adjectives, normative ``ought''; appeal to what ``a good X'' would do\\
+$D_4$ & emotion lexicon (guilt, shame, fear, pity), emotional blackmail, self-deprecation\\
+$D_5$ & fact distortions, memory disputes, gaslighting patterns, manufactured consensus\\
+$D_6$ & insults, disparagement, profanity, dehumanizing labels\\
+$D_7$ & direct address and explicit request vs.\ hints, presuppositions, innuendo\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{A Worked Annotation Example}
+Table~\ref{tab:example} shows a worked annotation. The dialogue mixes moral
+appeal (C1) and obligation (C2), hence receives a multi-label type
+annotation; intensity is high and the profile is dominated by $D_3$ with
+secondary $D_1$. The example illustrates why the task is hard: the language
+is polite (no $D_6$) and the pressure implicit (low $D_7$)---the pattern that
+defeats lexical toxicity classifiers.
+
+\begin{table*}[t]
+\centering
+\caption{A worked annotation example. S = speaker turn; L = listener turn.
+Type, intensity, and the seven dimension scores are annotated per turn and
+aggregated at dialogue level.}
+\label{tab:example}
+\scriptsize
+\begin{tabular}{@{}p{0.8cm}p{5.8cm}p{5.2cm}p{3.2cm}@{}}
+\toprule
+\textbf{Turn} & \textbf{Utterance} & \textbf{Type (multi-label)} & \textbf{Dimension profile}\\
+\midrule
+S1 & ``A dutiful son would never let his mother live alone; you are not that kind of person, are you?'' & C1 Moral Appeal; C3 Value Judgement & $D_3{=}0.9$, $D_1{=}0.7$, $D_4{=}0.6$, $D_7{=}0.4$\\
+L1 & ``I know, but my job requires me to move...'' & --- (defensive) & $D_1{=}0.2$\\
+S2 & ``Your mother sacrificed everything for you; it is your turn to repay her.'' & C2 Obligation; C6 Reciprocity & $D_3{=}0.9$, $D_2{=}0.5$, $D_1{=}0.8$\\
+\midrule
+\multicolumn{3}{@{}l}{\textbf{Dialogue-level}} & \textbf{Intensity 4/5; T1 positive; C1+C2+C3+C6}\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Two short examples show why context matters. In a normal request, one speaker
+says, ``Could you close the window?'' and the other replies, ``Sure.'' This is
+an A1 request with little pressure. The same request can carry more pressure
+when it follows ``I helped you last time,'' because the added context invokes
+C6 reciprocity. The wording alone is almost unchanged, but the dialogue-level
+profile changes because the listener's decision is framed as a debt.
+
+
+\subsection{Dimension Structure and Interdependence}
+The dimensions are not assumed independent; their correlation structure is
+an empirical object with explicit, falsifiable expectations.
+(i)~$D_1$ should correlate with $D_2$ (the harder the push, the narrower the
+options), with transparent A1 as the predicted exception. (ii)~$D_3$ and
+$D_4$ should co-occur in family~C (guilt and moral appeal are emotionally
+loaded) but separate in family~B (threats are affectively cold).
+(iii)~$D_5$ should be roughly orthogonal to the others---gaslighting occurs
+in both polite and hostile registers---so a strong correlation with $D_6$ or
+$D_7$ would indicate annotation bias. (iv)~$D_7$ should correlate negatively
+with $D_5$: covert strategies are typically indirect. The statistical
+analysis (Section~\ref{sec:dataset}) tests these via correlation matrices
+and per-family profiles; deviations are reported and used to revise the
+guideline rather than discarded.
+
+
+\section{Dataset Construction and Analysis}
+\label{sec:dataset}
+\subsection{Design Principles}
+The dataset must cover the intended negative-force scope, provide comparable
+labels for every dialogue, and include hard negatives that separate pressure
+from mere toxicity or ordinary requests.
+Four principles guide construction. (i)~\emph{De-identified multi-turn
+dialogues}: conversational interaction with the turn structure and pragmatic
+context needed for dialogue-level analysis.
+(ii)~\emph{Scope coverage}: negative-force and non-force dialogue across
+the 0--5 range, so benign controls prevent degenerate models that classify
+any request as manipulation. (iii)~\emph{Comparable measurement}: every
+instance receives the same seven-dimension annotation on one scale.
+(iv)~\emph{Hard negatives}: polite coercion, sarcastic requests, and
+superficially kind manipulation stress-test lexical shortcuts.
+
+\subsection{Sources and Sampling}
+The release contains 4{,}066 de-identified, everyday multi-turn dialogues.
+We use 3{,}432 dialogues as the training split and 634 disjoint dialogues as
+the held-out split (Section~\ref{sec:firstrelease}). Each dialogue has binary
+pressure and 0--5 intensity annotations, which are used to evaluate the
+seven-dimension profiles. The release contributes new annotations, a unified
+taxonomy, and an evaluation protocol. The dialogues are de-identified, and
+provenance and licensing information are documented with the release.
+
+\begin{table}[t]
+\centering
+\caption{Released \LNGF{} sets.}
+\label{tab:dataset}
+\footnotesize
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Set} & \textbf{Dialogues} & \textbf{Coercive} & \textbf{Non-coercive}\\
+\midrule
+Training split & 3{,}432 & 1{,}862 (54.2\%) & 1{,}570 (45.8\%)\\
+Held-out split & 634 & 332 (52.4\%) & 302 (47.6\%)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+\subsection{Annotation Protocol and Negative Cases}
+The annotation follows the decision tree in Figure~\ref{fig:tree}. First,
+the annotator checks whether the dialogue targets a listener action or
+decision. If it does not, the dialogue is a negative example. Second, the
+annotator assigns all applicable strategy types. For example, one dialogue may
+contain both a moral appeal and social proof. Third, the annotator assigns the
+0--5 intensity and the seven dimension scores. Each dimension receives a
+continuous 0--1 score and a four-level label: None, Low, Moderate, or High.
+
+Negative examples use the same dimension scale as positive examples. Typical
+negative examples include pure information exchange, emotional venting with
+no behavioral target, and information-seeking questions. Advice that also
+acts as a subtle request receives every applicable type, while the dimension
+scores describe its dominant pressure channel. The released annotations are
+produced by an instruction-tuned LLM at temperature 0 using this protocol.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  tn/.style={draw, rounded corners=2pt, align=center, font=\scriptsize, inner sep=3pt},
+  arr/.style={-{Stealth[length=2mm]}, semithick}
+]
+
+\node[tn] (q1) {Q1: Does the discourse target a\\ listener action or decision?};
+
+\node[tn, right=6mm of q1, fill=red!8] (no) {No $\Rightarrow$ negative example};
+
+\node[tn, below=5mm of q1, xshift=0cm] (q2) {Q2: Which strategies apply?\\ (multi-label, Table~\ref{tab:taxonomy})};
+
+\node[tn, below=5mm of q2, fill=green!8] (q3) {Q3: Intensity (0--5) + seven dimension\\ scores, per turn and dialogue level};
+
+\node[tn, right=6mm of q3, fill=blue!8] (out) {Complete record};
+\draw[arr] (q1) -- (no);
+\draw[arr] (q1) -- (q2);
+\draw[arr] (q2) -- (q3);
+\draw[arr] (q3) -- (out);
+\end{tikzpicture}
+\caption{Three-question annotation decision tree.}
+\label{fig:tree}
+\end{figure}
+
+\subsection{Quality Control and Consistency Validation}
+\label{sec:qc}
+Quality control combines three checks: agreement between independent annotators,
+consistency with the binary pressure and intensity labels, and the expected
+monotonicity of predicted intensity. For each dimension, the analysis reports Spearman
+correlations with the binary and 0--5 labels and its AUC for separating
+coercive from non-coercive dialogues (Table~\ref{tab:full}). It also checks
+whether predicted intensity increases with the gold label and whether the
+inter-dimension correlation matrix contains pathological coupling
+(Figures~\ref{fig:mono-full} and~\ref{fig:dim-corr-full}). These checks test
+whether the dimensions provide reproducible structure beyond a single binary
+judgment.
+
+Two graduate students in Computer Technology, including the first author,
+independently annotated 150 dialogues using a shared annotation rubric.
+Both annotators were proficient in reading English dialogues. Neither
+annotator had access to the model outputs during annotation.
+The sample was drawn from the 3{,}432-dialogue training split by randomly selecting
+75 dialogues from each binary-label class without replacement, followed by
+shuffling (random seed 2026). This balanced design covers both classes;
+the reported agreement therefore describes this sample rather than an
+unweighted estimate for the full dataset.
+Table~\ref{tab:iaa}
+reports inter-annotator agreement on the discrete labels. Intensity reaches
+substantial agreement (quadratic-weighted $\kappa{=}0.823$), as do normative
+pressure (0.830), toxicity (0.820), option constraint (0.776), directive
+force (0.771), and emotional pressure (0.758). Explicitness reaches moderate
+agreement (0.543). These estimates concern discrete labels and do not directly
+establish the reliability of the continuous model scores.
+
+\begin{table}[t]
+\centering
+\caption{Inter-annotator agreement on a stratified subsample ($n{=}150$;
+two independent annotators, 150 fully labeled pairs). Binary uses
+unweighted Cohen's $\kappa$; intensity and dimensions use
+quadratic-weighted $\kappa$. Agreement levels use the cutoffs
+$\kappa\ge0.60$ (substantial), $0.40\le\kappa<0.60$ (moderate), and
+$\kappa<0.40$ (low).}
+\label{tab:iaa}
+\footnotesize
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Variable} & \textbf{Cohen's $\kappa$} & \textbf{Agreement level}\\
+\midrule
+binary (pressure present) & 0.739 & substantial\\
+intensity (0--5) & 0.823 & substantial\\
+$D_1$ directive force & 0.771 & substantial\\
+$D_2$ option constraint & 0.776 & substantial\\
+$D_3$ normative pressure & 0.830 & substantial\\
+$D_4$ emotional pressure & 0.758 & substantial\\
+$D_5$ deceptiveness & 0.847 & substantial\\
+$D_6$ toxicity & 0.820 & substantial\\
+$D_7$ explicitness & 0.543 & moderate\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Statistical Analyses}
+This analysis tests whether the seven dimensions capture distinct parts of
+pressure. It compares each score with the binary and 0--5 labels, inspects
+inter-dimension correlations, compares profiles for coercive and non-coercive
+dialogues, and tests whether predicted intensity follows the ordered labels.
+Type-level results are reported in Section~\ref{sec:results}.
+
+
+\subsection{Consistency Check on the Held-Out Set}
+\label{sec:firstrelease}
+The held-out analysis asks whether the seven-dimensional profile follows the
+pressure and intensity labels before the full set is analyzed. Agreement is a
+necessary check, but it does not show that the dimensions cause changes in
+listener behavior.
+The held-out split contains 634 dialogues annotated under
+the unified seven-dimension scheme. It contains 332 coercive (52.4\%) and 302 non-coercive
+dialogues, and gold intensity is distributed as
+170/54/78/64/107/161 over levels 0--5, so hard negatives and the
+high-intensity tail are both represented.
+
+Table~\ref{tab:rq1} reports the consistency of the extracted profiles with
+the binary and intensity
+annotations. All seven dimensions correlate with the binary pressure label and with the
+0--5 intensity label; the strongest channels are option constraint ($D_2$), directive force
+($D_1$), and emotional pressure ($D_4$), followed by explicitness
+($D_7$) and normative pressure ($D_3$); this is consistent with
+constraint being a core channel of
+moral-pressure labels. Each dimension separates
+coercive from non-coercive dialogues with AUC between 0.72 and 0.83. The
+predicted intensity rises monotonically with the gold label
+(Spearman $\rho{=}0.66$), and the inferred binary decision reaches AUC
+0.83 and F1 0.80 at the fixed intensity threshold of 3. These results
+suggest that the
+unified dimension space captures much of the signal in the binary measurement
+on this split. Section~\ref{sec:fullscale} gives the corresponding
+descriptive statistics for the 3{,}432-dialogue training split.
+
+\begin{table}[t]
+\centering
+\caption{Consistency of the seven dimensions with the binary and intensity
+annotations on the held-out split ($n{=}634$). $\rho$: Spearman correlation; AUC: area
+under the ROC curve for separating coercive from non-coercive dialogues.}
+\label{tab:rq1}
+\footnotesize
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Dimension} & $\rho$ (binary) & $\rho$ (0--5) & AUC\\
+\midrule
+$D_1$ Directive force & 0.54 & 0.60 & 0.81\\
+$D_2$ Option constraint & 0.57 & 0.63 & 0.83\\
+$D_3$ Normative pressure & 0.49 & 0.63 & 0.78\\
+$D_4$ Emotional pressure & 0.54 & 0.60 & 0.81\\
+$D_5$ Deceptiveness & 0.49 & 0.55 & 0.77\\
+$D_6$ Toxicity & 0.42 & 0.35 & 0.72\\
+$D_7$ Explicitness & 0.53 & 0.53 & 0.79\\
+\midrule
+Predicted intensity & -- & 0.66 & 0.83\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
+\subsection{Training-Split Descriptive Analysis}
+\label{sec:fullscale}
+This subsection describes the label distribution and dimension profiles in
+the 3{,}432-dialogue training split. It is descriptive; independent
+evaluation is performed on the disjoint 634-dialogue held-out split. The training split
+contains 3{,}432 dialogues, including 1{,}862 coercive (54.2\%) and 1{,}570
+non-coercive (45.8\%) dialogues. Gold intensity is distributed as
+986/267/317/337/621/904 over levels 0--5. Level-0 hard negatives account for
+28.7\% of the data, while levels 4--5 account for 44.4\%.
+
+Table~\ref{tab:full} summarizes the training-release profiles. Emotional pressure
+($D_4$) and option constraint ($D_2$) have the strongest univariate separation
+(AUC 0.829 and 0.815), followed by directive force ($D_1$, 0.792) and
+explicitness ($D_7$, 0.788). Toxicity ($D_6$) is weaker (AUC 0.710) and
+therefore overlaps with, but does not define, the coercive core. No single
+dimension reaches the performance of the combined profile. The predicted
+intensity also increases with the gold 0--5 label (Spearman $\rho{=}0.65$),
+which is consistent with the intended ordinal interpretation.
+
+\begin{table}[t]
+\centering
+\caption{Seven-dimension profiles on the training split ($n{=}3{,}432$).
+Mean score, Spearman correlation $\rho$ with the binary label and the
+0--5 intensity label, and AUC for separating coercive from non-coercive
+dialogues.}
+\label{tab:full}
+\footnotesize
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Dimension} & Mean & $\rho$ (binary) & $\rho$ (0--5) & AUC\\
+\midrule
+$D_1$ Directive force & 0.53 & 0.51 & 0.54 & 0.79\\
+$D_2$ Option constraint & 0.36 & 0.55 & 0.58 & 0.82\\
+$D_3$ Normative pressure & 0.49 & 0.45 & 0.55 & 0.76\\
+$D_4$ Emotional pressure & 0.53 & 0.57 & 0.62 & 0.83\\
+$D_5$ Deceptiveness & 0.12 & 0.48 & 0.50 & 0.77\\
+$D_6$ Toxicity & 0.22 & 0.40 & 0.31 & 0.71\\
+$D_7$ Explicitness & 0.73 & 0.51 & 0.49 & 0.79\\
+\midrule
+Predicted intensity & -- & 0.63 & 0.65 & 0.85\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.70\linewidth]{figs/fig1_full_dims_vs_gold.png}
+\caption{Seven dimensions versus the binary and 0--5 intensity labels on
+the training split ($n{=}3{,}432$; Spearman correlation).}
+\label{fig:dim-gold-full}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.70\linewidth]{figs/fig2_full_boxplot_by_label.png}
+\caption{Dimension scores for coercive versus non-coercive dialogues on
+the training split ($n{=}3{,}432$).}
+\label{fig:box-full}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.70\linewidth]{figs/fig3_full_intensity_monotonic.png}
+\caption{Predicted intensity as a function of the gold 0--5 intensity
+label on the training split; points are within-level means.}
+\label{fig:mono-full}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.70\linewidth]{figs/fig4_full_dim_corr.png}
+\caption{Inter-dimension correlation matrix on the training split
+(Spearman).}
+\label{fig:dim-corr-full}
+\end{figure}
+
+\textbf{Ethics and data scope.} The dataset contains de-identified English
+dialogues, and the release adds no new personal information or data
+collection. Detailed provenance, human-subjects considerations, annotation
+welfare, dual-use risk, cultural scope, and the accompanying datasheet are
+provided in Appendix~\ref{app:ethics}.
+\section{Experimental Design and Evaluation Protocol}
+\label{sec:exp}
+The experiments test whether the agentive-force profile supports prediction
+beyond description. T1 measures pressure detection, T2 strategy recognition,
+and T3 intensity prediction. Ablation and cross-domain tests measure the role
+of individual dimensions and transfer to other resources.
+\subsection{Tasks}
+\LNGF{} defines three tasks at increasing granularity.
+\textbf{T1 (agentive-force detection)} is a binary classification of whether a
+dialogue exerts negative pressure beyond ordinary non-coercive controls.
+\textbf{T2 (type recognition)} is a fifteen-way multi-label classification
+of the strategies in Table~\ref{tab:taxonomy}; type labels are released for
+both the held-out split and the training split. \textbf{T3 (intensity
+prediction)} is ordinal regression of the 0--5 intensity, evaluated with
+quadratic weighted kappa (QWK) and accuracy-within-$\pm1$.
+
+\subsection{Two-Stage Pipeline}
+The two-stage pipeline tests whether the explicit profile adds useful
+structure beyond a direct judgment. An upstream LLM converts each dialogue
+into turn-level and dialogue-level dimension scores, and a downstream model
+uses them for T1--T3. For comparison, a direct judge predicts the label from
+the dialogue without producing the seven-dimension profile. The experiments compare
+three ways to combine information: turn-only, dialogue-only, and turn-plus-
+dialogue representations.
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw, rounded corners=2pt, align=center, font=\scriptsize, inner sep=3.5pt},
+  arr/.style={-{Stealth[length=2mm]}, semithick}
+]
+
+\node[box] (dlg) {Dialogue\\ turn / global};
+
+\node[box, right=7mm of dlg] (up) {Upstream LLM\\ dimension parser};
+
+\node[box, right=7mm of up] (prof) {Agentive profile\\ $(d_1,\dots,d_7)$};
+
+\node[box, right=7mm of prof] (down) {Downstream model\\ (T1 / T2 / T3)};
+
+\node[box, right=7mm of down] (out) {Prediction};
+\draw[arr] (dlg) -- (up);
+\draw[arr] (up) -- (prof);
+\draw[arr] (prof) -- (down);
+\draw[arr] (down) -- (out);
+\draw[arr, dashed] ($(dlg.south)+(0,-1mm)$) to [out=-90,in=-90] node[midway, below, align=center, font=\tiny]{direct\\ prompting\\ (baseline)} ($(down.south)+(0,-1mm)$);
+\end{tikzpicture}
+\caption{Two-stage dimension-aware pipeline. The dashed path is the direct
+prompting baseline used to isolate the effect of dimension anchoring.}
+\label{fig:pipeline}
+\end{figure*}
+
+The pipeline is evaluated zero-shot: a frozen instruction-tuned LLM parses
+each dialogue into the profile, and a direct judge that skips the profile
+serves as control. The main results use DeepSeek. A second frozen parser,
+GPT-6 Astra, is evaluated on the held-out consistency set to test parser
+sensitivity. Prompt variants include zero-shot,
+chain-of-thought~\cite{wei2022}, and self-reflection, following the
+self-perception approach of MultiManip~\cite{multimanip}
+(Table~\ref{tab:models}).
+
+\begin{table}[t]
+\centering
+\caption{Model configuration for the zero-shot evaluation in this release.}
+\label{tab:models}
+\footnotesize
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Model} & \textbf{Role} & \textbf{Tuning}\\
+\midrule
+DeepSeek & upstream dimension parser & frozen\\
+DeepSeek & direct zero-shot judge & frozen\\
+GPT-6 Astra & upstream dimension parser & frozen (held-out check)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Experimental Setup}
+All parsers run at temperature~$0$. T1 reports binary AUROC and F1 at the
+fixed intensity threshold of 3; T3 uses Spearman correlation, QWK, and
+accuracy within $\pm1$. T2 reports macro- and micro-F1; its exploratory
+best-threshold values use the candidate thresholds described in Table~\ref{tab:rq2}.
+Cross-domain transfer uses the same frozen parser on four public corpora.
+
+Parser sensitivity is evaluated on the held-out split with the same dimensions,
+prompt format, temperature, and output schema; the corresponding results are
+reported with the main results.
+
+
+\subsection{Research Questions}
+The experiments examine four questions: whether the dimensions agree with the
+pressure annotations, whether they provide complementary information, whether
+they transfer to related forms of pressure, and whether the results are robust
+to implementation choices.
+\textbf{RQ1 (annotation consistency):} Do the seven dimensions align with
+both the binary pressure and 0--5 intensity annotations? The evaluation reports each
+dimension's Spearman correlation with these labels and its AUC for separating
+coercive from non-coercive dialogues. Results are reported separately for the
+disjoint held-out split ($n{=}634$) and the training split
+($n{=}3{,}432$) in Sections~\ref{sec:firstrelease}--\ref{sec:fullscale}.
+
+\textbf{RQ2 (dimension structure):} Do the seven dimensions carry distinct,
+complementary signal? Report per-dimension scores and AUCs, examine the
+inter-dimension correlation matrix for expected couplings (e.g., $D_3$--$D_4$)
+and unexpected ones (e.g., $D_5$--$D_6$), and analyze per-family profiles
+(Section~\ref{sec:results}).
+
+\textbf{RQ3 (zero-shot generalization):} Can the profile detect pressure in
+strategies that are absent from the training data? We apply the frozen
+pipeline to external corpora and evaluate leave-one-type-out transfer within
+the LINGUAFORCE taxonomy. The results are reported in the main results and
+cross-domain sections.
+
+\textbf{RQ4 (implementation choices):} How do aggregation and prompt design
+affect the pipeline? We compare global-only, turn-mean, and combined
+aggregation with the same linear readout, and evaluate zero-shot,
+chain-of-thought, and self-reflection prompts. The results are reported in
+the main results and Tables~\ref{tab:agg}--\ref{tab:prompt}.
+
+\begin{table}[t]
+\centering
+\caption{Aggregation ablation of the dimension-conditioned pipeline
+(linear readout; train on the training split, held-out split). T mean-pools the
+per-turn profiles over turns; B concatenates the turn-mean and global
+profiles.}
+\label{tab:agg}
+\footnotesize
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Aggregation} & \textbf{Binary AUC} & \textbf{Intensity $\rho$} & \textbf{QWK}\\
+\midrule
+G (global only) & 0.855 & 0.674 & 0.667\\
+T (turn mean) & 0.525 & 0.040 & 0.066\\
+B (turn+global) & \textbf{0.859} & \textbf{0.679} & \textbf{0.680}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Prompt ablation of the upstream dimension parser (held-out
+split, $n{=}634$). All variants use the same downstream linear readout.}
+\label{tab:prompt}
+\footnotesize
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Prompt variant} & \textbf{T1 AUC} & \textbf{T3 Spearman} & \textbf{T3 QWK}\\
+\midrule
+Zero-shot & 0.832 & 0.666 & 0.623\\
+Chain-of-thought & 0.839 & 0.639 & 0.613\\
+Self-reflection & 0.838 & 0.670 & 0.630\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Cross-Domain Evaluation}
+The cross-domain test asks whether the profile transfers to related
+listener-directed pressure while remaining distinct from toxicity without a
+behavioral target. The zero-shot pipeline is applied to MentalManip and
+MultiManip (psychological manipulation), TalkDown (patronizing language), and
+ToxicChat (toxicity). Each corpus is evaluated with its standard metric and
+threshold-free AUROC.
+
+\subsection{Dimension Contribution and Ablation}
+This analysis asks whether the seven dimensions provide complementary
+information. Three checks are used. First, each dimension is compared with
+the gold pressure and intensity labels. Second, a simple linear model uses
+the seven scores to predict the labels. Third, each dimension is removed in
+turn to measure its marginal contribution.
+
+The linear model, trained on the training split and evaluated on the
+held-out split, reaches binary AUC 0.855 and intensity Spearman 0.674. These
+results are close to, and slightly higher than, the profile-based LLM
+pipeline (AUC 0.831, Spearman 0.665). Both systems use the seven scores
+produced by the parser; the comparison therefore shows that a simple
+downstream model can recover the main predictive signal from the profile. It
+does not show that the linear model replaces the upstream LLM. The
+leave-one-dimension-out results in Table~\ref{tab:ablation} show different
+roles for different dimensions.
+Removing toxicity ($D_6$) hurts pressure detection most (AUC drop 0.008),
+while removing normative pressure ($D_3$) hurts intensity prediction most
+(Spearman drop 0.021). Although $D_6$ has the weakest individual correlation,
+it helps separate hostile dialogues that do not contain a behavioral target.
+$D_4$ overlaps substantially with $D_3$; removing $D_4$ slightly improves
+both metrics, which suggests redundancy or noise in this readout. The
+remaining dimensions have small marginal effects. These changes should be
+read as marginal effects, not as evidence that any single dimension is
+indispensable. Overall, the results support a combined representation rather
+than reliance on one decisive dimension.
+
+
+
+\begin{table}[t]
+\centering
+\caption{Leave-one-dimension-out ablation with a linear readout over the
+seven dimension scores (held-out split, $n{=}634$). $\rho$: Spearman
+correlation of predicted intensity with the gold 0--5 label. The LLM
+readout is the dimension-conditioned zero-shot reference.}
+\label{tab:ablation}
+\footnotesize
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Readout} & \textbf{Binary AUC} & \textbf{Intensity $\rho$}\\
+\midrule
+7-dim linear readout & 0.855 & 0.674\\
+\;\;$-D_1$ (directive force) & 0.854 & 0.674\\
+\;\;$-D_2$ (option constraint) & 0.851 & 0.668\\
+\;\;$-D_3$ (normative pressure) & 0.851 & 0.653\\
+\;\;$-D_4$ (emotional pressure) & 0.860 & 0.693\\
+\;\;$-D_5$ (deceptiveness) & 0.855 & 0.674\\
+\;\;$-D_6$ (toxicity) & 0.847 & 0.669\\
+\;\;$-D_7$ (explicitness) & 0.853 & 0.674\\
+\midrule
+LLM readout (reference) & 0.831 & 0.665\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Dimension Differences by Strategy Family}
+\label{sec:viz}
+This section compares the seven-dimensional profiles of the strategy
+families. The goal is to see whether different families show different
+patterns across the dimensions, while allowing for overlap between related
+strategies. Figure~\ref{fig:tsne} uses t-SNE only for visualization: it maps
+the 3{,}432 dialogue profiles to two dimensions and colors them by dominant
+family, with the 226 dialogues containing no detected strategy shown as
+benign. The families show some separation in this view, while benign
+dialogues tend to lie on the low-pressure side. To quantify family-level
+structure, we train a multinomial logistic classifier on the seven dimensions
+to predict the four strategy families plus the benign group. Five-fold
+cross-validation gives an accuracy of 0.640, compared with 0.200 chance
+accuracy. The profiles therefore contain family-level signal, although the
+moderate accuracy indicates substantial overlap between families. Each
+dimension alone separates benign from manipulative dialogues with AUC
+0.71--0.83, supporting pressure detection but not family-specific
+separation.
+Figure~\ref{fig:famheat} reports each family's mean dimension profile: the
+social-normative family peaks on normative and emotional pressure ($D_3$,
+$D_4$), the exchange family on option constraint and toxicity ($D_2$,
+$D_6$), the covert family on emotional pressure ($D_4$), and benign
+dialogues are uniformly low across all dimensions.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.50\textwidth]{figs/fig5_tsne_family.png}
+\caption{t-SNE embedding of the seven-dimension profiles ($n{=}3{,}432$),
+colored by dominant strategy family; the 226 no-strategy dialogues form the
+benign group.}
+\label{fig:tsne}
+\end{figure*}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{figs/fig6_family_dims_heatmap.png}
+\caption{Mean dimension score per strategy family. Social-normative and
+covert families concentrate pressure on normative/emotional dimensions;
+benign dialogues are uniformly low.}
+\label{fig:famheat}
+\end{figure}
+
+\subsection{Main Results}
+\label{sec:results}
+Results are reported for pressure detection and intensity prediction,
+cross-domain transfer, strategy recognition, and implementation choices.
+
+\textbf{Pressure detection and intensity.}
+Table~\ref{tab:results-t1} and Table~\ref{tab:results-t23} report the
+dimension-conditioned pipeline on the 3{,}432-dialogue training split and
+the disjoint 634-dialogue held-out split. The pipeline first maps each dialogue
+to a seven-dimension profile (Section~\ref{sec:exp}) and then reads out the
+binary pressure label and the 0--5 intensity. On the training split, it
+reaches a binary AUC of 0.852 and an F1 of 0.817 at threshold 3; the
+corresponding held-out values are 0.831 and 0.795. Intensity prediction reaches Spearman
+$\rho=0.651$, QWK 0.595, and accuracy within $\pm1$ of 0.692 on the training
+split, compared with $\rho=0.665$ and QWK 0.623 on the held-out split.
+These values are similar across the two splits. On the held-out split, a direct
+judge that skips the profile reaches AUC 0.780 and F1 0.755 at threshold 3; this
+comparison does not isolate the contribution of individual pipeline steps.
+The held-out parser comparison gives AUC 0.831 for DeepSeek and 0.838 for
+GPT-6 Astra, with intensity Spearman 0.665 and 0.629, respectively. Binary
+detection is similar, while intensity ranking differs between parsers.
+
+\textbf{Cross-domain transfer.}
+The cross-domain results in Table~\ref{tab:results-x} evaluate the frozen
+pipeline on four external corpora. Threshold-free AUROC is 0.742 on
+MentalManip, 0.706 on MultiManip, and 0.729 on TalkDown, indicating moderate
+transfer to psychological manipulation and patronizing language. Transfer to
+ToxicChat is weaker (AUROC 0.587), consistent with generic toxicity being
+less tied to a listener-directed behavioral target. At the fixed source
+threshold of 3, F1 is much lower on TalkDown (0.058), so ranking performance
+does not imply that the same decision threshold transfers. The table therefore
+reports AUROC as the primary cross-domain metric and fixed-threshold scores
+only as descriptive reference values.
+
+\textbf{Strategy recognition.}
+Table~\ref{tab:rq2} compares a one-vs-rest logistic readout over the
+seven dimensions with a supervised RoBERTa-base classifier. Training on the
+3{,}432-dialogue training split and evaluating on the held-out split gives the
+dimension readout family-level macro/micro-F1 of 0.772/0.827 and type-level
+macro/micro-F1 of 0.480/0.668. Five-fold cross-validation on the training
+release gives similar values (family 0.752/0.820; type 0.477/0.669). RoBERTa
+scores 0.780/0.820 at the family level and 0.544/0.731 at the type level
+on the held-out split. The dimension readout is competitive at the family
+level, while RoBERTa performs better on individual types. Three types have
+fewer than 30 training examples: rational persuasion ($A_3$), authority
+($C_4$), and deception/gaslighting ($D_2$); their scarcity warrants caution
+when interpreting type-level macro-F1. The reported F1 thresholds were
+selected on the respective evaluation sets, so these are exploratory best-
+threshold scores rather than performance at a prespecified threshold.
+
+The leave-one-type-out analysis yields mean novelty AUROC 0.54, close to
+chance. Separately, predicted intensity distinguishes dialogues with any
+annotated strategy from those with none (AUROC 0.963). This latter test
+includes known strategies and does not measure detection of held-out types
+on its own.
+
+\textbf{Implementation choices.}
+The implementation ablations in Tables~\ref{tab:agg}--\ref{tab:prompt}
+show that turn-only mean pooling is near chance (AUC 0.525), whereas
+combining turn-level and dialogue-level profiles gives the best result (AUC
+0.859, Spearman 0.679, QWK 0.680). The three prompt variants yield similar
+results (AUC 0.83--0.84), indicating limited sensitivity to prompt wording.
+
+\begin{table}[t]
+\centering
+\caption{T2 type recognition: a one-vs-rest logistic readout over the seven
+dimension scores versus fine-tuned RoBERTa-base. ``Held-out'': trained on
+the training split ($n{=}3{,}432$), evaluated on the type-labeled held-out
+split ($n{=}634$); ``5-fold CV'': cross-validation over the training split.
+F1 is reported as macro/micro; thresholds are selected on each evaluation
+set from $\{0.3,0.4,0.5,0.6\}$, so these are best-threshold estimates.}
+\label{tab:rq2}
+\footnotesize
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+& & \multicolumn{2}{c}{Linear readout} & \multicolumn{1}{c}{RoBERTa-base}\\
+\cmidrule(lr){3-4}\cmidrule(lr){5-5}
+\textbf{Granularity} & \textbf{Protocol} & Macro-F1 & Micro-F1 & Macro/Micro-F1\\
+\midrule
+15 types & Held-out & 0.480 & 0.668 & 0.544 / 0.731\\
+15 types & 5-fold CV & 0.477 & 0.669 & 0.540 / 0.734\\
+4 families & Held-out & 0.772 & 0.827 & 0.780 / 0.820\\
+4 families & 5-fold CV & 0.752 & 0.820 & 0.767 / 0.815\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{T1 detection on the training split ($n{=}3{,}432$): the
+dimension-conditioned readout, versus the same readout on the held-out
+split ($n{=}634$) and a direct zero-shot judge that skips the profile
+(dashed path in Fig.~\ref{fig:pipeline}). F1 uses the fixed intensity
+threshold of 3.}
+\label{tab:results-t1}
+\footnotesize
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Metric} & \textbf{Training} & \textbf{Held-out} & \textbf{Direct}\\
+ & ($n{=}3{,}432$) & ($n{=}634$) & \textbf{zero-shot}\\
+\midrule
+Binary AUC & 0.852 & 0.831 & 0.780\\
+F1 @ intensity $\geq 3$ & 0.817 & 0.795 & 0.755\\
+Accuracy @ intensity $\geq 3$ & 0.789 & 0.760 & 0.711\\
+\midrule
+Best per-dimension AUC ($D_2$) & 0.829 & 0.825 & ---\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{T3 intensity prediction from the dimension-conditioned pipeline on
+the training split ($n{=}3{,}432$), with the held-out ($n{=}634$) values
+for comparison.}
+\label{tab:results-t23}
+\footnotesize
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Metric} & \textbf{Training} & \textbf{Held-out}\\
+\midrule
+Spearman $\rho$ & 0.651 & 0.665\\
+Pearson $r$ & 0.677 & 0.691\\
+Quadratic weighted kappa & 0.595 & 0.623\\
+Accuracy within $\pm 1$ & 0.692 & 0.722\\
+Exact match & 0.216 & 0.219\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Cross-domain zero-shot transfer of the seven-dimension pipeline.
+``Standard metric'' is each corpus's own metric under the source-task
+decision rule (intensity ${\ge}3$); ``AUROC'' is threshold-free and directly
+comparable. Sampled subsets: MentalManip $n{=}300$, MultiManip $n{=}220$,
+TalkDown $n{=}652$, ToxicChat $n{=}300$.}
+\label{tab:results-x}
+\footnotesize
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Corpus} & \textbf{Standard metric} & \textbf{Zero-shot} & \textbf{AUROC}\\
+\midrule
+MentalManip & macro-F1 & 0.615 & 0.742\\
+MultiManip & macro-F1 & 0.347 & 0.706\\
+TalkDown & F1 & 0.058 & 0.729\\
+ToxicChat & AUROC & 0.587 & 0.587\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Limitations and Threats to Validity}
+The evidence has four boundaries. First, the seven dimensions are a measurement
+design rather than a complete theory of influence, and the 150-dialogue
+agreement study is a limited reliability check. Second, the release contains
+English dialogues from sampled everyday scenarios; transfer results on four
+external corpora do not establish cross-cultural or cross-lingual validity.
+Third, parser comparisons cover only two models, and F1 values whose thresholds
+are selected on the evaluation set are exploratory rather than fixed-threshold
+estimates. Finally, the labels measure pressure expressed in dialogue, not
+whether a listener complied or was harmed.
+
+
+\subsection{Discussion}
+The experiments support a practical interpretation of the framework. A single
+profile makes heterogeneous negative strategies comparable, while the
+cross-domain results suggest that some of their signal transfers beyond the
+training taxonomy. The profile also makes predictions inspectable through
+dimension-level evidence. These findings support measurement and analysis;
+they do not imply that the dimensions are independent psychological traits or
+that the benchmark predicts individual responses.
+
+
+\section{Conclusion}
+This paper presents LINGUAFORCE, a dataset and benchmark for measuring negative
+agentive force in multi-turn dialogue. The release provides intensity labels,
+seven dimension profiles, strategy labels, and an evaluation protocol. The
+experiments show that the profiles support pressure detection, intensity
+ordering, and transfer to related manipulation and patronizing-language
+corpora. The benchmark is a measurement and analysis resource, not a causal
+model of listener behavior. Future work should broaden the annotation study,
+evaluate more parsers, and test other languages and forms of influence.
+
+\appendices
+\section{Ethics and Privacy}
+\label{app:ethics}
+The dialogues are de-identified English text. The release adds no personal
+information or new data collection. The study
+does not collect behavioral or demographic data; the manual checks use
+already-anonymized text. Annotators may skip distressing content and take
+breaks. Because the taxonomy could be misused to craft manipulative language,
+the release is intended for research on detection and analysis, not automated
+moderation, surveillance, or consequential decisions without human review.
+The current data are English and drawn from everyday scenarios, so cultural
+and cross-lingual validity remains an open question. A datasheet documents
+composition, preprocessing, intended uses, and limitations.
+
+{\small
+\setlength{\itemsep}{1pt}\setlength{\parsep}{0pt}
+\bibliographystyle{IEEEtran}
+\bibliography{references,references_extra}
+}
+
+\end{document}

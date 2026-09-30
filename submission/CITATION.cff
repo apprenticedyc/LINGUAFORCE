@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "LINGUAFORCE: Benchmarking Agentive Force in Dialogues via Unified Measurement Dimensions"
+message: "If you use this release, cite the accompanying paper."
+type: software
+authors:
+  - family-names: Dengyucheng
+    affiliation: Nanjing University of Posts and Telecommunications
+  - family-names: Chentianyang
+    affiliation: Nanjing University of Posts and Telecommunications
+version: "1.0.0"
+date-released: 2026-09-30

@@ -9,8 +9,7 @@
 - `spotcheck_annotate.xlsx`  标注表（请打开填写，勿看参考文件以免锚定）
 - `spotcheck_reference.csv`  参考：LLM 七维分数 + 派生聚合（llm_agg_agency、
   llm_argmax_dim、llm_presence）
-- `make_spotcheck_template.py` 在 `experiments/`，重新生成抽样表用
-- `spotcheck_agreement.py`   在 `experiments/`，算一致性用
+- 本目录是早期 spot-check 材料，不属于当前论文主实验发布链路。
 
 ## 怎么标（约 1-2 小时）
 1. 打开 `spotcheck_annotate.xlsx`，从第 2 行起逐条阅读“对话内容（A/B 轮流发言）”。
@@ -19,7 +18,7 @@
    - E 列：最主要的能动性维度（D1-D7 选一个，见论文 7 维定义）
    - F 列：是否存在明显施压？0=无明显，1=明显
 3. 40 条标记“是”的，最好再找一个人（师兄/同学）独立标一份，做真正的 IAA。
-4. 填完保存，运行：`python experiments/spotcheck_agreement.py`
+4. 该历史 spot-check 结果不作为当前论文主结果使用。
 
 ## 论文里怎么诚实地写
 - 只有你自己标：写 “the first author manually spot-checked 120 examples; agreement

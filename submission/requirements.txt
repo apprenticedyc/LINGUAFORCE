@@ -1,0 +1,9 @@
+numpy
+scipy
+scikit-learn
+matplotlib
+openpyxl
+
+# Required only for the optional RoBERTa T2 baseline:
+# torch
+# transformers
