@@ -1,51 +1,68 @@
 # Datasheet: LINGUAFORCE
 
-For questions about this datasheet, contact the dataset authors.
-
 ## Motivation
-- **For what purpose was the dataset created?** LINGUAFORCE studies *agentive force* in everyday multi-turn dialogues: the psychological pressure an utterance exerts on a listener. It provides a unified seven-dimension annotation scheme (directive force, option constraint, normative pressure, emotional pressure, deceptiveness, toxicity, explicitness), a fifteen-type strategy taxonomy in four families, and a 0--5 intensity label.
-- **Who created it and who funded it?** Created by the authors of this paper for academic research. No external funding was used.
+
+- **Purpose:** LINGUAFORCE measures how language can pressure, constrain, or
+  steer a listener's decision in everyday multi-turn dialogue.
+- **Scope:** The release covers English dialogue, seven measurement
+  dimensions, a fifteen-type strategy taxonomy, and 0--5 intensity labels.
+- **Creators and funding:** The dataset was prepared by the paper authors for
+  academic research. No external funding was used.
 
 ## Composition
-- **What do the instances represent?** Each instance is a multi-turn English dialogue (6--8 turns) between two speakers, labeled at the dialogue level with: a binary agentive-pressure flag, a 0--5 intensity score, seven continuous 0--1 dimension scores (each with a companion None/Low/Moderate/High level), and a multi-label set of strategies from a 15-type taxonomy. Where available, the original binary coercion label and 0--5 coercion intensity from the source corpus are retained for validation.
-- **How many instances are there?** The release contains 4,066 dialogues: a 3,432-dialogue training split (1,862 coercive / 1,570 non-coercive) and a 634-dialogue held-out split (332 / 302). The two partitions are disjoint.
-- **Does the dataset contain all possible instances?** No. It is a convenience sample of everyday conversational dialogues from the source corpus described below; it is not a random sample of any broader population.
-- **What data does each instance consist of?** Raw dialogue text, speaker turns, and the annotations described above. No audio, images, or metadata are included.
-- **Is there a label or target associated with each instance?** Yes (see above). Labels are produced by an instruction-tuned LLM at temperature 0 following a three-level decision tree. Two independent annotators labeled a stratified sample of 150 dialogues without access to model outputs; agreement is reported in the paper.
-- **Are there recommended data splits?** Use the 3,432-dialogue split for training and the disjoint 634-dialogue split for held-out evaluation.
-- **Are there any errors, sources of noise, or redundancies in the dataset?** Dimension and type labels are LLM-generated and inherit systematic annotation bias; types are highly imbalanced (e.g., A3 n=29, D2 n=7) and 82% of dialogues are multi-label. Redundant fields are removed.
-- **Is the dataset self-contained?** Yes, all required text and labels are included in the released files.
-- **Does the dataset contain data that might be considered confidential?** No. The source corpus was already de-identified by prior work; this release adds no personally identifying information.
-- **Does the dataset relate to people?** The dialogues depict fictional or anonymized everyday scenarios; no real individuals are identified.
 
-## Collection Process
-- **How was the data associated with each instance acquired?** The dialogues come from the source corpus introduced by prior work (COERCION), a real-world corpus of everyday multi-turn dialogues collected under that project's terms of service and de-identification process. This release adds the LINGUAFORCE annotation scheme and evaluation labels; no new data collection was performed.
-- **Who was involved?** The prior corpus authors collected raw text; the current authors designed the annotation scheme and ran the annotation pipeline.
-- **Over what timeframe?** Annotation and validation were performed during the preparation of this paper.
+- **Instances:** 4,066 de-identified English dialogues, each containing
+  speaker turns and dialogue-level annotations.
+- **Splits:** 3,432 training dialogues and 634 disjoint held-out dialogues.
+- **Labels:** A binary reference label, a 0--5 reference intensity, a released
+  overall intensity prediction, seven continuous dimension scores with
+  four-level discretizations, and multi-label strategy annotations.
+- **Dimensions:** Directive force, option constraint, normative pressure,
+  emotional pressure, deceptiveness, toxicity, and explicitness.
+- **Modalities:** Text only. No audio, images, user profiles, or identifying
+  metadata are included.
+- **Sampling:** The release is a convenience sample of everyday dialogue and
+  is not intended to represent every language, culture, or social setting.
 
-## Preprocessing / Cleaning / Labeling
-- **What was done to clean the data?** Dialogues with malformed or empty turns were removed; redundant metadata fields were dropped. The retained fields are dialogue text plus the annotations described above.
-- **What was the raw text language?** English.
-- **How was the label defined and produced?** An instruction-tuned LLM follows a three-level decision tree: (1) does the discourse target a listener action/decision? (2) which strategies are present? (3) what are the intensity and seven dimension scores? Output is constrained to a JSON schema, temperature 0. Two independent annotators labeled a stratified sample of 150 dialogues without access to model outputs; agreement statistics are reported in the paper. Reliability is additionally evaluated against the binary and intensity labels supplied with the dialogue release.
-- **Is the software used to preprocess/clean/label available?** Yes, the annotation scripts and prompts are released with the code repository.
+## Labeling and quality checks
 
-## Uses
-- **Has the dataset been used for any tasks already?** It is used in this paper for three tasks: T1 manipulation detection, T2 fifteen-way multi-label type recognition, T3 intensity prediction, plus zero-shot cross-domain transfer to MentalManip, MultiManip, TalkDown, and ToxicChat.
-- **What are the intended uses?** Research on manipulative and persuasive language, computational pragmatics, and LLM safety evaluation.
-- **What are the (potential) misuse risks?** The framework and taxonomy could in principle be used to craft more effective manipulative language. We release the data for research only and do not provide generation recipes; the primary intended use is *detection* and *analysis*.
-- **Are there tasks for which the dataset should not be used?** It should not be used for automated moderation of real users without human review, for surveillance, or to make consequential decisions about individuals.
+- **Label production:** A frozen instruction-tuned model at temperature 0
+  follows a three-stage decision procedure: identify a listener-directed
+  action or decision, assign applicable strategy types, and assign intensity
+  and dimension scores. Outputs are constrained to a JSON schema.
+- **Human agreement:** A stratified sample of 150 dialogues was labeled
+  independently by two annotators without access to model outputs. The paper
+  reports agreement for the discrete labels.
+- **Quality checks:** The release reports correlations with the reference
+  binary and intensity labels, classification AUC, monotonicity tests,
+  dimension-space correlations, ablations, and cross-domain transfer.
+- **Known limitations:** The dimension and strategy labels may contain model
+  bias. Strategy frequencies are imbalanced, and many dialogues contain more
+  than one strategy.
 
-## Distribution
-- **Will the dataset be distributed to third parties outside the entity?** Yes, released publicly for research use under a research-only license.
-- **How will the dataset be distributed?** Via the project repository (code + data + annotation prompts + reproduction scripts).
-- **When will the dataset be released?** With the camera-ready of this paper.
-- **Are there any legal restrictions?** Research-only license; the source corpus's terms of service are respected.
+## Data handling and privacy
 
-## Maintenance
-- **Who will support/host/maintain the dataset?** The authors.
-- **Is there an erratum mechanism?** Dataset versions are tagged; corrections are released as new versions with a changelog.
-- **Will the dataset be updated?** Periodically, e.g., to add additional languages or domains; updates are versioned.
+- **Text:** The dialogues are de-identified English text describing everyday
+  scenarios. No real-person identifiers are intentionally included.
+- **Privacy:** Do not use the release for surveillance, automated decisions
+  about individuals, or moderation without human review.
+- **Sensitive content:** Some dialogues contain threats, insults, deception,
+  or other distressing language. Users should provide appropriate review and
+  opt-out procedures in human studies.
 
-## Additional Notes (added by authors)
-- Culture and language scope: the current release is English, everyday scenarios. The seven-dimension scheme is argued from pragmatics and persuasion theory but its cross-lingual/cross-cultural validity requires future study.
-- Annotation is LLM-generated; the paper reports human inter-annotator agreement on a stratified sample of 150 dialogues.
+## Intended use
+
+The release is intended for research on computational pragmatics, language
+influence, dialogue analysis, model evaluation, and detection of harmful
+interaction patterns. It is not intended to generate or optimize manipulative
+messages.
+
+## Distribution and maintenance
+
+- **License:** Research use only. Review the applicable license and required
+  attribution before redistribution.
+- **Package:** The repository includes the paper, data, derived results, and
+  deterministic analysis scripts. Provider credentials and private workbooks
+  are excluded.
+- **Maintenance:** Future corrections or extensions should be released as
+  versioned updates with a corresponding changelog.

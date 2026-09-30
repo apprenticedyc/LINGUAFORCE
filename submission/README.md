@@ -1,17 +1,16 @@
-# LINGUAFORCE Submission Package
+# LINGUAFORCE Release Package
 
-This directory is the clean paper-and-reproduction package for the
-LINGUAFORCE submission.
+This directory contains the paper, released data, evaluation outputs, and
+reproduction code for LINGUAFORCE.
 
 ## Layout
 
 - `paper/`: LaTeX source, PDF, bibliography, and figures.
-- `data/`: the released JSONL files, data README, and datasheet.
-- `code/`: deterministic evaluation, plotting, ablation, T2/RQ3, and
+- `data/`: the two JSONL data releases, data documentation, and datasheet.
+- `code/`: deterministic evaluation, plotting, ablation, transfer, and
   agreement-analysis scripts.
-- `results/`: model outputs needed to reproduce the reported tables and
-  metrics.
-- `CITATION.cff`: citation metadata for the release.
+- `results/`: outputs used to produce the reported metrics.
+- `CITATION.cff`: citation metadata.
 - `requirements.txt`: Python dependencies for the analysis scripts.
 
 ## Reproduction
@@ -19,10 +18,10 @@ LINGUAFORCE submission.
 Run from this directory:
 
 ```bash
-python code/verify_paper.py
-python code/make_figs_release.py
-python code/ablation_linear_readout.py
-python code/run_t2_rq3.py
+python3 code/verify_paper.py
+python3 code/make_figs_release.py
+python3 code/ablation_linear_readout.py
+python3 code/run_t2_rq3.py
 ```
 
 Compile the paper from `paper/` with a LaTeX engine that supports the
@@ -33,21 +32,17 @@ cd paper
 tectonic -X compile main.tex
 ```
 
-The parser calls and any API credentials are intentionally not included.
-The released result files are included so that the deterministic evaluation
-does not require an external provider or a secret key.
+The package includes the outputs needed to verify the reported results. Model
+provider calls and credentials are not included.
 
-## Data and licensing
+## Data and use
 
-The data provenance, de-identification, intended use, and licensing
-constraints are documented in `data/README.md` and `data/datasheet.md`.
-Those documents must be reviewed together with the license of the source
-corpus before public redistribution. Raw upstream data and private annotation
-workbooks are not included in this package.
+The release contains de-identified English dialogue text and derived
+annotations for research use. The data documentation records the schema,
+intended uses, privacy scope, and applicable license conditions. Review those
+conditions before redistributing the text or derived files.
 
-## Submission checklist
+## Release checks
 
-See `PUBLIC_RELEASE_CHECKLIST.md`. In particular, complete the license and
-data-redistribution review, confirm the final human-agreement artifact used
-for the reported statistics, and fill in the author contact information
-required by the target venue.
+See `PUBLIC_RELEASE_CHECKLIST.md` for the remaining venue, license, and
+reproducibility checks.
