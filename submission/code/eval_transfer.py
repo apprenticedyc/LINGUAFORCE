@@ -4,7 +4,7 @@ Metrics per corpus (source-task standard metric): MentalManip/MultiManip macro-F
 TalkDown F1, ToxicChat AUROC. Fixed source threshold thr=3 for F1-type; AUROC threshold-free.
 Also reports best-threshold F1 for context.
 """
-import json, math
+import json, math, os
 from collections import Counter
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))

@@ -401,11 +401,14 @@ superficially kind manipulation stress-test lexical shortcuts.
 \subsection{Sources and Sampling}
 The release contains 4{,}066 de-identified, everyday multi-turn dialogues.
 We use 3{,}432 dialogues as the training split and 634 disjoint dialogues as
-the held-out split (Section~\ref{sec:firstrelease}). Each dialogue has binary
-pressure and 0--5 intensity annotations, which are used to evaluate the
-seven-dimension profiles. The release contributes new annotations, a unified
-taxonomy, and an evaluation protocol. The dialogues are de-identified, and
-provenance and licensing information are documented with the release.
+the held-out split (Section~\ref{sec:firstrelease}). Each dialogue has a
+reference binary-pressure label and a reference 0--5 intensity label. These
+reference labels are the evaluation targets. The release also contains
+model-derived dimension profiles, overall intensity predictions, and strategy
+labels; these derived fields are evaluated against the reference labels and
+are not used to define them. The release contributes a unified taxonomy and
+an evaluation protocol. The dialogues are de-identified, and provenance and
+licensing information are documented with the release.
 
 \begin{table}[t]
 \centering
@@ -426,20 +429,22 @@ Held-out split & 634 & 332 (52.4\%) & 302 (47.6\%)\\
 
 
 \subsection{Annotation Protocol and Negative Cases}
-The annotation follows the decision tree in Figure~\ref{fig:tree}. First,
-the annotator checks whether the dialogue targets a listener action or
-decision. If it does not, the dialogue is a negative example. Second, the
-annotator assigns all applicable strategy types. For example, one dialogue may
-contain both a moral appeal and social proof. Third, the annotator assigns the
-0--5 intensity and the seven dimension scores. Each dimension receives a
-continuous 0--1 score and a four-level label: None, Low, Moderate, or High.
+The model-derived fields follow the decision tree in Figure~\ref{fig:tree}.
+First, the parser checks whether the dialogue targets a listener action or
+decision. If it does not, the dialogue is a negative example. Second, it
+assigns all applicable strategy types. For example, one dialogue may contain
+both a moral appeal and social proof. Third, it assigns the overall intensity
+and the seven dimension scores. Each dimension receives a continuous 0--1
+score and a four-level label: None, Low, Moderate, or High. The reference
+binary and intensity labels remain separate evaluation targets.
 
 Negative examples use the same dimension scale as positive examples. Typical
 negative examples include pure information exchange, emotional venting with
 no behavioral target, and information-seeking questions. Advice that also
 acts as a subtle request receives every applicable type, while the dimension
-scores describe its dominant pressure channel. The released annotations are
-produced by an instruction-tuned LLM at temperature 0 using this protocol.
+scores describe its dominant pressure channel. The derived strategy labels,
+dimension profiles, and overall intensity predictions are produced by an
+instruction-tuned LLM at temperature 0 using this protocol.
 
 \begin{figure}[t]
 \centering

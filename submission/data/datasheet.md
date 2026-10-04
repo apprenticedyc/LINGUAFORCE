@@ -14,9 +14,10 @@
 - **Instances:** 4,066 de-identified English dialogues, each containing
   speaker turns and dialogue-level annotations.
 - **Splits:** 3,432 training dialogues and 634 disjoint held-out dialogues.
-- **Labels:** A binary reference label, a 0--5 reference intensity, a released
-  overall intensity prediction, seven continuous dimension scores with
-  four-level discretizations, and multi-label strategy annotations.
+- **Labels:** A binary reference label, a 0--5 reference intensity, a model-
+  derived overall intensity prediction, seven model-derived continuous
+  dimension scores with four-level discretizations, and model-derived
+  multi-label strategy annotations.
 - **Dimensions:** Directive force, option constraint, normative pressure,
   emotional pressure, deceptiveness, toxicity, and explicitness.
 - **Modalities:** Text only. No audio, images, user profiles, or identifying
@@ -26,10 +27,13 @@
 
 ## Labeling and quality checks
 
-- **Label production:** A frozen instruction-tuned model at temperature 0
+- **Reference labels:** The binary pressure label and 0--5 intensity are the
+  evaluation targets stored in `gold_binary` and `gold_multi`.
+- **Derived labels:** A frozen instruction-tuned model at temperature 0
   follows a three-stage decision procedure: identify a listener-directed
   action or decision, assign applicable strategy types, and assign intensity
-  and dimension scores. Outputs are constrained to a JSON schema.
+  and dimension scores. Outputs are constrained to a JSON schema. These
+  derived fields are kept separate from the reference labels.
 - **Human agreement:** A stratified sample of 150 dialogues was labeled
   independently by two annotators without access to model outputs. The paper
   reports agreement for the discrete labels.

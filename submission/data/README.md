@@ -1,9 +1,9 @@
 # LINGUAFORCE Dataset (Release v1)
 
 LINGUAFORCE contains 4,066 de-identified English multi-turn dialogues. Each
-dialogue has a seven-dimension agentive-force profile, a strategy taxonomy,
-and intensity labels produced by a frozen instruction-tuned model at
-temperature 0.
+dialogue has reference pressure labels together with model-derived strategy,
+intensity, and seven-dimension fields. The derived fields were produced by a
+frozen instruction-tuned model at temperature 0.
 
 ## Files
 
@@ -38,8 +38,9 @@ Each line is one JSON object:
 ```
 
 `gold_binary` is the binary reference label used for evaluation. `gold_multi`
-is the ordinal reference intensity on a 0--5 scale. `intensity` is the
-released overall intensity prediction. Each dimension has a continuous
+is the reference intensity on a 0--5 scale. `intensity` is the model-derived
+overall intensity prediction. The reference labels are evaluation targets and
+are distinct from the model-derived fields. Each dimension has a continuous
 `score` in [0, 1] and a four-level `level`:
 
 ```text

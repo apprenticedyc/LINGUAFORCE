@@ -2,57 +2,46 @@
 
 **Benchmarking Agentive Force in Dialogues via Unified Measurement Dimensions**
 
-LINGUAFORCE is a benchmark for measuring how language can pressure, constrain,
-or steer a listener's decision in English multi-turn dialogue. The release
-combines a seven-dimension measurement space, a fifteen-type strategy
-taxonomy, dialogue-level intensity labels, and reproducible evaluation outputs.
+[中文说明](README_zh.md) | [Paper PDF](submission/paper/main.pdf) | [Release package](submission/)
 
-LINGUAFORCE 是一个用于分析英语多轮对话中语言如何施加压力、限制选择或引导听者决策的基准数据集。项目提供七维测量空间、十五类策略分类体系、对话级强度标签，以及可复现的实验结果。
+LINGUAFORCE is a benchmark for measuring how language pressures, constrains,
+or steers a listener's decision in English multi-turn dialogue. It combines a
+seven-dimension measurement space, a fifteen-type strategy taxonomy,
+dialogue-level reference labels, model-derived profiles, and deterministic
+evaluation outputs.
 
-## Overview | 项目概览
+## Benchmark
 
-| Item | Details |
+| Property | Value |
 |---|---|
-| Language / 语言 | English / 英语 |
-| Dialogues / 对话数 | 4,066 |
-| Training split / 训练集 | 3,432 dialogues |
-| Held-out split / 留出集 | 634 dialogues |
-| Dimensions / 测量维度 | 7 |
-| Strategy types / 策略类型 | 15 types in 4 families / 4 个家族共 15 类 |
-| Intensity / 强度 | 0--5 ordinal scale / 0--5 有序等级 |
-| Main modalities / 数据形式 | De-identified multi-turn text / 去标识化多轮文本 |
+| Language | English |
+| Dialogues | 4,066 |
+| Training split | 3,432 dialogues |
+| Held-out split | 634 dialogues |
+| Measurement dimensions | 7 |
+| Strategy types | 15 types in 4 families |
+| Intensity | Ordinal scale from 0 to 5 |
+| Input | De-identified multi-turn dialogue text |
 
 The seven dimensions are directive force, option constraint, normative
 pressure, emotional pressure, deceptiveness, toxicity, and explicitness.
 
-七个维度分别是指令性力量、选项约束、规范压力、情绪压力、欺骗性、攻击性和显性程度。
+## Tasks
 
-## Tasks and evaluation | 任务与评测
+- **T1: Pressure detection.** Predict whether a dialogue contains
+  listener-directed pressure.
+- **T2: Strategy recognition.** Predict the applicable strategy types.
+- **T3: Intensity prediction.** Predict dialogue-level intensity on a 0--5
+  ordinal scale.
+- **Cross-domain transfer.** Evaluate the dimension profile on related public
+  dialogue resources.
 
-The release supports three main tasks and a transfer evaluation:
+## Reported results
 
-项目包含三个主要任务和一项迁移评测：
+The release contains the outputs needed to verify these metrics without
+calling an external model provider.
 
-1. **T1: Binary detection**: predict whether a dialogue contains
-   listener-directed pressure.
-2. **T2: Strategy recognition**: predict the applicable strategy types.
-3. **T3: Intensity prediction**: estimate the dialogue-level intensity on a
-   0--5 scale.
-4. **Transfer evaluation**: test whether the dimension representation transfers
-   to related dialogue resources.
-
-1. **T1：二分类检测**：判断对话是否包含面向听者的压力。
-2. **T2：策略识别**：预测对话中出现的策略类型。
-3. **T3：强度预测**：预测对话级别的 0--5 强度。
-4. **迁移评测**：检验维度表示能否迁移到相关对话数据。
-
-## Reported results | 主要结果
-
-The deterministic verification script reports the following headline metrics:
-
-验证脚本复现的主要指标如下：
-
-| Evaluation | Binary AUC | Intensity Spearman |
+| Evaluation split | Binary AUC | Intensity Spearman rho |
 |---|---:|---:|
 | Training split | 0.852 | 0.651 |
 | Held-out split | 0.831 | 0.665 |
@@ -60,81 +49,62 @@ The deterministic verification script reports the following headline metrics:
 Cross-domain AUROC is 0.742 on MentalManip, 0.706 on MultiManip, 0.729 on
 TalkDown, and 0.587 on ToxiChat.
 
-跨领域 AUROC 分别为：MentalManip 0.742、MultiManip 0.706、TalkDown 0.729、ToxiChat 0.587。
-
-## Repository structure | 仓库结构
+## Repository
 
 ```text
 .
 ├── README.md
+├── README_zh.md
 └── submission/
-    ├── paper/       # Paper source, PDF, bibliography, and figures
+    ├── paper/       # Paper PDF, source, bibliography, and figures
     ├── data/        # JSONL releases and data documentation
-    ├── code/        # Evaluation and reproduction scripts
-    ├── results/     # Released outputs used by the paper
+    ├── code/        # Evaluation and analysis scripts
+    ├── results/     # Outputs used by the reported experiments
     ├── requirements.txt
     ├── CITATION.cff
     └── SHA256SUMS
 ```
 
-```text
-.
-├── README.md       # 仓库总说明
-└── submission/
-    ├── paper/       # 论文源文件、PDF、参考文献和图片
-    ├── data/        # JSONL 数据文件和数据说明
-    ├── code/        # 评测与复现实验脚本
-    ├── results/     # 论文使用的已发布结果
-    ├── requirements.txt
-    ├── CITATION.cff
-    └── SHA256SUMS
-```
+The release package has its own [English README](submission/README.md) and
+[Chinese README](submission/README_zh.md).
 
-## Reproduction | 复现方法
+## Reproduction
 
-Run the commands from `submission/`:
-
-在 `submission/` 目录下运行：
+The commands below reproduce the deterministic metrics from the included data
+and result files. They do not require API credentials or GPU access.
 
 ```bash
+cd submission
+python3 -m pip install -r requirements.txt
+
+# Main metrics and cross-domain results
 python3 code/verify_paper.py
-python3 code/make_figs_release.py
+python3 code/eval_transfer.py
+
+# CPU-only analyses reported in the paper
 python3 code/ablation_linear_readout.py
 python3 code/run_t2_rq3.py
 ```
 
-To compile the paper:
-
-编译论文：
+To regenerate the release figures:
 
 ```bash
-cd paper
-tectonic -X compile main.tex
+python3 code/make_figs_release.py
 ```
 
-The package includes the released outputs needed for deterministic checks.
-External model-provider calls, credentials, and private workbooks are not
-included.
+The included JSONL/JSON files are the outputs used for the reported results.
+Provider calls, credentials, private annotation workbooks, and local
+configuration files are not part of the release.
 
-发布包中包含复现确定性评测所需的结果文件，不包含外部模型服务调用、密钥或私人标注工作簿。
+## Data
 
-## Data and responsible use | 数据与规范使用
+See [`submission/data/README.md`](submission/data/README.md) for the schema,
+split statistics, and field definitions. The reference labels used as
+evaluation targets are kept distinct from model-derived intensity, dimension,
+and strategy fields. The [datasheet](submission/data/datasheet.md) documents
+intended use, privacy scope, and known limitations.
 
-The data consists of de-identified English dialogue text and derived
-annotations for research use. Some dialogues contain threats, insults,
-deception, or other distressing language. The release should not be used for
-surveillance, consequential decisions about individuals, or automated
-moderation without human review.
-
-数据由去标识化英语对话文本及其派生标注组成，仅供研究使用。部分对话包含威胁、辱骂、欺骗或其他令人不适的语言内容。不得将其用于监控、对个人作出重要决策，或在没有人工复核的情况下进行自动化审核。
-
-Review the documentation in [`submission/data/`](submission/data/) and the
-release checklist before redistribution. The applicable license and required
-attribution notice must be finalized before public release.
-
-重新发布前请阅读 [`submission/data/`](submission/data/) 中的数据说明和发布清单，并确认适用许可证及必要的署名信息。
-
-## Citation | 引用
+## Citation
 
 ```bibtex
 @misc{linguaforce2026,
@@ -144,13 +114,18 @@ attribution notice must be finalized before public release.
 }
 ```
 
-The machine-readable citation record is available at
+Machine-readable citation metadata is available in
 [`submission/CITATION.cff`](submission/CITATION.cff).
 
-机器可读的引用信息见 [`submission/CITATION.cff`](submission/CITATION.cff)。
+## Responsible use
 
-## Contact | 联系方式
+The dialogues may contain threats, insults, deception, or other distressing
+language. The release is intended for research on dialogue analysis and
+detection. Do not use it for surveillance, consequential decisions about
+individuals, or automated moderation without human review.
 
-See the author and venue metadata in the paper source and `CITATION.cff`.
+## License
 
-作者和投稿 venue 信息请以论文源文件和 `CITATION.cff` 为准。
+The applicable text and dataset license, together with the required
+attribution notice, must be finalized before public redistribution. See
+[`submission/PUBLIC_RELEASE_CHECKLIST.md`](submission/PUBLIC_RELEASE_CHECKLIST.md).
