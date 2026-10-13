@@ -1,72 +1,76 @@
-# Datasheet: LINGUAFORCE
+# LINGUAFORCE Datasheet
 
-## Motivation
+## Purpose
 
-- **Purpose:** LINGUAFORCE measures how language can pressure, constrain, or
-  steer a listener's decision in everyday multi-turn dialogue.
-- **Scope:** The release covers English dialogue, seven measurement
-  dimensions, a fifteen-type strategy taxonomy, and 0--5 intensity labels.
-- **Creators and funding:** The dataset was prepared by the paper authors for
-  academic research. No external funding was used.
+LINGUAFORCE evaluates pressure presence, intensity, strategies, and seven
+dimensions in English dialogue. Ordinary requests and reasoned persuasion
+provide contrasting examples. Labels concern text, not actual compliance
+or psychological harm.
+
+## Dialogue Construction
+
+The dialogues were manually collected, organized, and written in English
+around common everyday interaction scenarios. They are not presented as
+verbatim real-world chat logs. This is a scenario-based collection, not a
+probability sample of conversation. Collection dates, proportions of
+collected versus authored examples, and scenario-level provenance are not
+recorded in released rows. Text construction and annotation are separate.
 
 ## Composition
 
-- **Instances:** 4,066 de-identified English dialogues, each containing
-  speaker turns and dialogue-level annotations.
-- **Splits:** 3,432 training dialogues and 634 disjoint held-out dialogues.
-- **Labels:** A binary reference label, a 0--5 reference intensity, a model-
-  derived overall intensity prediction, seven model-derived continuous
-  dimension scores with four-level discretizations, and model-derived
-  multi-label strategy annotations.
-- **Dimensions:** Directive force, option constraint, normative pressure,
-  emotional pressure, deceptiveness, toxicity, and explicitness.
-- **Modalities:** Text only. No audio, images, user profiles, or identifying
-  metadata are included.
-- **Sampling:** The release is a convenience sample of everyday dialogue and
-  is not intended to represent every language, culture, or social setting.
+There are 4,066 dialogues: 3,144 pressure and 922 no pressure.
+The 3,432-dialogue development pool is divided into 3,088 training and 344
+validation records with seed 2026, stratified by intensity. The fixed test
+set contains 634 dialogues (504 pressure, 130 no pressure).
+All four targets are human labels: binary pressure (0/1), intensity (0–5),
+seven dimensions (0–3), and fifteen non-exclusive binary strategies.
+The schema and split IDs are in `human/`.
 
-## Labeling and quality checks
+## Annotation and Quality
 
-- **Reference labels:** The binary pressure label and 0--5 intensity are the
-  evaluation targets stored in `gold_binary` and `gold_multi`.
-- **Derived labels:** A frozen instruction-tuned model at temperature 0
-  follows a three-stage decision procedure: identify a listener-directed
-  action or decision, assign applicable strategy types, and assign intensity
-  and dimension scores. Outputs are constrained to a JSON schema. These
-  derived fields are kept separate from the reference labels.
-- **Human agreement:** A stratified sample of 150 dialogues was labeled
-  independently by two annotators without access to model outputs. The paper
-  reports agreement for the discrete labels.
-- **Quality checks:** The release reports correlations with the reference
-  binary and intensity labels, classification AUC, monotonicity tests,
-  dimension-space correlations, ablations, and cross-domain transfer.
-- **Known limitations:** The dimension and strategy labels may contain model
-  bias. Strategy frequencies are imbalanced, and many dialogues contain more
-  than one strategy.
+Twenty computer science graduate students proficient in English dialogue
+read the shared guidelines and independently labeled twenty non-overlapping
+batches without consulting others' answers. Each dialogue received one
+annotation. Participation was voluntary and unpaid. The supplied worksheets
+did not contain model predictions. Original Chinese instructions and their
+English translation are included.
 
-## Data handling and privacy
+No independent duplicate annotation or adjudication was performed.
+Inter-annotator agreement is unavailable. Structural checks verify coverage,
+ranges, normalized exact duplicates, and binary/intensity consistency.
+They do not establish label correctness.
 
-- **Text:** The dialogues are de-identified English text describing everyday
-  scenarios. No real-person identifiers are intentionally included.
-- **Privacy:** Do not use the release for surveillance, automated decisions
-  about individuals, or moderation without human review.
-- **Sensitive content:** Some dialogues contain threats, insults, deception,
-  or other distressing language. Users should provide appropriate review and
-  opt-out procedures in human studies.
+## Evaluation
 
-## Intended use
+Four tasks use the fixed test set. Three zero-shot language models are
+compared with supervised word/character TF-IDF and constant baselines.
+Prompts, settings, raw predictions, scoring code, per-label results, and
+paired pressure bootstrap intervals are supplied. Test labels are targets,
+not inference-time features. A separate matched Qwen3-4B LoRA diagnostic
+uses the same test requests before and after training. Its saved responses,
+available settings, validity counts, and paired intervals are released;
+managed-service training code and adapter weights are not distributed.
 
-The release is intended for research on computational pragmatics, language
-influence, dialogue analysis, model evaluation, and detection of harmful
-interaction patterns. It is not intended to generate or optimize manipulative
-messages.
+## Privacy and Permissions
 
-## Distribution and maintenance
+The creators state that the dialogue texts may be released. References to
+people in everyday scenarios are not verified accounts of identifiable
+individuals. No institutional ethics approval, formal participant-consent
+procedure, or independently certified anonymization is asserted.
+The supplement excludes annotator identities, workbook metadata, credentials,
+and author-identifying repository links. Automated identifier checks do
+not certify removal of all contextual identifiers.
 
-- **License:** Research use only. Review the applicable license and required
-  attribution before redistribution.
-- **Package:** The repository includes the paper, data, derived results, and
-  deterministic analysis scripts. Provider credentials and private workbooks
-  are excluded.
-- **Maintenance:** Future corrections or extensions should be released as
-  versioned updates with a corresponding changelog.
+## Intended Use and Limitations
+
+Intended use is research on dialogue understanding and model evaluation.
+Content may include threats, deception, insults, and distressing language.
+It is not appropriate for diagnosis, surveillance, or unattended decisions
+about individuals. The data cover English scenarios and an imbalanced,
+predefined inventory. Exact-duplicate checks do not rule out paraphrases or
+shared templates. Single annotations introduce unmeasured variability.
+
+## Distribution
+
+The creators authorize release. This is an anonymous review distribution;
+a specific public reuse license has not been selected. See `../TERMS.md`.

@@ -1,0 +1,521 @@
+{
+  "constant": {
+    "expected_n": 634,
+    "returned_n": 634,
+    "pressure": {
+      "n": 634,
+      "f1": 0.8857644991212654,
+      "auroc_n": 634,
+      "auroc": 0.5
+    },
+    "intensity": {
+      "n": 634,
+      "mae": 1.113564668769716,
+      "qwk": 0.0
+    },
+    "strategies": {
+      "n": 634,
+      "macro_f1": 0.046454265159301136,
+      "micro_f1": 0.2314783202458177
+    },
+    "strategy_details": {
+      "A1_Request_Advice": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 258
+      },
+      "A2_Directive_Order": {
+        "precision": 0.5347003154574133,
+        "recall": 1.0,
+        "f1": 0.696813977389517,
+        "support": 339
+      },
+      "A3_Rational_Persuasion": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 75
+      },
+      "B1_Promise_Inducement": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 39
+      },
+      "B2_Threat_Warning": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 121
+      },
+      "C1_Moral_Appeal_Guilt": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 300
+      },
+      "C2_Obligation_Duty": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 302
+      },
+      "C3_Value_Judgement_Shaming": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 226
+      },
+      "C4_Authority": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 56
+      },
+      "C5_Conformity_Social_Proof": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 153
+      },
+      "C6_Reciprocity_Debt": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 121
+      },
+      "D1_Emotional_Manipulation": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 115
+      },
+      "D2_Deception_Gaslighting": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "D3_Logical_Trap_False_Dilemma": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 42
+      },
+      "D4_Verbal_Abuse_Toxicity": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 143
+      }
+    },
+    "dimensions": {
+      "D1": {
+        "n": 634,
+        "mae": 0.8974763406940063,
+        "qwk": 0.0
+      },
+      "D2": {
+        "n": 634,
+        "mae": 0.9069400630914827,
+        "qwk": 0.0
+      },
+      "D3": {
+        "n": 634,
+        "mae": 0.9905362776025236,
+        "qwk": 0.0
+      },
+      "D4": {
+        "n": 634,
+        "mae": 0.7965299684542587,
+        "qwk": 0.0
+      },
+      "D5": {
+        "n": 634,
+        "mae": 0.02365930599369085,
+        "qwk": 0.0
+      },
+      "D6": {
+        "n": 634,
+        "mae": 0.7460567823343849,
+        "qwk": 0.0
+      },
+      "D7": {
+        "n": 634,
+        "mae": 0.9589905362776026,
+        "qwk": 0.0
+      }
+    },
+    "dimension_profile_n": 634,
+    "dimension_profile_mae": 0.7600270392068499,
+    "dimension_profile_qwk": 0.0,
+    "usage": {
+      "total_tokens": 0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  },
+  "word": {
+    "settings": {
+      "seed": 2026,
+      "ngram": [
+        1,
+        2
+      ],
+      "pressure_C": 1,
+      "pressure_threshold": 0.62,
+      "strategy_C": 10,
+      "strategy_threshold": 0.3,
+      "ridge_alphas": [
+        1,
+        0.1,
+        1,
+        0.1,
+        1,
+        0.1,
+        0.1,
+        1
+      ]
+    },
+    "expected_n": 634,
+    "returned_n": 634,
+    "pressure": {
+      "n": 634,
+      "f1": 0.9416342412451362,
+      "auroc_n": 634,
+      "auroc": 0.9494505494505495
+    },
+    "intensity": {
+      "n": 634,
+      "mae": 0.6829652996845426,
+      "qwk": 0.736232130580539
+    },
+    "strategies": {
+      "n": 634,
+      "macro_f1": 0.5729038811108623,
+      "micro_f1": 0.7377049180327869
+    },
+    "strategy_details": {
+      "A1_Request_Advice": {
+        "precision": 0.6822429906542056,
+        "recall": 0.8488372093023255,
+        "f1": 0.7564766839378239,
+        "support": 258
+      },
+      "A2_Directive_Order": {
+        "precision": 0.7488262910798122,
+        "recall": 0.9410029498525073,
+        "f1": 0.8339869281045752,
+        "support": 339
+      },
+      "A3_Rational_Persuasion": {
+        "precision": 0.5588235294117647,
+        "recall": 0.25333333333333335,
+        "f1": 0.3486238532110092,
+        "support": 75
+      },
+      "B1_Promise_Inducement": {
+        "precision": 0.5,
+        "recall": 0.07692307692307693,
+        "f1": 0.13333333333333333,
+        "support": 39
+      },
+      "B2_Threat_Warning": {
+        "precision": 0.6464646464646465,
+        "recall": 0.5289256198347108,
+        "f1": 0.5818181818181818,
+        "support": 121
+      },
+      "C1_Moral_Appeal_Guilt": {
+        "precision": 0.7087628865979382,
+        "recall": 0.9166666666666666,
+        "f1": 0.7994186046511628,
+        "support": 300
+      },
+      "C2_Obligation_Duty": {
+        "precision": 0.7541436464088398,
+        "recall": 0.9039735099337748,
+        "f1": 0.822289156626506,
+        "support": 302
+      },
+      "C3_Value_Judgement_Shaming": {
+        "precision": 0.7078189300411523,
+        "recall": 0.7610619469026548,
+        "f1": 0.7334754797441365,
+        "support": 226
+      },
+      "C4_Authority": {
+        "precision": 0.59375,
+        "recall": 0.3392857142857143,
+        "f1": 0.4318181818181818,
+        "support": 56
+      },
+      "C5_Conformity_Social_Proof": {
+        "precision": 0.6533333333333333,
+        "recall": 0.6405228758169934,
+        "f1": 0.6468646864686468,
+        "support": 153
+      },
+      "C6_Reciprocity_Debt": {
+        "precision": 0.7606837606837606,
+        "recall": 0.7355371900826446,
+        "f1": 0.7478991596638656,
+        "support": 121
+      },
+      "D1_Emotional_Manipulation": {
+        "precision": 0.5344827586206896,
+        "recall": 0.5391304347826087,
+        "f1": 0.5367965367965368,
+        "support": 115
+      },
+      "D2_Deception_Gaslighting": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "D3_Logical_Trap_False_Dilemma": {
+        "precision": 0.6428571428571429,
+        "recall": 0.21428571428571427,
+        "f1": 0.32142857142857145,
+        "support": 42
+      },
+      "D4_Verbal_Abuse_Toxicity": {
+        "precision": 0.864516129032258,
+        "recall": 0.9370629370629371,
+        "f1": 0.8993288590604027,
+        "support": 143
+      }
+    },
+    "dimensions": {
+      "D1": {
+        "n": 634,
+        "mae": 0.5757097791798107,
+        "qwk": 0.6509631205849241
+      },
+      "D2": {
+        "n": 634,
+        "mae": 0.4416403785488959,
+        "qwk": 0.6783856697224135
+      },
+      "D3": {
+        "n": 634,
+        "mae": 0.5599369085173501,
+        "qwk": 0.7042954034823954
+      },
+      "D4": {
+        "n": 634,
+        "mae": 0.5110410094637224,
+        "qwk": 0.5927514014111789
+      },
+      "D5": {
+        "n": 634,
+        "mae": 0.025236593059936908,
+        "qwk": 0.23638668779714744
+      },
+      "D6": {
+        "n": 634,
+        "mae": 0.334384858044164,
+        "qwk": 0.838763943058332
+      },
+      "D7": {
+        "n": 634,
+        "mae": 0.5063091482649842,
+        "qwk": 0.7158374662675333
+      }
+    },
+    "dimension_profile_n": 634,
+    "dimension_profile_mae": 0.4220369535826949,
+    "dimension_profile_qwk": 0.6310548131891321,
+    "usage": {
+      "total_tokens": 0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  },
+  "char": {
+    "settings": {
+      "seed": 2026,
+      "ngram": [
+        3,
+        5
+      ],
+      "pressure_C": 1,
+      "pressure_threshold": 0.6,
+      "strategy_C": 10,
+      "strategy_threshold": 0.3,
+      "ridge_alphas": [
+        1,
+        1,
+        1,
+        0.1,
+        1,
+        0.1,
+        1,
+        1
+      ]
+    },
+    "expected_n": 634,
+    "returned_n": 634,
+    "pressure": {
+      "n": 634,
+      "f1": 0.9430255402750491,
+      "auroc_n": 634,
+      "auroc": 0.9475885225885226
+    },
+    "intensity": {
+      "n": 634,
+      "mae": 0.6419558359621451,
+      "qwk": 0.7647087931119798
+    },
+    "strategies": {
+      "n": 634,
+      "macro_f1": 0.5704810137842226,
+      "micro_f1": 0.7323647083596546
+    },
+    "strategy_details": {
+      "A1_Request_Advice": {
+        "precision": 0.6837060702875399,
+        "recall": 0.8294573643410853,
+        "f1": 0.7495621716287215,
+        "support": 258
+      },
+      "A2_Directive_Order": {
+        "precision": 0.7393364928909952,
+        "recall": 0.9203539823008849,
+        "f1": 0.8199737187910644,
+        "support": 339
+      },
+      "A3_Rational_Persuasion": {
+        "precision": 0.47368421052631576,
+        "recall": 0.24,
+        "f1": 0.3185840707964602,
+        "support": 75
+      },
+      "B1_Promise_Inducement": {
+        "precision": 0.625,
+        "recall": 0.1282051282051282,
+        "f1": 0.2127659574468085,
+        "support": 39
+      },
+      "B2_Threat_Warning": {
+        "precision": 0.5981308411214953,
+        "recall": 0.5289256198347108,
+        "f1": 0.5614035087719298,
+        "support": 121
+      },
+      "C1_Moral_Appeal_Guilt": {
+        "precision": 0.7158176943699732,
+        "recall": 0.89,
+        "f1": 0.7934621099554234,
+        "support": 300
+      },
+      "C2_Obligation_Duty": {
+        "precision": 0.7647058823529411,
+        "recall": 0.9039735099337748,
+        "f1": 0.8285280728376327,
+        "support": 302
+      },
+      "C3_Value_Judgement_Shaming": {
+        "precision": 0.7330508474576272,
+        "recall": 0.7654867256637168,
+        "f1": 0.7489177489177489,
+        "support": 226
+      },
+      "C4_Authority": {
+        "precision": 0.5789473684210527,
+        "recall": 0.39285714285714285,
+        "f1": 0.46808510638297873,
+        "support": 56
+      },
+      "C5_Conformity_Social_Proof": {
+        "precision": 0.684931506849315,
+        "recall": 0.6535947712418301,
+        "f1": 0.6688963210702341,
+        "support": 153
+      },
+      "C6_Reciprocity_Debt": {
+        "precision": 0.7327586206896551,
+        "recall": 0.7024793388429752,
+        "f1": 0.7172995780590717,
+        "support": 121
+      },
+      "D1_Emotional_Manipulation": {
+        "precision": 0.504,
+        "recall": 0.5478260869565217,
+        "f1": 0.525,
+        "support": 115
+      },
+      "D2_Deception_Gaslighting": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "D3_Logical_Trap_False_Dilemma": {
+        "precision": 0.5,
+        "recall": 0.16666666666666666,
+        "f1": 0.25,
+        "support": 42
+      },
+      "D4_Verbal_Abuse_Toxicity": {
+        "precision": 0.84472049689441,
+        "recall": 0.951048951048951,
+        "f1": 0.8947368421052632,
+        "support": 143
+      }
+    },
+    "dimensions": {
+      "D1": {
+        "n": 634,
+        "mae": 0.5694006309148265,
+        "qwk": 0.640370159796475
+      },
+      "D2": {
+        "n": 634,
+        "mae": 0.443217665615142,
+        "qwk": 0.6810813938164741
+      },
+      "D3": {
+        "n": 634,
+        "mae": 0.5741324921135647,
+        "qwk": 0.7033020516148356
+      },
+      "D4": {
+        "n": 634,
+        "mae": 0.5141955835962145,
+        "qwk": 0.5985817399012283
+      },
+      "D5": {
+        "n": 634,
+        "mae": 0.02365930599369085,
+        "qwk": 0.12589952249646919
+      },
+      "D6": {
+        "n": 634,
+        "mae": 0.3312302839116719,
+        "qwk": 0.8381564914148002
+      },
+      "D7": {
+        "n": 634,
+        "mae": 0.5094637223974764,
+        "qwk": 0.7121934053559489
+      }
+    },
+    "dimension_profile_n": 634,
+    "dimension_profile_mae": 0.423614240648941,
+    "dimension_profile_qwk": 0.6142263949137473,
+    "usage": {
+      "total_tokens": 0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  }
+}

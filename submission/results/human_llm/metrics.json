@@ -1,0 +1,1005 @@
+{
+  "gpt": {
+    "expected_n": 634,
+    "returned_n": 634,
+    "pressure": {
+      "n": 634,
+      "f1": 0.958984375,
+      "auroc_n": 634,
+      "auroc": 0.9472222222222222
+    },
+    "intensity": {
+      "n": 634,
+      "mae": 0.610410094637224,
+      "qwk": 0.7907396750561613
+    },
+    "strategies": {
+      "n": 634,
+      "macro_f1": 0.6095440904390815,
+      "micro_f1": 0.6846553966189857
+    },
+    "strategy_details": {
+      "A1_Request_Advice": {
+        "precision": 0.47876447876447875,
+        "recall": 0.9612403100775194,
+        "f1": 0.6391752577319587,
+        "support": 258
+      },
+      "A2_Directive_Order": {
+        "precision": 0.7855297157622739,
+        "recall": 0.8967551622418879,
+        "f1": 0.837465564738292,
+        "support": 339
+      },
+      "A3_Rational_Persuasion": {
+        "precision": 0.1787878787878788,
+        "recall": 0.7866666666666666,
+        "f1": 0.291358024691358,
+        "support": 75
+      },
+      "B1_Promise_Inducement": {
+        "precision": 0.5,
+        "recall": 0.7435897435897436,
+        "f1": 0.5979381443298969,
+        "support": 39
+      },
+      "B2_Threat_Warning": {
+        "precision": 0.5203619909502263,
+        "recall": 0.9504132231404959,
+        "f1": 0.672514619883041,
+        "support": 121
+      },
+      "C1_Moral_Appeal_Guilt": {
+        "precision": 0.6704288939051919,
+        "recall": 0.99,
+        "f1": 0.7994616419919246,
+        "support": 300
+      },
+      "C2_Obligation_Duty": {
+        "precision": 0.7526315789473684,
+        "recall": 0.9470198675496688,
+        "f1": 0.8387096774193549,
+        "support": 302
+      },
+      "C3_Value_Judgement_Shaming": {
+        "precision": 0.6032608695652174,
+        "recall": 0.9823008849557522,
+        "f1": 0.7474747474747475,
+        "support": 226
+      },
+      "C4_Authority": {
+        "precision": 0.6538461538461539,
+        "recall": 0.6071428571428571,
+        "f1": 0.6296296296296297,
+        "support": 56
+      },
+      "C5_Conformity_Social_Proof": {
+        "precision": 0.6486486486486487,
+        "recall": 0.7843137254901961,
+        "f1": 0.7100591715976331,
+        "support": 153
+      },
+      "C6_Reciprocity_Debt": {
+        "precision": 0.7552447552447552,
+        "recall": 0.8925619834710744,
+        "f1": 0.8181818181818182,
+        "support": 121
+      },
+      "D1_Emotional_Manipulation": {
+        "precision": 0.2697201017811705,
+        "recall": 0.9217391304347826,
+        "f1": 0.41732283464566927,
+        "support": 115
+      },
+      "D2_Deception_Gaslighting": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "D3_Logical_Trap_False_Dilemma": {
+        "precision": 0.2727272727272727,
+        "recall": 0.8571428571428571,
+        "f1": 0.41379310344827586,
+        "support": 42
+      },
+      "D4_Verbal_Abuse_Toxicity": {
+        "precision": 0.5772357723577236,
+        "recall": 0.993006993006993,
+        "f1": 0.7300771208226221,
+        "support": 143
+      }
+    },
+    "dimensions": {
+      "D1": {
+        "n": 634,
+        "mae": 0.61198738170347,
+        "qwk": 0.628355001930865
+      },
+      "D2": {
+        "n": 634,
+        "mae": 0.3753943217665615,
+        "qwk": 0.7366911442150702
+      },
+      "D3": {
+        "n": 634,
+        "mae": 0.42586750788643535,
+        "qwk": 0.7663572948068144
+      },
+      "D4": {
+        "n": 634,
+        "mae": 0.6703470031545742,
+        "qwk": 0.5854496214923574
+      },
+      "D5": {
+        "n": 634,
+        "mae": 0.0473186119873817,
+        "qwk": 0.08490128357131821
+      },
+      "D6": {
+        "n": 634,
+        "mae": 0.3722397476340694,
+        "qwk": 0.8171184996299514
+      },
+      "D7": {
+        "n": 634,
+        "mae": 0.5063091482649842,
+        "qwk": 0.6210005594006734
+      }
+    },
+    "dimension_profile_n": 634,
+    "dimension_exact_accuracy_all": 0.6667417755745831,
+    "dimension_profile_mae": 0.4299233889139252,
+    "dimension_profile_qwk": 0.6056962007210072,
+    "usage": {
+      "total_tokens": 666581,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "input_tokens": 460211,
+      "output_tokens": 206370
+    }
+  },
+  "qwen": {
+    "expected_n": 634,
+    "returned_n": 634,
+    "pressure": {
+      "n": 634,
+      "f1": 0.9534883720930233,
+      "auroc_n": 634,
+      "auroc": 0.9577915140415141
+    },
+    "intensity": {
+      "n": 634,
+      "mae": 0.8911671924290221,
+      "qwk": 0.714391501895548
+    },
+    "strategies": {
+      "n": 634,
+      "macro_f1": 0.5897983982273869,
+      "micro_f1": 0.6674128557723057
+    },
+    "strategy_details": {
+      "A1_Request_Advice": {
+        "precision": 0.64576802507837,
+        "recall": 0.7984496124031008,
+        "f1": 0.7140381282495667,
+        "support": 258
+      },
+      "A2_Directive_Order": {
+        "precision": 0.8597014925373134,
+        "recall": 0.8495575221238938,
+        "f1": 0.8545994065281899,
+        "support": 339
+      },
+      "A3_Rational_Persuasion": {
+        "precision": 0.27710843373493976,
+        "recall": 0.6133333333333333,
+        "f1": 0.3817427385892116,
+        "support": 75
+      },
+      "B1_Promise_Inducement": {
+        "precision": 0.44285714285714284,
+        "recall": 0.7948717948717948,
+        "f1": 0.5688073394495413,
+        "support": 39
+      },
+      "B2_Threat_Warning": {
+        "precision": 0.4219858156028369,
+        "recall": 0.9834710743801653,
+        "f1": 0.5905707196029777,
+        "support": 121
+      },
+      "C1_Moral_Appeal_Guilt": {
+        "precision": 0.6247379454926625,
+        "recall": 0.9933333333333333,
+        "f1": 0.767052767052767,
+        "support": 300
+      },
+      "C2_Obligation_Duty": {
+        "precision": 0.7410256410256411,
+        "recall": 0.956953642384106,
+        "f1": 0.8352601156069365,
+        "support": 302
+      },
+      "C3_Value_Judgement_Shaming": {
+        "precision": 0.5495049504950495,
+        "recall": 0.9823008849557522,
+        "f1": 0.7047619047619048,
+        "support": 226
+      },
+      "C4_Authority": {
+        "precision": 0.42016806722689076,
+        "recall": 0.8928571428571429,
+        "f1": 0.5714285714285714,
+        "support": 56
+      },
+      "C5_Conformity_Social_Proof": {
+        "precision": 0.5892857142857143,
+        "recall": 0.8627450980392157,
+        "f1": 0.7002652519893899,
+        "support": 153
+      },
+      "C6_Reciprocity_Debt": {
+        "precision": 0.6132596685082873,
+        "recall": 0.9173553719008265,
+        "f1": 0.7350993377483444,
+        "support": 121
+      },
+      "D1_Emotional_Manipulation": {
+        "precision": 0.22178988326848248,
+        "recall": 0.991304347826087,
+        "f1": 0.3624801271860095,
+        "support": 115
+      },
+      "D2_Deception_Gaslighting": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "D3_Logical_Trap_False_Dilemma": {
+        "precision": 0.1517509727626459,
+        "recall": 0.9285714285714286,
+        "f1": 0.2608695652173913,
+        "support": 42
+      },
+      "D4_Verbal_Abuse_Toxicity": {
+        "precision": 0.6698113207547169,
+        "recall": 0.993006993006993,
+        "f1": 0.8,
+        "support": 143
+      }
+    },
+    "dimensions": {
+      "D1": {
+        "n": 330,
+        "mae": 1.0757575757575757,
+        "qwk": 0.45751505392489344
+      },
+      "D2": {
+        "n": 569,
+        "mae": 0.8295254833040422,
+        "qwk": 0.5489455054936951
+      },
+      "D3": {
+        "n": 525,
+        "mae": 0.6495238095238095,
+        "qwk": 0.6426387473362365
+      },
+      "D4": {
+        "n": 391,
+        "mae": 1.0741687979539642,
+        "qwk": 0.44002113792496034
+      },
+      "D5": {
+        "n": 634,
+        "mae": 0.526813880126183,
+        "qwk": 0.035163365537596025
+      },
+      "D6": {
+        "n": 519,
+        "mae": 0.5741811175337187,
+        "qwk": 0.5594333925706103
+      },
+      "D7": {
+        "n": 374,
+        "mae": 0.7005347593582888,
+        "qwk": 0.6179541496022218
+      }
+    },
+    "dimension_profile_n": 295,
+    "dimension_exact_accuracy_all": 0.33145561063542134,
+    "dimension_profile_mae": 0.6305084745762712,
+    "dimension_profile_qwk": 0.5399218430336896,
+    "usage": {
+      "total_tokens": 620612,
+      "prompt_tokens": 480812,
+      "completion_tokens": 139800,
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  },
+  "deepseek": {
+    "expected_n": 634,
+    "returned_n": 634,
+    "pressure": {
+      "n": 634,
+      "f1": 0.9501915708812261,
+      "auroc_n": 634,
+      "auroc": 0.9539606227106228
+    },
+    "intensity": {
+      "n": 634,
+      "mae": 0.9968454258675079,
+      "qwk": 0.6303481996915883
+    },
+    "strategies": {
+      "n": 634,
+      "macro_f1": 0.5951437563244462,
+      "micro_f1": 0.6769078295341923
+    },
+    "strategy_details": {
+      "A1_Request_Advice": {
+        "precision": 0.7822222222222223,
+        "recall": 0.6821705426356589,
+        "f1": 0.7287784679089027,
+        "support": 258
+      },
+      "A2_Directive_Order": {
+        "precision": 0.8414985590778098,
+        "recall": 0.8613569321533924,
+        "f1": 0.8513119533527697,
+        "support": 339
+      },
+      "A3_Rational_Persuasion": {
+        "precision": 0.4222222222222222,
+        "recall": 0.5066666666666667,
+        "f1": 0.46060606060606063,
+        "support": 75
+      },
+      "B1_Promise_Inducement": {
+        "precision": 0.3924050632911392,
+        "recall": 0.7948717948717948,
+        "f1": 0.5254237288135594,
+        "support": 39
+      },
+      "B2_Threat_Warning": {
+        "precision": 0.4669421487603306,
+        "recall": 0.9338842975206612,
+        "f1": 0.6225895316804407,
+        "support": 121
+      },
+      "C1_Moral_Appeal_Guilt": {
+        "precision": 0.6361702127659574,
+        "recall": 0.9966666666666667,
+        "f1": 0.7766233766233767,
+        "support": 300
+      },
+      "C2_Obligation_Duty": {
+        "precision": 0.6939252336448598,
+        "recall": 0.9834437086092715,
+        "f1": 0.8136986301369863,
+        "support": 302
+      },
+      "C3_Value_Judgement_Shaming": {
+        "precision": 0.5257009345794392,
+        "recall": 0.995575221238938,
+        "f1": 0.6880733944954128,
+        "support": 226
+      },
+      "C4_Authority": {
+        "precision": 0.5517241379310345,
+        "recall": 0.8571428571428571,
+        "f1": 0.6713286713286714,
+        "support": 56
+      },
+      "C5_Conformity_Social_Proof": {
+        "precision": 0.675531914893617,
+        "recall": 0.8300653594771242,
+        "f1": 0.7448680351906158,
+        "support": 153
+      },
+      "C6_Reciprocity_Debt": {
+        "precision": 0.5721649484536082,
+        "recall": 0.9173553719008265,
+        "f1": 0.7047619047619048,
+        "support": 121
+      },
+      "D1_Emotional_Manipulation": {
+        "precision": 0.2356687898089172,
+        "recall": 0.9652173913043478,
+        "f1": 0.378839590443686,
+        "support": 115
+      },
+      "D2_Deception_Gaslighting": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "D3_Logical_Trap_False_Dilemma": {
+        "precision": 0.16740088105726872,
+        "recall": 0.9047619047619048,
+        "f1": 0.2825278810408922,
+        "support": 42
+      },
+      "D4_Verbal_Abuse_Toxicity": {
+        "precision": 0.5125448028673835,
+        "recall": 1.0,
+        "f1": 0.6777251184834123,
+        "support": 143
+      }
+    },
+    "dimensions": {
+      "D1": {
+        "n": 634,
+        "mae": 0.7886435331230284,
+        "qwk": 0.5192685620511619
+      },
+      "D2": {
+        "n": 634,
+        "mae": 0.4195583596214511,
+        "qwk": 0.691290661671407
+      },
+      "D3": {
+        "n": 634,
+        "mae": 0.5772870662460567,
+        "qwk": 0.6729073489392777
+      },
+      "D4": {
+        "n": 634,
+        "mae": 0.7429022082018928,
+        "qwk": 0.515825775762857
+      },
+      "D5": {
+        "n": 634,
+        "mae": 0.8943217665615142,
+        "qwk": 0.01196473806869991
+      },
+      "D6": {
+        "n": 634,
+        "mae": 0.5678233438485805,
+        "qwk": 0.7027692449115603
+      },
+      "D7": {
+        "n": 634,
+        "mae": 0.46214511041009465,
+        "qwk": 0.7152483014032498
+      }
+    },
+    "dimension_profile_n": 634,
+    "dimension_exact_accuracy_all": 0.5063091482649842,
+    "dimension_profile_mae": 0.6360973411446598,
+    "dimension_profile_qwk": 0.5470392332583163,
+    "usage": {
+      "total_tokens": 608684,
+      "prompt_tokens": 461596,
+      "completion_tokens": 147088,
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  },
+  "tfidf_word": {
+    "expected_n": 634,
+    "returned_n": 634,
+    "pressure": {
+      "n": 634,
+      "f1": 0.9416342412451362,
+      "auroc_n": 634,
+      "auroc": 0.9494505494505495
+    },
+    "intensity": {
+      "n": 634,
+      "mae": 0.6829652996845426,
+      "qwk": 0.736232130580539
+    },
+    "strategies": {
+      "n": 634,
+      "macro_f1": 0.5729038811108623,
+      "micro_f1": 0.7377049180327869
+    },
+    "strategy_details": {
+      "A1_Request_Advice": {
+        "precision": 0.6822429906542056,
+        "recall": 0.8488372093023255,
+        "f1": 0.7564766839378239,
+        "support": 258
+      },
+      "A2_Directive_Order": {
+        "precision": 0.7488262910798122,
+        "recall": 0.9410029498525073,
+        "f1": 0.8339869281045752,
+        "support": 339
+      },
+      "A3_Rational_Persuasion": {
+        "precision": 0.5588235294117647,
+        "recall": 0.25333333333333335,
+        "f1": 0.3486238532110092,
+        "support": 75
+      },
+      "B1_Promise_Inducement": {
+        "precision": 0.5,
+        "recall": 0.07692307692307693,
+        "f1": 0.13333333333333333,
+        "support": 39
+      },
+      "B2_Threat_Warning": {
+        "precision": 0.6464646464646465,
+        "recall": 0.5289256198347108,
+        "f1": 0.5818181818181818,
+        "support": 121
+      },
+      "C1_Moral_Appeal_Guilt": {
+        "precision": 0.7087628865979382,
+        "recall": 0.9166666666666666,
+        "f1": 0.7994186046511628,
+        "support": 300
+      },
+      "C2_Obligation_Duty": {
+        "precision": 0.7541436464088398,
+        "recall": 0.9039735099337748,
+        "f1": 0.822289156626506,
+        "support": 302
+      },
+      "C3_Value_Judgement_Shaming": {
+        "precision": 0.7078189300411523,
+        "recall": 0.7610619469026548,
+        "f1": 0.7334754797441365,
+        "support": 226
+      },
+      "C4_Authority": {
+        "precision": 0.59375,
+        "recall": 0.3392857142857143,
+        "f1": 0.4318181818181818,
+        "support": 56
+      },
+      "C5_Conformity_Social_Proof": {
+        "precision": 0.6533333333333333,
+        "recall": 0.6405228758169934,
+        "f1": 0.6468646864686468,
+        "support": 153
+      },
+      "C6_Reciprocity_Debt": {
+        "precision": 0.7606837606837606,
+        "recall": 0.7355371900826446,
+        "f1": 0.7478991596638656,
+        "support": 121
+      },
+      "D1_Emotional_Manipulation": {
+        "precision": 0.5344827586206896,
+        "recall": 0.5391304347826087,
+        "f1": 0.5367965367965368,
+        "support": 115
+      },
+      "D2_Deception_Gaslighting": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "D3_Logical_Trap_False_Dilemma": {
+        "precision": 0.6428571428571429,
+        "recall": 0.21428571428571427,
+        "f1": 0.32142857142857145,
+        "support": 42
+      },
+      "D4_Verbal_Abuse_Toxicity": {
+        "precision": 0.864516129032258,
+        "recall": 0.9370629370629371,
+        "f1": 0.8993288590604027,
+        "support": 143
+      }
+    },
+    "dimensions": {
+      "D1": {
+        "n": 634,
+        "mae": 0.5757097791798107,
+        "qwk": 0.6509631205849241
+      },
+      "D2": {
+        "n": 634,
+        "mae": 0.4416403785488959,
+        "qwk": 0.6783856697224135
+      },
+      "D3": {
+        "n": 634,
+        "mae": 0.5599369085173501,
+        "qwk": 0.7042954034823954
+      },
+      "D4": {
+        "n": 634,
+        "mae": 0.5110410094637224,
+        "qwk": 0.5927514014111789
+      },
+      "D5": {
+        "n": 634,
+        "mae": 0.025236593059936908,
+        "qwk": 0.23638668779714744
+      },
+      "D6": {
+        "n": 634,
+        "mae": 0.334384858044164,
+        "qwk": 0.838763943058332
+      },
+      "D7": {
+        "n": 634,
+        "mae": 0.5063091482649842,
+        "qwk": 0.7158374662675333
+      }
+    },
+    "dimension_profile_n": 634,
+    "dimension_exact_accuracy_all": 0.6178458765209554,
+    "dimension_profile_mae": 0.4220369535826949,
+    "dimension_profile_qwk": 0.6310548131891321,
+    "usage": {
+      "total_tokens": 0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "settings": {
+      "seed": 2026,
+      "ngram": [
+        1,
+        2
+      ],
+      "pressure_C": 1,
+      "pressure_threshold": 0.62,
+      "strategy_C": 10,
+      "strategy_threshold": 0.3,
+      "ridge_alphas": [
+        1,
+        0.1,
+        1,
+        0.1,
+        1,
+        0.1,
+        0.1,
+        1
+      ]
+    }
+  },
+  "tfidf_char": {
+    "expected_n": 634,
+    "returned_n": 634,
+    "pressure": {
+      "n": 634,
+      "f1": 0.9430255402750491,
+      "auroc_n": 634,
+      "auroc": 0.9475885225885226
+    },
+    "intensity": {
+      "n": 634,
+      "mae": 0.6419558359621451,
+      "qwk": 0.7647087931119798
+    },
+    "strategies": {
+      "n": 634,
+      "macro_f1": 0.5704810137842226,
+      "micro_f1": 0.7323647083596546
+    },
+    "strategy_details": {
+      "A1_Request_Advice": {
+        "precision": 0.6837060702875399,
+        "recall": 0.8294573643410853,
+        "f1": 0.7495621716287215,
+        "support": 258
+      },
+      "A2_Directive_Order": {
+        "precision": 0.7393364928909952,
+        "recall": 0.9203539823008849,
+        "f1": 0.8199737187910644,
+        "support": 339
+      },
+      "A3_Rational_Persuasion": {
+        "precision": 0.47368421052631576,
+        "recall": 0.24,
+        "f1": 0.3185840707964602,
+        "support": 75
+      },
+      "B1_Promise_Inducement": {
+        "precision": 0.625,
+        "recall": 0.1282051282051282,
+        "f1": 0.2127659574468085,
+        "support": 39
+      },
+      "B2_Threat_Warning": {
+        "precision": 0.5981308411214953,
+        "recall": 0.5289256198347108,
+        "f1": 0.5614035087719298,
+        "support": 121
+      },
+      "C1_Moral_Appeal_Guilt": {
+        "precision": 0.7158176943699732,
+        "recall": 0.89,
+        "f1": 0.7934621099554234,
+        "support": 300
+      },
+      "C2_Obligation_Duty": {
+        "precision": 0.7647058823529411,
+        "recall": 0.9039735099337748,
+        "f1": 0.8285280728376327,
+        "support": 302
+      },
+      "C3_Value_Judgement_Shaming": {
+        "precision": 0.7330508474576272,
+        "recall": 0.7654867256637168,
+        "f1": 0.7489177489177489,
+        "support": 226
+      },
+      "C4_Authority": {
+        "precision": 0.5789473684210527,
+        "recall": 0.39285714285714285,
+        "f1": 0.46808510638297873,
+        "support": 56
+      },
+      "C5_Conformity_Social_Proof": {
+        "precision": 0.684931506849315,
+        "recall": 0.6535947712418301,
+        "f1": 0.6688963210702341,
+        "support": 153
+      },
+      "C6_Reciprocity_Debt": {
+        "precision": 0.7327586206896551,
+        "recall": 0.7024793388429752,
+        "f1": 0.7172995780590717,
+        "support": 121
+      },
+      "D1_Emotional_Manipulation": {
+        "precision": 0.504,
+        "recall": 0.5478260869565217,
+        "f1": 0.525,
+        "support": 115
+      },
+      "D2_Deception_Gaslighting": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "D3_Logical_Trap_False_Dilemma": {
+        "precision": 0.5,
+        "recall": 0.16666666666666666,
+        "f1": 0.25,
+        "support": 42
+      },
+      "D4_Verbal_Abuse_Toxicity": {
+        "precision": 0.84472049689441,
+        "recall": 0.951048951048951,
+        "f1": 0.8947368421052632,
+        "support": 143
+      }
+    },
+    "dimensions": {
+      "D1": {
+        "n": 634,
+        "mae": 0.5694006309148265,
+        "qwk": 0.640370159796475
+      },
+      "D2": {
+        "n": 634,
+        "mae": 0.443217665615142,
+        "qwk": 0.6810813938164741
+      },
+      "D3": {
+        "n": 634,
+        "mae": 0.5741324921135647,
+        "qwk": 0.7033020516148356
+      },
+      "D4": {
+        "n": 634,
+        "mae": 0.5141955835962145,
+        "qwk": 0.5985817399012283
+      },
+      "D5": {
+        "n": 634,
+        "mae": 0.02365930599369085,
+        "qwk": 0.12589952249646919
+      },
+      "D6": {
+        "n": 634,
+        "mae": 0.3312302839116719,
+        "qwk": 0.8381564914148002
+      },
+      "D7": {
+        "n": 634,
+        "mae": 0.5094637223974764,
+        "qwk": 0.7121934053559489
+      }
+    },
+    "dimension_profile_n": 634,
+    "dimension_exact_accuracy_all": 0.6153672825597116,
+    "dimension_profile_mae": 0.423614240648941,
+    "dimension_profile_qwk": 0.6142263949137473,
+    "usage": {
+      "total_tokens": 0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "settings": {
+      "seed": 2026,
+      "ngram": [
+        3,
+        5
+      ],
+      "pressure_C": 1,
+      "pressure_threshold": 0.6,
+      "strategy_C": 10,
+      "strategy_threshold": 0.3,
+      "ridge_alphas": [
+        1,
+        1,
+        1,
+        0.1,
+        1,
+        0.1,
+        1,
+        1
+      ]
+    }
+  },
+  "tfidf_constant": {
+    "expected_n": 634,
+    "returned_n": 634,
+    "pressure": {
+      "n": 634,
+      "f1": 0.8857644991212654,
+      "auroc_n": 634,
+      "auroc": 0.5
+    },
+    "intensity": {
+      "n": 634,
+      "mae": 1.113564668769716,
+      "qwk": 0.0
+    },
+    "strategies": {
+      "n": 634,
+      "macro_f1": 0.046454265159301136,
+      "micro_f1": 0.2314783202458177
+    },
+    "strategy_details": {
+      "A1_Request_Advice": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 258
+      },
+      "A2_Directive_Order": {
+        "precision": 0.5347003154574133,
+        "recall": 1.0,
+        "f1": 0.696813977389517,
+        "support": 339
+      },
+      "A3_Rational_Persuasion": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 75
+      },
+      "B1_Promise_Inducement": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 39
+      },
+      "B2_Threat_Warning": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 121
+      },
+      "C1_Moral_Appeal_Guilt": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 300
+      },
+      "C2_Obligation_Duty": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 302
+      },
+      "C3_Value_Judgement_Shaming": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 226
+      },
+      "C4_Authority": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 56
+      },
+      "C5_Conformity_Social_Proof": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 153
+      },
+      "C6_Reciprocity_Debt": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 121
+      },
+      "D1_Emotional_Manipulation": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 115
+      },
+      "D2_Deception_Gaslighting": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "D3_Logical_Trap_False_Dilemma": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 42
+      },
+      "D4_Verbal_Abuse_Toxicity": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 143
+      }
+    },
+    "dimensions": {
+      "D1": {
+        "n": 634,
+        "mae": 0.8974763406940063,
+        "qwk": 0.0
+      },
+      "D2": {
+        "n": 634,
+        "mae": 0.9069400630914827,
+        "qwk": 0.0
+      },
+      "D3": {
+        "n": 634,
+        "mae": 0.9905362776025236,
+        "qwk": 0.0
+      },
+      "D4": {
+        "n": 634,
+        "mae": 0.7965299684542587,
+        "qwk": 0.0
+      },
+      "D5": {
+        "n": 634,
+        "mae": 0.02365930599369085,
+        "qwk": 0.0
+      },
+      "D6": {
+        "n": 634,
+        "mae": 0.7460567823343849,
+        "qwk": 0.0
+      },
+      "D7": {
+        "n": 634,
+        "mae": 0.9589905362776026,
+        "qwk": 0.0
+      }
+    },
+    "dimension_profile_n": 634,
+    "dimension_exact_accuracy_all": 0.4711581793600721,
+    "dimension_profile_mae": 0.7600270392068499,
+    "dimension_profile_qwk": 0.0,
+    "usage": {
+      "total_tokens": 0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "settings": {}
+  }
+}

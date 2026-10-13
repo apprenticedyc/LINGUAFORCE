@@ -1,131 +1,79 @@
 # LINGUAFORCE
 
-**Benchmarking Agentive Force in Dialogues via Unified Measurement Dimensions**
+**A Human-Annotated Benchmark for Pressure and Influence Strategies in Dialogue**
 
-[中文说明](README_zh.md) | [Paper PDF](submission/paper/main.pdf) | [Release package](submission/)
+[中文](README_zh.md) | [Paper](paper_acl/main.pdf) | [Data](submission/data/human/) | [Reproduction](submission/README.md)
 
-LINGUAFORCE is a benchmark for measuring how language pressures, constrains,
-or steers a listener's decision in English multi-turn dialogue. It combines a
-seven-dimension measurement space, a fifteen-type strategy taxonomy,
-dialogue-level reference labels, model-derived profiles, and deterministic
-evaluation outputs.
+LINGUAFORCE contains 4,066 English dialogues with human judgments of
+pressure presence, intensity, influence strategies, and seven dimensions.
+The dialogues were manually collected, organized, and written in English
+around common everyday interaction scenarios.
 
-## Benchmark
+## Dataset
 
 | Property | Value |
 |---|---|
-| Language | English |
-| Dialogues | 4,066 |
-| Training split | 3,432 dialogues |
-| Held-out split | 634 dialogues |
-| Measurement dimensions | 7 |
-| Strategy types | 15 types in 4 families |
-| Intensity | Ordinal scale from 0 to 5 |
-| Input | De-identified multi-turn dialogue text |
+| Training / validation / test | 3,088 / 344 / 634 |
+| Pressure / no pressure | 3,144 / 922 |
+| Pressure presence | Binary |
+| Overall intensity | Ordinal, 0–5 |
+| Dimensions | Seven ordinal ratings, 0–3 each |
+| Strategies | Fifteen non-exclusive binary labels |
 
-The seven dimensions are directive force, option constraint, normative
-pressure, emotional pressure, deceptiveness, toxicity, and explicitness.
+Twenty computer science graduate students proficient in reading English
+read the shared guidelines and independently annotated their assigned
+batches. Participation was voluntary and unpaid. Each dialogue was labeled
+by one annotator; inter-annotator agreement was not measured.
 
-## Tasks
+## Baselines
 
-- **T1: Pressure detection.** Predict whether a dialogue contains
-  listener-directed pressure.
-- **T2: Strategy recognition.** Predict the applicable strategy types.
-- **T3: Intensity prediction.** Predict dialogue-level intensity on a 0--5
-  ordinal scale.
-- **Cross-domain transfer.** Evaluate the dimension profile on related public
-  dialogue resources.
+| Method | Setting | Pressure AUROC | Pressure F1 |
+|---|---|---:|---:|
+| GPT-6 Astra | Zero-shot | 0.947 | 0.959 |
+| Qwen3.8-Max | Zero-shot | 0.958 | 0.953 |
+| DeepSeek-Flash | Zero-shot | 0.954 | 0.950 |
+| Word TF-IDF | Supervised | 0.949 | 0.942 |
+| Character TF-IDF | Supervised | 0.948 | 0.943 |
 
-## Reported results
-
-The release contains the outputs needed to verify these metrics without
-calling an external model provider.
-
-| Evaluation split | Binary AUC | Intensity Spearman rho |
-|---|---:|---:|
-| Training split | 0.852 | 0.651 |
-| Held-out split | 0.831 | 0.665 |
-
-Cross-domain AUROC is 0.742 on MentalManip, 0.706 on MultiManip, 0.729 on
-TalkDown, and 0.587 on ToxiChat.
+All methods use the same 634 test dialogues. Full results cover four tasks.
+Qwen has valid complete dimension profiles for 295 dialogues; the supplement
+reports coverage, aligned-subset metrics, and exact rating accuracy counting
+invalid outputs as incorrect. These cross-model comparisons are accompanied
+by a separate matched Qwen3-4B LoRA diagnostic. That single run yields little
+change across tasks and a small increase in mean dimension QWK (0.305 to
+0.312); saved responses, settings, and paired intervals are included.
 
 ## Repository
 
-```text
-.
-├── README.md
-├── README_zh.md
-└── submission/
-    ├── paper/       # Paper PDF, source, bibliography, and figures
-    ├── data/        # JSONL releases and data documentation
-    ├── code/        # Evaluation and analysis scripts
-    ├── results/     # Outputs used by the reported experiments
-    ├── requirements.txt
-    ├── CITATION.cff
-    └── SHA256SUMS
-```
+- `paper_acl/`: editable ACL review manuscript and compiled PDF.
+- `submission/`: self-contained anonymous data, code, results, and paper.
+- `annotation_package/`: local annotation workbooks and import materials;
+  not included in the anonymous supplement.
 
-The release package has its own [English README](submission/README.md) and
-[Chinese README](submission/README_zh.md).
+See the [datasheet](submission/data/datasheet.md) for construction and scope,
+and the [schema](submission/data/human/README.md) for field definitions.
 
 ## Reproduction
 
-The commands below reproduce the deterministic metrics from the included data
-and result files. They do not require API credentials or GPU access.
+Python 3.9 or later. No GPU or API access is needed to score saved predictions.
 
-```bash
-cd submission
-python3 -m pip install -r requirements.txt
-
-# Main metrics and cross-domain results
-python3 code/verify_paper.py
-python3 code/eval_transfer.py
-
-# CPU-only analyses reported in the paper
-python3 code/ablation_linear_readout.py
-python3 code/run_t2_rq3.py
+```sh
+python -m pip install -r submission/requirements.txt
+python submission/code/validate_release.py
+python submission/code/score_human_llm.py
+python submission/code/bootstrap_human_pressure.py
+python submission/code/analyze_human_robustness.py
+python submission/code/write_robustness_tables.py
+python submission/code/score_qwen4b.py
 ```
 
-To regenerate the release figures:
+CPU retraining and optional API generation are documented in the
+[submission README](submission/README.md). Dialogues may contain threats,
+insults, and deception. Labels do not establish actual compliance or harm.
+See [permissions](submission/TERMS.md).
 
-```bash
-python3 code/make_figs_release.py
-```
-
-The included JSONL/JSON files are the outputs used for the reported results.
-Provider calls, credentials, private annotation workbooks, and local
-configuration files are not part of the release.
-
-## Data
-
-See [`submission/data/README.md`](submission/data/README.md) for the schema,
-split statistics, and field definitions. The reference labels used as
-evaluation targets are kept distinct from model-derived intensity, dimension,
-and strategy fields. The [datasheet](submission/data/datasheet.md) documents
-intended use, privacy scope, and known limitations.
-
-## Citation
-
-```bibtex
-@misc{linguaforce2026,
-  title  = {LINGUAFORCE: Benchmarking Agentive Force in Dialogues via Unified Measurement Dimensions},
-  year   = {2026},
-  note   = {Research release}
-}
-```
-
-Machine-readable citation metadata is available in
-[`submission/CITATION.cff`](submission/CITATION.cff).
-
-## Responsible use
-
-The dialogues may contain threats, insults, deception, or other distressing
-language. The release is intended for research on dialogue analysis and
-detection. Do not use it for surveillance, consequential decisions about
-individuals, or automated moderation without human review.
-
-## License
-
-The applicable text and dataset license, together with the required
-attribution notice, must be finalized before public redistribution. See
-[`submission/PUBLIC_RELEASE_CHECKLIST.md`](submission/PUBLIC_RELEASE_CHECKLIST.md).
+The supplement also reports false positives on 126 no-pressure test
+dialogues containing requests/advice or rational persuasion, and paired
+bootstrap intervals for intensity, strategy, and dimension scores.
+These diagnostics use fixed predictions; they do not measure variation
+across training seeds or API runs.

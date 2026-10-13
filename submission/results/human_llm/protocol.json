@@ -1,0 +1,54 @@
+{
+  "tasks": [
+    "pressure_detection",
+    "intensity_prediction",
+    "strategy_recognition",
+    "dimension_prediction"
+  ],
+  "test_n": 634,
+  "train_n": 3088,
+  "validation_n": 344,
+  "seed": 2026,
+  "prompt_sha256": "7fa85950d3819ed24e3b494f6684256eee312cf80e677fc596b0154c80424252",
+  "annotation_sha256": "ab172eece8a1111a6cc9bf2475467e3fc496d00b4b92c22908eb0e903ecad890",
+  "split_sha256": "20dab4a6f8e29ee03fba53a2601eeab9e4b8bfee9bbd2a3c84d5f6fee5b13957",
+  "models": {
+    "gpt": {
+      "requested_model": "gpt-6-astra",
+      "api": "responses",
+      "reasoning_effort": "low",
+      "temperature": "provider_default",
+      "max_output_tokens": 1600,
+      "instructions": "Follow the supplied annotation task. Return only the requested JSON object."
+    },
+    "qwen": {
+      "requested_model": "qwen3.8-max",
+      "api": "chat_completions",
+      "enable_thinking": false,
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "deepseek": {
+      "requested_model": "deepseek-flash",
+      "api": "chat_completions",
+      "thinking": {
+        "type": "disabled"
+      },
+      "temperature": 0,
+      "max_tokens": 1600
+    }
+  },
+  "invalid_outputs": "Preserve raw values; evaluate tasks independently and report coverage. No generated-answer retries.",
+  "transport_retries": "GPT resumed run: up to 3 retries after initial request, with 5/10/15 second delays.",
+  "field_aliases": {
+    "D3_Logical_False_Dilemma": "D3_Logical_Trap_False_Dilemma"
+  },
+  "json_normalization": "Close exactly one missing outer brace when the final field is complete and the decoder error is at end-of-input; never supply or change label values.",
+  "excluded_runs": "Development smoke tests and an aborted GPT default-reasoning run; not included in this supplement.",
+  "dependencies": {
+    "python": "3.9.6",
+    "numpy": "2.0.2",
+    "scipy": "1.13.1",
+    "sklearn": "1.6.1"
+  }
+}

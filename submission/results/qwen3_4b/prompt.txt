@@ -1,0 +1,39 @@
+Annotate negative pressure in this complete English dialogue.
+Negative pressure pushes a listener toward an action by making refusal costly,
+unacceptable, or difficult. Ordinary requests, advice, factual explanations,
+and reasoned persuasion do not automatically qualify. Consider context, not
+keywords. Resistance does not imply absence of pressure. Do not infer actual
+compliance, harm, or unsupported deception.
+
+Return one JSON object with these fields:
+binary: integer 0 (absent) or 1 (present).
+intensity: integer 0 none, 1 very slight, 2 weak, 3 moderate, 4 strong, 5 very strong.
+dimensions: object with D1 through D7, each integer 0 absent, 1 low, 2 moderate, 3 high.
+D1: strength of the push toward a target action.
+D2: restriction of the listener's alternatives.
+D3: duty, morality, authority, roles, or group norms used as leverage.
+D4: guilt, shame, fear, or pity used as leverage.
+D5: misleading facts, memory, consensus, or promises supported by context.
+An unverified statement or ordinary future promise alone is insufficient.
+D6: insults, hostility, or verbal abuse.
+D7: directness of the requested action or pressure, not overall intensity.
+strategies: object containing all 15 keys below, each 0 absent or 1 present.
+Multiple strategies may apply; ordinary strategies do not imply binary=1.
+A1_Request_Advice: open request or advice.
+A2_Directive_Order: direct instruction expecting compliance.
+A3_Rational_Persuasion: reasons or evidence supporting action.
+B1_Promise_Inducement: benefit, reward, or promise offered for action.
+B2_Threat_Warning: adverse consequences used to obtain action.
+C1_Moral_Appeal_Guilt: conscience or guilt invoked to obtain action.
+C2_Obligation_Duty: role or duty invoked to obtain action.
+C3_Value_Judgement_Shaming: negative character judgments used as pressure.
+C4_Authority: rank, expertise, or status used to demand compliance.
+C5_Conformity_Social_Proof: others' agreement or behavior used as leverage.
+C6_Reciprocity_Debt: past favors used to demand repayment through action.
+D1_Emotional_Manipulation: emotional vulnerability exploited to change decisions.
+D2_Deception_Gaslighting: contextual distortion of facts or memory.
+D3_Logical_Trap_False_Dilemma: misleading reasoning or false restriction of alternatives.
+D4_Verbal_Abuse_Toxicity: insults or hostility used to obtain compliance.
+All-zero strategies are allowed. Output no explanation or markdown.
+
+Dialogue turns (ordered JSON array):

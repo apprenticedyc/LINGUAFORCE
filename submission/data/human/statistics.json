@@ -1,0 +1,131 @@
+{
+  "dialogues": 4066,
+  "files": 20,
+  "splits": {
+    "training": {
+      "n": 3432,
+      "binary": {
+        "1": 2640,
+        "0": 792
+      },
+      "intensity": {
+        "0": 792,
+        "1": 203,
+        "2": 441,
+        "3": 1217,
+        "4": 639,
+        "5": 140
+      },
+      "dimension_means": {
+        "D1": 1.530011655011655,
+        "D2": 1.3601398601398602,
+        "D3": 1.4452214452214451,
+        "D4": 1.3846153846153846,
+        "D5": 0.022435897435897436,
+        "D6": 0.7336829836829837,
+        "D7": 1.9224941724941724
+      },
+      "strategy_counts": {
+        "A1_Request_Advice": 1386,
+        "A2_Directive_Order": 1739,
+        "A3_Rational_Persuasion": 431,
+        "B1_Promise_Inducement": 219,
+        "B2_Threat_Warning": 584,
+        "C1_Moral_Appeal_Guilt": 1551,
+        "C2_Obligation_Duty": 1410,
+        "C3_Value_Judgement_Shaming": 1110,
+        "C4_Authority": 284,
+        "C5_Conformity_Social_Proof": 740,
+        "C6_Reciprocity_Debt": 616,
+        "D1_Emotional_Manipulation": 767,
+        "D2_Deception_Gaslighting": 25,
+        "D3_Logical_Trap_False_Dilemma": 192,
+        "D4_Verbal_Abuse_Toxicity": 804
+      }
+    },
+    "test": {
+      "n": 634,
+      "binary": {
+        "1": 504,
+        "0": 130
+      },
+      "intensity": {
+        "0": 130,
+        "1": 29,
+        "2": 70,
+        "3": 243,
+        "4": 136,
+        "5": 26
+      },
+      "dimension_means": {
+        "D1": 1.660883280757098,
+        "D2": 1.4621451104100947,
+        "D3": 1.5678233438485805,
+        "D4": 1.386435331230284,
+        "D5": 0.02365930599369085,
+        "D6": 0.7460567823343849,
+        "D7": 2.034700315457413
+      },
+      "strategy_counts": {
+        "A1_Request_Advice": 258,
+        "A2_Directive_Order": 339,
+        "A3_Rational_Persuasion": 75,
+        "B1_Promise_Inducement": 39,
+        "B2_Threat_Warning": 121,
+        "C1_Moral_Appeal_Guilt": 300,
+        "C2_Obligation_Duty": 302,
+        "C3_Value_Judgement_Shaming": 226,
+        "C4_Authority": 56,
+        "C5_Conformity_Social_Proof": 153,
+        "C6_Reciprocity_Debt": 121,
+        "D1_Emotional_Manipulation": 115,
+        "D2_Deception_Gaslighting": 5,
+        "D3_Logical_Trap_False_Dilemma": 42,
+        "D4_Verbal_Abuse_Toxicity": 143
+      }
+    },
+    "all": {
+      "n": 4066,
+      "binary": {
+        "1": 3144,
+        "0": 922
+      },
+      "intensity": {
+        "0": 922,
+        "1": 232,
+        "2": 511,
+        "3": 1460,
+        "4": 775,
+        "5": 166
+      },
+      "dimension_means": {
+        "D1": 1.5504181013280867,
+        "D2": 1.3760452533202163,
+        "D3": 1.4643384161337925,
+        "D4": 1.3848991637973438,
+        "D5": 0.02262666010821446,
+        "D6": 0.735612395474668,
+        "D7": 1.9399901623216922
+      },
+      "strategy_counts": {
+        "A1_Request_Advice": 1644,
+        "A2_Directive_Order": 2078,
+        "A3_Rational_Persuasion": 506,
+        "B1_Promise_Inducement": 258,
+        "B2_Threat_Warning": 705,
+        "C1_Moral_Appeal_Guilt": 1851,
+        "C2_Obligation_Duty": 1712,
+        "C3_Value_Judgement_Shaming": 1336,
+        "C4_Authority": 340,
+        "C5_Conformity_Social_Proof": 893,
+        "C6_Reciprocity_Debt": 737,
+        "D1_Emotional_Manipulation": 882,
+        "D2_Deception_Gaslighting": 30,
+        "D3_Logical_Trap_False_Dilemma": 234,
+        "D4_Verbal_Abuse_Toxicity": 947
+      }
+    }
+  },
+  "potential_label_conflicts": [],
+  "normalized_duplicate_groups": []
+}

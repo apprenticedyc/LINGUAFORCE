@@ -1,0 +1,720 @@
+\documentclass[11pt]{article}
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\newcommand{\LNGF}{LINGUAFORCE}
+\title{\LNGF{}: A Human-Annotated Benchmark\\for Pressure and Influence Strategies in Dialogue}
+\author{Anonymous ACL submission}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Pressure in dialogue can take the form of a threat, an appeal to duty, or an
+attempt to make someone feel guilty. A binary label identifies its presence
+but does not describe how it is expressed. \LNGF{} provides human annotations
+for 4,066 English dialogues at four levels: pressure presence, overall
+intensity, fifteen non-exclusive influence strategies, and seven dimensions
+of expressed pressure. Ordinary requests and reasoned persuasion are included
+to distinguish influence from negative pressure. Twenty annotators completed
+the annotation batches. The dataset contains 3,144 dialogues labeled as
+exerting pressure and 922 labeled as not exerting pressure. Its labels
+support four prediction tasks. On 634 held-out dialogues, three zero-shot
+language models and two supervised lexical baselines obtain pressure AUROC
+between 0.947 and 0.958. Strategy macro-F1 remains between 0.570 and 0.610,
+and ordinal prediction separates the methods more clearly than detection.
+An additional matched Qwen3-4B fine-tuning diagnostic produces only small,
+task-specific changes, highlighting the difficulty of the fine-grained labels.
+The benchmark supports evaluation of both pressure recognition and its
+fine-grained description.
+\end{abstract}
+
+\section{Introduction}
+\emph{Could you stay a little longer?} and \emph{If you leave, you clearly do
+not care about this family} ask for the same action. The second makes refusal
+carry a moral and emotional cost. Identifying this difference requires
+attention to the requested action, the surrounding exchange, and the
+consequences attached to refusal.
+
+This distinction also concerns language as social action: an utterance can
+shape what a listener is expected or permitted to do, rather than merely
+describe a state of affairs \citep{ahearn2001}.
+
+Dialogue datasets study related phenomena such as mental manipulation,
+condescension, and toxicity \citep{mentalmanip,multimanip,talkdown2023,toxicchat2023}.
+Toxic language is not necessary for pressure, and a direct request is not
+necessarily coercive. A benchmark of conversational pressure therefore
+needs labels that describe both whether pressure is present and how it is
+expressed.
+
+\LNGF{} pairs four kinds of human judgments. A binary label records whether
+a dialogue exerts negative pressure. An ordinal label records its overall
+intensity. Strategy labels describe the means used to influence the listener.
+Seven dimension scores describe directive force, option constraint, normative
+pressure, emotional pressure, deceptiveness, toxicity, and explicitness.
+A strategy identifies a kind of behavior, while a dimension records its
+degree or manner of expression.
+
+The scope is pressure expressed in text. The annotations do not establish
+whether a listener actually complied or experienced harm. Ordinary requests,
+advice, and reasoned persuasion are included as controls; beneficial influence
+such as encouragement is not a separate target of this release.
+
+The contributions are a human-annotated resource with four related label
+sets, operational definitions that distinguish pressure from ordinary
+influence, and an evaluation design covering detection, intensity, strategy
+recognition, and dimension prediction. Evaluation compares three zero-shot
+language models with two supervised lexical baselines and includes a matched
+before/after fine-tuning diagnostic. Strong detection scores coexist with
+lower strategy recognition scores, motivating evaluation beyond the presence
+of pressure alone.
+
+\section{Related Work}
+\paragraph{Influence strategies.}
+Compliance-gaining research studies how speakers seek cooperation
+\citep{marwell1967,wiseman1981}. Reciprocity, authority, and social proof
+describe common sources of influence \citep{cialdini1984}. Speech-act theory
+distinguishes requests, orders, and promises \citep{austin1962,searle1969}.
+Normative and moral appeals have also been studied as moral-foundation
+signals in language and text classification \citep{graham2009,johnson2018}.
+These accounts motivate the strategy inventory. They do not imply that every
+request, promise, or appeal to authority is harmful.
+
+\paragraph{Language datasets.}
+MentalManip and MultiManip study manipulation in conversations
+\citep{mentalmanip,multimanip}. Model-assisted augmentation and distillation
+have also been explored for mental-manipulation detection
+\citep{reament}. SemEval-2023 Task 3 annotates persuasion techniques in
+online news \citep{piskorski2023}. TalkDown and ToxicChat address
+condescension and toxicity \citep{talkdown2023,toxicchat2023}, while work on
+microaggressions illustrates the difficulty of locating subtle interpersonal
+harm in text \citep{breitfeller2019}.
+\LNGF{} focuses on dialogue-level pressure and pairs strategy categories
+with ordinal judgments. Its evaluation asks whether models can recover
+these human judgments from dialogue text.
+
+\paragraph{Modeling choices.}
+Contextual encoders such as BERT and RoBERTa are standard supervised text
+baselines \citep{devlin2019,liu2019}. We use TF--IDF models instead to make
+the lexical-signal comparison explicit and to keep the supervised baseline
+separate from the prompted language-model evaluation.
+
+\section{Annotation Scheme}
+\subsection{Pressure and Intensity}
+Negative pressure is an attempt to obtain an action or decision by making
+refusal costly, unacceptable, or difficult to consider. Evidence includes
+threatened consequences, guilt, obligations used as leverage, misleading
+claims, and hostility directed toward obtaining compliance. Information
+exchange, ordinary advice, and disagreement do not automatically qualify.
+Annotators consider the complete dialogue rather than individual keywords.
+A listener's resistance does not make the pressure disappear.
+
+The binary label records presence or absence. Overall intensity uses six
+levels: none (0), very slight (1), weak (2), moderate (3), strong (4), and
+very strong (5). Intensity concerns the degree of pressure, not the number
+of strategies. In the completed annotations, absence corresponds to
+intensity 0 and presence to intensity 1--5.
+
+\subsection{Influence Strategies}
+Table~\ref{tab:strategies} lists fifteen non-exclusive labels. Multiple
+strategies may occur in one dialogue. Requests and rational persuasion are
+included because the task must distinguish ordinary influence from pressure.
+A strategy label alone does not determine the binary label.
+
+\begin{table*}[t]
+\centering\small
+\begin{tabular}{@{}lp{8.5cm}r@{}}
+\toprule
+\textbf{Strategy} & \textbf{Annotation focus} & \textbf{Count}\\
+\midrule
+Request/Advice & An open request, suggestion, or recommendation. & 1,644\\
+Directive/Order & An instruction that expects compliance. & 2,078\\
+Rational Persuasion & Reasons or evidence offered to support an action. & 506\\
+Promise/Inducement & A benefit, reward, or favor offered in return for action. & 258\\
+Threat/Warning & An adverse consequence used to obtain action. & 705\\
+Moral Appeal/Guilt & An appeal to conscience or guilt. & 1,851\\
+Obligation/Duty & A role or responsibility invoked to obtain compliance. & 1,712\\
+Value Judgement/Shaming & A negative evaluation of the listener's character. & 1,336\\
+Authority & Rank, expertise, or status used to demand compliance. & 340\\
+Conformity/Social Proof & Others' behavior or agreement used as leverage. & 893\\
+Reciprocity/Debt & A past favor invoked to demand repayment through action. & 737\\
+Emotional Manipulation & Emotional vulnerability exploited to change a decision. & 882\\
+Deception/Gaslighting & Facts or memory distorted to influence the listener. & 30\\
+Logical Trap/False Dilemma & A misleading argument or false restriction of alternatives. & 234\\
+Verbal Abuse/Toxicity & Insults or hostility used to obtain compliance. & 947\\
+\bottomrule
+\end{tabular}
+\caption{Strategy definitions and positive counts across 4,066 dialogues.
+Labels may overlap, so counts do not sum to the number of dialogues.}
+\label{tab:strategies}
+\end{table*}
+
+Gaslighting is included under deception.\footnote{Gaslighting involves
+denial or distortion that leads someone to doubt their memory or judgment.
+A disagreement about memory alone is insufficient evidence.}
+Deception requires contextual evidence of misleading facts, claims, or
+promises. An unverified assertion or an ordinary future promise is not
+automatically deceptive.
+
+\subsection{Seven Dimensions}
+Each dimension receives an ordinal score of 0 (absent), 1 (low), 2 (moderate),
+or 3 (high). Table~\ref{tab:dimensions} defines the seven judgments.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{@{}p{2.6cm}p{4.65cm}@{}}
+\toprule
+\textbf{Dimension} & \textbf{Judgment}\\
+\midrule
+Directive force & Strength of the push toward an action.\\
+Option constraint & How much the listener's alternatives are narrowed.\\
+Normative pressure & Leverage through duty, morality, or social norms.\\
+Emotional pressure & Guilt, fear, shame, or pity used as leverage.\\
+Deceptiveness & Misleading facts or promises supported by context.\\
+Toxicity & Insults, hostility, or verbal abuse.\\
+Explicitness & How directly the action or pressure is expressed.\\
+\bottomrule
+\end{tabular}
+\caption{Human-rated dimensions, each scored from 0 to 3.}
+\label{tab:dimensions}
+\end{table}
+
+These scores are not interchangeable with overall intensity. A request can
+be explicit while leaving refusal available. An ultimatum can restrict
+options without containing insults. Normative and emotional pressure can
+co-occur in the same appeal. The scheme permits these overlaps and does not
+assume statistical independence between dimensions.
+
+\section{Dataset and Human Annotation}
+\subsection{Composition}
+The dataset contains 4,066 English dialogues. The current partition has
+3,432 development-pool dialogues and 634 test dialogues
+(Table~\ref{tab:composition}). A fixed, intensity-stratified split divides
+the development pool into 3,088 training and 344 validation dialogues.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Partition} & \textbf{Total} & \textbf{Pressure} & \textbf{No pressure}\\
+\midrule
+Development pool & 3,432 & 2,640 & 792\\
+Test & 634 & 504 & 130\\
+\midrule
+All & 4,066 & 3,144 & 922\\
+\bottomrule
+\end{tabular}
+\caption{Counts from the completed human annotation sheets. The development
+pool is reserved for training and validation.}
+\label{tab:composition}
+\end{table}
+
+The dialogues were manually collected, organized, and written in English
+around common everyday interaction scenarios. They are not a corpus of
+verbatim real-world chat logs. This scenario-based collection provides
+examples of different influence strategies, rather than a representative
+sample of their frequency in everyday conversation. Dialogue construction
+and the annotation procedure below are separate stages.
+
+\subsection{Annotation Procedure}
+Twenty computer science graduate students, all proficient in reading
+English dialogue, volunteered as annotators. All read the same annotation
+guidelines and completed their assigned batches independently without
+consulting other annotators' labels. Each dialogue received one annotation
+across twenty non-overlapping batches. Each sheet
+contained the dialogue and fields for the binary label, intensity, seven
+dimensions, fifteen strategies, and optional notes. The annotation package
+did not include model predictions. Its instructions asked annotators to read
+the full dialogue, assign presence and intensity, rate the dimensions, and
+select all applicable strategies.
+
+\subsection{Quality Checks}
+The completed sheets were checked for coverage, valid ranges, repeated
+records, and consistency between binary presence and intensity. All 4,066
+records matched uniquely to their source dialogues using identifier and
+text. All required cells are populated and in range. No binary--intensity
+contradictions were found. No exact duplicate dialogues were found after
+lowercasing and whitespace normalization. These checks detect formatting
+and consistency problems; they do not measure agreement between people.
+No dialogues have yet received independent duplicate annotations, so
+inter-annotator agreement cannot currently be estimated.
+
+\section{Dataset Characteristics}
+Pressure is present in 3,144 dialogues (77.3\%). Table~\ref{tab:intensity}
+shows the intensity distribution. Moderate pressure is the most frequent
+level. Majority-label baselines and metrics sensitive to class imbalance
+are therefore necessary for interpreting predictive performance.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Intensity & 0 & 1 & 2 & 3 & 4 & 5\\
+\midrule
+Count & 922 & 232 & 511 & 1,460 & 775 & 166\\
+\bottomrule
+\end{tabular}
+\caption{Distribution of human-rated overall intensity.}
+\label{tab:intensity}
+\end{table}
+
+Strategy frequency varies substantially (Table~\ref{tab:strategies}).
+Directives and moral appeals are common, whereas contextual evidence for
+deception is rare. Micro-averaged performance alone would obscure errors
+on rare labels, so evaluation includes macro-F1 and per-label support.
+Dimension evaluation likewise reports each dimension rather than only an
+average. These frequencies describe this collection, not the prevalence
+of such behaviors in everyday conversation.
+
+\section{Benchmark Tasks and Evaluation}
+\subsection{Prediction Tasks}
+Every task takes dialogue text as input. Human labels are evaluation
+targets and are not supplied as test-time features.
+\paragraph{Pressure detection.}
+Predict binary pressure. Report positive-class F1 and AUROC from a model's
+pressure score. Binary decisions are evaluated directly.
+\paragraph{Intensity prediction.}
+Predict a 0--5 level. Report mean absolute error (MAE) and quadratic-weighted
+$\kappa$ (QWK). MAE measures error size, while QWK penalizes larger ordinal
+disagreements.
+\paragraph{Strategy recognition.}
+Predict fifteen non-exclusive labels. Report macro- and micro-F1, with
+per-strategy precision, recall, F1, and support in supplementary results.
+\paragraph{Dimension prediction.}
+Predict seven 0--3 ratings. Report MAE and QWK per dimension and their
+unweighted averages. Undefined QWK in degenerate evaluation subsets must
+be reported rather than replaced with an arbitrary value.
+
+\subsection{Baselines}
+The comparison includes GPT-6 Astra, DeepSeek-Flash, and
+Qwen3.8-Max, accessed through a company gateway, the DeepSeek API, and
+DashScope, respectively. Each receives the same label
+definitions, dialogue text, and output schema without labeled examples.
+The schema requests a binary decision and pressure score, intensity,
+strategy labels, and dimension ratings. Outputs are checked against
+the allowed ranges, with invalid outputs and retries reported.
+
+Supervised baselines use word unigram/bigram or character 3--5-gram TF--IDF
+features, capped at 50,000 features with minimum document frequency 2 and
+sublinear term frequency. Logistic regression predicts pressure and fifteen
+independent strategy labels; ridge regression predicts intensity and each
+dimension. Ordinal regression outputs are clipped to the allowed range and
+rounded. The constant baseline ignores dialogue text, predicting training
+majorities for binary labels and training medians for ordinal labels.
+All fitted components use training data only.
+
+Qwen and DeepSeek use temperature 0 with thinking disabled. GPT uses the
+gateway's default sampling settings and a fixed low reasoning budget. Because
+chain-of-thought prompting can change generated answers \citep{wei2022},
+the reported comparison fixes the output instruction and does not treat
+hidden reasoning as an evaluation target. These three API models receive a
+1,600-token output budget; GPT's budget also includes reasoning tokens.
+Technical reports describe the broader OpenAI, Qwen, and DeepSeek model
+families \citep{openai2023,qwen2025,deepseek2024}; the names here are provider
+aliases, and those reports do not identify the exact deployed versions.
+Returned identifiers and usage are saved.
+These provider-specific configurations are not matched reasoning budgets.
+
+\paragraph{Matched fine-tuning diagnostic.}
+To test whether the annotations support supervised adaptation, we fine-tuned
+Qwen3-4B on the 3,088 training dialogues with LoRA. The run used rank 16,
+scaling factor 32, dropout 0.05, learning rate $10^{-4}$, three epochs,
+batch size 1 with gradient accumulation 8, and a maximum sequence length of
+2,048 tokens. The resulting checkpoint and the original Qwen3-4B received
+the same 634 test dialogues, output schema, and \texttt{/no\_think} suffix.
+This matched comparison is reported as a diagnostic; it is separate from the
+zero-shot and lexical baseline comparison.
+
+\subsection{Experimental Controls}
+The split and lexical baselines use seed 2026. Validation AUROC selects
+pressure regularization from $C\in\{0.1,1,10\}$; validation F1 selects its
+decision threshold from 0.10 to 0.90 in increments of 0.01. Strategy
+macro-F1 selects $C$ from the same grid and a shared threshold from
+$\{0.3,0.4,0.5,0.6\}$. Each ordinal target selects ridge regularization
+from $\{0.1,1,10\}$ by validation MAE.
+
+The three API baselines share an English user prompt and test dialogues.
+Invalid outputs are retained, with validity evaluated separately
+for each task. Out-of-range language-model ratings are not clipped or
+silently replaced. Metrics on valid outputs must be read together with
+their coverage; comparisons on differing subsets do not establish a
+method ranking. Syntax-only normalization closes one missing outer JSON
+brace in nine GPT answers and maps one unambiguous strategy-key spelling
+in 146 Qwen answers. These rules apply to all three API baselines and leave label values
+unchanged; raw responses remain available. Transient GPT transport errors are retried up to three
+times with increasing delays; invalid generated answers are not retried.
+Reproduction materials include split identifiers, prompts, settings,
+predictions, and scoring code. Lexical baseline results use one fixed seed.
+We estimate 95\% confidence intervals using 1,000 paired dialogue-level
+bootstrap resamples (seed 2026). These quantify test-sample uncertainty
+for fixed predictions, not variation across training or API runs.
+Appendix~\ref{sec:uncertainty} reports the full intervals and a diagnostic
+of false positives on non-pressuring requests and persuasion.
+
+\section{Results and Analysis}
+\subsection{Pressure Detection}
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & Valid $n$ & AUROC & F1\\
+\midrule
+GPT-6 Astra & 634 & 0.947 & 0.959\\
+Qwen3.8-Max & 634 & 0.958 & 0.953\\
+DeepSeek-Flash & 634 & 0.954 & 0.950\\
+Word TF--IDF & 634 & 0.949 & 0.942\\
+Character TF--IDF & 634 & 0.948 & 0.943\\
+Constant & 634 & 0.500 & 0.886\\
+\bottomrule
+\end{tabular}
+\caption{Pressure detection. GPT, Qwen, and DeepSeek are zero-shot; TF--IDF models use human training labels. Constant predicts the training-majority label. Valid counts are out of 634; AUROC additionally requires a valid pressure score (see released metrics).}
+\label{tab:pressure_results}
+\end{table}
+Table~\ref{tab:pressure_results} reports detection on all 634 test dialogues.
+Qwen has the highest numerical AUROC (0.958), while GPT has the highest F1
+(0.959). Word and character TF--IDF reach AUROC 0.949 and 0.948. For each
+language model, the paired 95\% bootstrap interval for the AUROC difference
+from word TF--IDF includes zero. The data therefore support strong lexical
+predictability, without establishing a clear ranking advantage for prompted
+language models. GPT's F1 difference from word TF--IDF is 0.017, with a
+paired interval of [0.005, 0.031] under the reported decision rules.
+
+\paragraph{Requests without pressure.}
+Of the 130 no-pressure test dialogues, 126 carry human request/advice or
+rational-persuasion labels. Negative examples therefore include ordinary
+influence attempts, rather than predominantly casual conversation.
+The prompted and trained models misclassify 22.2\%--34.1\% of these
+dialogues (Appendix~\ref{sec:uncertainty}, Table~\ref{tab:request_controls}),
+showing that distinguishing pressure from ordinary influence remains
+challenging.
+
+\subsection{Intensity and Strategy Prediction}
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & Valid $n$ & MAE $\downarrow$ & QWK $\uparrow$\\
+\midrule
+GPT-6 Astra & 634 & 0.610 & 0.791\\
+Qwen3.8-Max & 634 & 0.891 & 0.714\\
+DeepSeek-Flash & 634 & 0.997 & 0.630\\
+Word TF--IDF & 634 & 0.683 & 0.736\\
+Character TF--IDF & 634 & 0.642 & 0.765\\
+Constant & 634 & 1.114 & 0.000\\
+\bottomrule
+\end{tabular}
+\caption{Overall intensity prediction on valid 0--5 outputs. Counts are out of 634. The constant predictor uses the training median.}
+\label{tab:intensity_results}
+\end{table}
+GPT achieves intensity MAE 0.610 and QWK 0.791, compared with 0.642 and
+0.765 for character TF--IDF (Table~\ref{tab:intensity_results}). Their MAE
+difference is not conclusive (paired 95\% CI: $[-0.104, 0.036]$).
+Qwen and DeepSeek have larger intensity errors despite similar pressure
+detection scores, indicating that detecting pressure and estimating its
+degree pose different challenges.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & Valid $n$ & Macro-F1 & Micro-F1\\
+\midrule
+GPT-6 Astra & 634 & 0.610 & 0.685\\
+Qwen3.8-Max & 634 & 0.590 & 0.667\\
+DeepSeek-Flash & 634 & 0.595 & 0.677\\
+Word TF--IDF & 634 & 0.573 & 0.738\\
+Character TF--IDF & 634 & 0.570 & 0.732\\
+Constant & 634 & 0.046 & 0.231\\
+\bottomrule
+\end{tabular}
+\caption{Fifteen-label strategy recognition. A task-valid response supplies all fifteen binary labels. One unambiguous key spelling is normalized without changing its value.}
+\label{tab:strategy_results}
+\end{table}
+
+GPT leads strategy macro-F1 (0.610), while word TF--IDF leads micro-F1
+(0.738; Table~\ref{tab:strategy_results}). Both differences between these
+models persist under paired resampling (Appendix~\ref{sec:uncertainty}).
+The ranking depends on whether strategies receive equal weight or their
+decisions are pooled, motivating both metrics for this uneven inventory.
+Per-strategy scores and support counts are available in the supplement.
+
+\subsection{Dimension Prediction and Output Validity}
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & Valid $n$ & MAE $\downarrow$ & QWK $\uparrow$\\
+\midrule
+GPT-6 Astra & 634 & 0.430 & 0.606\\
+Qwen3.8-Max & 295 & 0.631 & 0.540\\
+DeepSeek-Flash & 634 & 0.636 & 0.547\\
+Word TF--IDF & 634 & 0.422 & 0.631\\
+Character TF--IDF & 634 & 0.424 & 0.614\\
+Constant & 634 & 0.760 & 0.000\\
+\bottomrule
+\end{tabular}
+\caption{Dimension prediction on complete, range-valid seven-dimensional outputs. MAE and QWK are averaged over dimensions. Different coverage prevents a direct ranking; Table~\ref{tab:common_dimensions} uses identical dialogues.}
+\label{tab:dimension_results}
+\end{table}
+GPT, DeepSeek, and the supervised baselines return range-valid dimension
+profiles for all 634 dialogues after syntax normalization. Qwen does so for
+295 dialogues (46.5\%); 339 contain at least one rating outside 0--3.
+Those values are retained and counted as invalid, rather than clipped.
+Table~\ref{tab:dimension_results} reports valid-profile metrics and coverage.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & MAE $\downarrow$ & QWK $\uparrow$ & All exact $\uparrow$\\
+\midrule
+GPT-6 Astra & 0.393 & 0.595 & 0.667\\
+Qwen3.8-Max & 0.631 & 0.540 & 0.331\\
+DeepSeek-Flash & 0.593 & 0.524 & 0.506\\
+Word TF--IDF & 0.412 & 0.656 & 0.618\\
+Character TF--IDF & 0.408 & 0.582 & 0.615\\
+Constant & 0.847 & 0.000 & 0.471\\
+\bottomrule
+\end{tabular}
+\caption{Aligned dimension comparison. MAE/QWK use the same 295 dialogues with valid profiles from every model. All exact instead uses all 634 dialogues and seven ratings each, counting missing or out-of-range ratings as incorrect. The common subset is selected by model output validity and may be easier than the full test set.}
+\label{tab:common_dimensions}
+\end{table}
+
+Table~\ref{tab:common_dimensions} compares all methods on the same 295
+dialogues. GPT has the lowest MAE (0.393), while word TF--IDF has the highest
+mean QWK (0.656). This subset is selected by output validity and need not
+represent the full test set. To retain the full denominator, the table also
+reports exact rating accuracy over all $634\times7$ judgments, counting
+invalid ratings as incorrect. GPT obtains 0.667 and word TF--IDF 0.618;
+Qwen obtains 0.331 under this fixed prompting configuration.
+On the full test set, GPT and word TF--IDF have no clear difference in
+dimension MAE (paired 95\% CI: $[-0.022, 0.036]$), while GPT has higher
+exact rating accuracy (difference 0.049; CI: $[0.026, 0.071]$).
+
+Across tasks, no method leads every metric. The labels support distinctions
+between detecting pressure, naming its strategy, and estimating its degree.
+These cross-model comparisons do not isolate the benefit of training a given
+language model; the following diagnostic compares Qwen3-4B before and after training.
+
+\subsection{Matched Fine-Tuning Diagnostic}
+Table~\ref{tab:finetune_4b} compares the original Qwen3-4B with the
+checkpoint fine-tuned on the training split. The two runs use the same test
+inputs and decoding instruction. The reported valid $n$ is the common number
+of dialogues with task-valid outputs; no missing or out-of-range values are
+repaired. ``SFT'' denotes the LoRA fine-tuned checkpoint.
+
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+\textbf{Task} & \textbf{Metric} & \textbf{Base} & \textbf{SFT} &
+\textbf{SFT--Base} & \textbf{Paired 95\% CI}\\
+\midrule
+Pressure & F1 & 0.887 & 0.887 & $-0.0002$ & $[-0.0030,\ 0.0024]$\\
+Intensity & MAE $\downarrow$ & 1.943 & 1.940 & $-0.0032$ & $[-0.0126,\ 0.0063]$\\
+Intensity & QWK $\uparrow$ & 0.214 & 0.216 & $+0.0016$ & $[-0.0036,\ 0.0073]$\\
+Strategies & Micro-F1 $\uparrow$ & 0.588 & 0.586 & $-0.0015$ & $[-0.0040,\ 0.0010]$\\
+Strategies & Macro-F1 $\uparrow$ & 0.496 & 0.495 & $-0.0011$ & $[-0.0042,\ 0.0024]$\\
+Dimensions & MAE $\downarrow$ & 0.878 & 0.874 & $-0.0039$ & $[-0.0096,\ 0.0011]$\\
+Dimensions & Mean QWK $\uparrow$ & 0.305 & 0.312 & $+0.0069$ & $[0.0009,\ 0.0135]$\\
+\bottomrule
+\end{tabular}
+\caption{Matched Qwen3-4B fine-tuning comparison on the held-out test set.
+The paired valid sample sizes are 634 for pressure and intensity, 623 for
+strategies, and 622 for dimensions. Intervals use 1,000 paired dialogue-level
+bootstrap resamples; they quantify uncertainty from the observed test sample
+for this fixed training run.}
+\label{tab:finetune_4b}
+\end{table*}
+
+Fine-tuning changes little across the four tasks. Pressure F1 is unchanged,
+intensity is nearly unchanged, and both strategy scores are slightly lower.
+Mean dimension QWK increases from 0.305 to 0.312 on the common valid subset,
+but the absolute gain is small. This result does not support a claim of broad
+performance improvement from fine-tuning; it instead shows that the
+fine-grained labels remain difficult even when the model is adapted to the
+training split.
+
+
+
+\section{Conclusion}
+\LNGF{} provides human judgments of pressure presence, intensity, strategies,
+and seven dimensions for 4,066 dialogues. Its labels support evaluation
+beyond binary detection, including whether models identify the kind and
+degree of pressure expressed in context. Three zero-shot language models
+and supervised lexical baselines perform strongly on binary detection,
+while strategy and dimension results reveal different strengths and output
+reliability. A matched Qwen3-4B fine-tuning run produces no broad gain across
+tasks, with only a small improvement in mean dimension QWK. This result
+supports using the resource to measure fine-grained understanding rather than
+assuming that adaptation makes every task easy. Independent annotation
+agreement remains necessary to assess the reliability of the human reference
+labels.
+
+\section*{Limitations}
+The benchmark covers English dialogue and negative pressure. It does not
+measure listener compliance, psychological harm, or positive influence.
+The strategy inventory and scales are operational choices whose reliability
+requires human agreement evidence.
+
+Some labels have few positive examples, limiting the precision of per-label
+evaluation. The current duplicate check detects exact normalized matches
+but does not rule out paraphrases or shared scenario templates.
+The fine-tuning comparison uses one Qwen3-4B run and one fixed configuration;
+it does not estimate variation across random seeds, model sizes, or training
+recipes.
+Generalization to other languages, settings, and naturally occurring
+interactions requires additional evaluation.
+The comparison also does not cover other foundation-model families, such as
+Llama or GLM, whose behavior may differ under the same tasks
+\citep{touvron2023,glm2024}.
+
+\section*{Ethical Considerations}
+The dialogues contain threats, shaming, deception, and verbal abuse.
+Predictions should not be used to diagnose individuals or infer intent or
+harm beyond the text. Annotators and data users should be informed about
+potentially distressing content.
+Participation was voluntary and unpaid.
+The dataset creators permit release of the dialogue texts and annotations.
+The anonymous supplement provides the data and experimental materials for
+review. The dialogues concern everyday scenarios and should not be treated
+as verified accounts of identifiable individuals.
+Language-model assistance was used for manuscript drafting and editing
+and for preparing experimental code. The benchmark reference labels were
+provided by human annotators.
+
+\bibliography{references}
+
+\appendix
+\section{Uncertainty Estimates}
+\label{sec:uncertainty}
+\paragraph{Paired comparisons.}
+For strategy recognition, GPT minus word TF--IDF has a 95\% interval
+of $[0.012, 0.062]$ for macro-F1 and $[-0.068, -0.037]$ for micro-F1.
+For dimension MAE, the corresponding interval includes zero on both
+the full test set and the shared valid-profile subset. These comparisons
+support task- and metric-specific conclusions rather than a single
+overall model ranking.
+
+\paragraph{Interval estimation.}
+All intervals are pointwise 95\% intervals, without a multiple-comparison
+adjustment. Bootstrap intervals use the 2.5th and 97.5th percentiles of
+1,000 dialogue resamples with replacement. Differences use paired draws,
+not subtraction of marginal interval endpoints. They are conditional on
+the observed split and predictions and do not establish stability across
+training seeds, API runs, or unseen settings.
+
+For the API and lexical baselines, intensity and strategy intervals use all 634 test dialogues
+(Table~\ref{tab:ordinal_strategy_ci}). Dimension MAE and mean QWK are
+reported both on the shared 295-dialogue valid-profile subset
+(Table~\ref{tab:dimension_ci}) and on all 634 dialogues for methods with
+complete valid profiles (Table~\ref{tab:dimension_full_ci}). Exact rating
+accuracy always uses all 634 dialogues and counts invalid ratings as
+incorrect. Resampling whole dialogues preserves dependence among their
+seven ratings and fifteen strategy labels.
+
+Mean dimension QWK is undefined if any of its seven component scores is
+undefined. Such draws are excluded from that interval and counted in the
+tables. Paired QWK differences retain only draws defined for both methods.
+The shared subset has sparse dimension categories, so these conditional
+QWK intervals should not be interpreted as a stable model ranking.
+No undefined value is replaced with zero. All MAE, strategy-F1, and exact
+accuracy draws are defined. The supplementary JSON includes paired
+differences against both lexical baselines and counts of defined draws.
+
+\paragraph{Non-pressuring influence.}
+Among the 130 human-labeled no-pressure test dialogues, 125 carry a
+request/advice label and 45 a rational-persuasion label. Their union
+contains 126 dialogues, selected independently of model predictions.
+Table~\ref{tab:request_controls} reports false-positive rates with Wilson
+95\% intervals. The strategy labels are not independent annotations of
+action requests, so this diagnostic does not rule out lexical or scenario
+shortcuts. Supplementary results provide each group, all 130 negatives,
+and false-positive identifiers. No model is refitted for this analysis.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & FP & FPR (\%) & 95\% CI\\
+\midrule
+GPT-6 Astra & 28 & 22.2 & [15.8, 30.2]\\
+Qwen3.8-Max & 35 & 27.8 & [20.7, 36.2]\\
+DeepSeek-Flash & 43 & 34.1 & [26.4, 42.8]\\
+Word TF--IDF & 38 & 30.2 & [22.8, 38.7]\\
+Character TF--IDF & 33 & 26.2 & [19.3, 34.5]\\
+Constant & 126 & 100.0 & [97.0, 100.0]\\
+\bottomrule
+\end{tabular}
+\caption{False positives on 126 test dialogues labeled no pressure and request/advice or rational persuasion. Each dialogue is counted once; all systems return valid binary decisions. Intervals are Wilson intervals.}
+\label{tab:request_controls}
+\end{table}
+
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & Intensity MAE & Intensity QWK & Strategy macro-F1 & Strategy micro-F1\\
+\midrule
+GPT-6 Astra & [0.550, 0.672] & [0.752, 0.827] & [0.592, 0.626] & [0.672, 0.699]\\
+Qwen3.8-Max & [0.823, 0.956] & [0.672, 0.753] & [0.572, 0.606] & [0.652, 0.681]\\
+DeepSeek-Flash & [0.923, 1.068] & [0.580, 0.678] & [0.578, 0.612] & [0.662, 0.692]\\
+Word TF--IDF & [0.631, 0.740] & [0.702, 0.768] & [0.550, 0.594] & [0.722, 0.751]\\
+Character TF--IDF & [0.593, 0.696] & [0.732, 0.794] & [0.546, 0.591] & [0.716, 0.747]\\
+Constant & [1.024, 1.200] & [0.000, 0.000] & [0.044, 0.049] & [0.217, 0.245]\\
+\bottomrule
+\end{tabular}
+\caption{Pointwise 95\% bootstrap intervals on all 634 test dialogues, with 1,000 paired dialogue resamples. All draws are defined. Point estimates appear in Tables~\ref{tab:intensity_results} and~\ref{tab:strategy_results}.}
+\label{tab:ordinal_strategy_ci}
+\end{table*}
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & MAE (295) & QWK (295) & Defined QWK draws & Exact accuracy (634)\\
+\midrule
+GPT-6 Astra & [0.352, 0.437] & [0.546, 0.635] & 942 & [0.651, 0.683]\\
+Qwen3.8-Max & [0.578, 0.686] & [0.487, 0.586] & 1000 & [0.311, 0.354]\\
+DeepSeek-Flash & [0.539, 0.656] & [0.465, 0.572] & 1000 & [0.486, 0.527]\\
+Word TF--IDF & [0.377, 0.446] & [0.548, 0.691] & 876 & [0.600, 0.635]\\
+Character TF--IDF & [0.376, 0.440] & [0.542, 0.615] & 628 & [0.596, 0.632]\\
+Constant & [0.798, 0.897] & [0.000, 0.000] & 628 & [0.453, 0.489]\\
+\bottomrule
+\end{tabular}
+\caption{Dimension 95\% intervals. MAE/QWK use the same 295 complete-profile dialogues; exact rating accuracy uses all 634 dialogues, counting invalid outputs as wrong. QWK intervals exclude draws in which any dimension has undefined QWK; the resulting conditional intervals require caution. MAE and accuracy use all 1,000 draws.}
+\label{tab:dimension_ci}
+\end{table*}
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & MAE & QWK & Defined QWK draws\\
+\midrule
+GPT-6 Astra & [0.402, 0.459] & [0.571, 0.640] & 1000\\
+DeepSeek-Flash & [0.600, 0.671] & [0.515, 0.578] & 1000\\
+Word TF--IDF & [0.399, 0.445] & [0.584, 0.675] & 1000\\
+Character TF--IDF & [0.403, 0.445] & [0.580, 0.661] & 999\\
+Constant & [0.726, 0.789] & [0.000, 0.000] & 993\\
+\bottomrule
+\end{tabular}
+\caption{Dimension 95\% intervals for methods with complete valid profiles on all 634 dialogues. Qwen is excluded from this full-profile comparison. Undefined QWK draws are excluded and counted; MAE uses all 1,000 draws.}
+\label{tab:dimension_full_ci}
+\end{table*}
+\end{document}

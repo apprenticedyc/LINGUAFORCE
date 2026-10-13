@@ -1,107 +1,58 @@
 # LINGUAFORCE
 
-**基于统一测量维度的对话能动效应基准**
+**对话压力与影响策略的人工标注评测数据集**
 
-[English README](README.md) | [论文 PDF](submission/paper/main.pdf) | [发布包](submission/)
+[English](README.md) | [论文](paper_acl/main.pdf) | [数据](submission/data/human/) | [复现](submission/README_zh.md)
 
-LINGUAFORCE 用于衡量英语多轮对话中的语言如何对听者施加压力、限制选择或引导决策。项目包含七维测量空间、十五类策略体系、对话级参考标签、模型生成的维度表示，以及可确定性复现的实验结果。
+4,066条英文对话由人工围绕常见日常交流场景收集、整理和编写，原始语言为英语，不作为真实聊天记录样本来描述。
 
-## 数据集概况
+## 数据
 
 | 项目 | 内容 |
 |---|---|
-| 语言 | 英语 |
-| 对话数量 | 4,066 |
-| 训练集 | 3,432 条 |
-| 留出集 | 634 条 |
-| 测量维度 | 7 个 |
-| 策略类型 | 4 个家族共 15 类 |
-| 强度标签 | 0--5 有序等级 |
-| 输入形式 | 去标识化多轮对话文本 |
+| 训练／验证／测试 | 3,088／344／634条 |
+| 有压力／无压力 | 3,144／922条 |
+| 是否施压 | 0或1 |
+| 总体强度 | 0–5 |
+| 七个维度 | 各0–3 |
+| 十五种策略 | 可多选，各0或1 |
 
-七个维度分别是指令性力量、选项约束、规范压力、情绪压力、欺骗性、攻击性和显性程度。
+20名能熟练阅读英文对话的计算机专业研究生阅读统一说明后，独立标注各自批次，没有参考他人的结果。参与自愿、无报酬。每条对话由一人标注，未进行重复标注或一致性测量。
 
-## 任务
+## 实验
 
-- **T1：压力检测。** 判断对话是否包含面向听者的压力。
-- **T2：策略识别。** 预测对话中适用的策略类型。
-- **T3：强度预测。** 预测对话级别的 0--5 强度。
-- **跨域迁移。** 在相关公开对话资源上评估维度表示的迁移能力。
+| 方法 | 设置 | 压力AUROC | 压力F1 |
+|---|---|---:|---:|
+| GPT-6 Astra | 零样本 | 0.947 | 0.959 |
+| Qwen3.8-Max | 零样本 | 0.958 | 0.953 |
+| DeepSeek-Flash | 零样本 | 0.954 | 0.950 |
+| 词TF-IDF | 有监督 | 0.949 | 0.942 |
+| 字符TF-IDF | 有监督 | 0.948 | 0.943 |
 
-## 主要结果
+完整结果覆盖四项任务，并包含常量基线。Qwen3.8-Max完整有效的七维评分为295条，因此同时提供有效数量、共同子集评价和无效输出计错的准确率。此外提供Qwen3-4B的LoRA微调前后对照：单次训练在各任务上变化较小，平均维度QWK从0.305增至0.312。预测、配置与配对置信区间均随材料提供。
 
-发布包包含论文结果所需的输出文件，不需要调用外部模型服务即可验证下列指标。
+## 目录
 
-| 评测划分 | 二分类 AUC | 强度 Spearman rho |
-|---|---:|---:|
-| 训练集 | 0.852 | 0.651 |
-| 留出集 | 0.831 | 0.665 |
+- `paper_acl/`：当前ACL匿名论文源码和PDF。
+- `submission/`：独立可用的匿名数据、代码、结果和论文。
+- `annotation_package/`：本地原始标注表和导入材料，不进入匿名附件。
 
-跨域 AUROC 分别为：MentalManip 0.742、MultiManip 0.706、TalkDown 0.729、ToxiChat 0.587。
+数据构建见[数据说明](submission/data/datasheet.md)，字段见[格式说明](submission/data/human/README.md)。
 
-## 仓库结构
+## 复现
 
-```text
-.
-├── README.md       # 英文说明
-├── README_zh.md    # 中文说明
-└── submission/
-    ├── paper/      # 论文 PDF、源文件、参考文献和图片
-    ├── data/       # JSONL 数据和数据说明
-    ├── code/       # 评测和分析脚本
-    ├── results/    # 论文实验使用的结果文件
-    ├── requirements.txt
-    ├── CITATION.cff
-    └── SHA256SUMS
+Python 3.9或以上版本；以下命令不调用API、不需要GPU：
+
+```sh
+python -m pip install -r submission/requirements.txt
+python submission/code/validate_release.py
+python submission/code/score_human_llm.py
+python submission/code/bootstrap_human_pressure.py
+python submission/code/analyze_human_robustness.py
+python submission/code/write_robustness_tables.py
+python submission/code/score_qwen4b.py
 ```
 
-发布包中也提供独立的[英文说明](submission/README.md)和[中文说明](submission/README_zh.md)。
+CPU训练和API配置见[复现说明](submission/README_zh.md)。数据含威胁、辱骂等内容；标签不代表实际心理伤害或行为后果。作者允许发布数据，但未指定标准开源许可证，见[使用说明](submission/TERMS.md)。
 
-## 复现评测结果
-
-以下命令用于复现发布包中的确定性指标，不需要 API 密钥或 GPU。
-
-```bash
-cd submission
-python3 -m pip install -r requirements.txt
-
-# 主实验和跨域结果
-python3 code/verify_paper.py
-python3 code/eval_transfer.py
-
-# 论文中的 CPU 实验
-python3 code/ablation_linear_readout.py
-python3 code/run_t2_rq3.py
-```
-
-重新生成论文图片：
-
-```bash
-python3 code/make_figs_release.py
-```
-
-发布包包含论文结果对应的 JSONL/JSON 输出文件，不包含模型服务调用、密钥、私人标注工作簿或本地配置文件。
-
-## 数据说明
-
-数据字段、划分统计和使用方式见 [`submission/data/README.md`](submission/data/README.md)。作为评测目标的参考标签与模型生成的强度、维度和策略字段分别保存。[datasheet](submission/data/datasheet.md) 记录了数据用途、隐私范围和已知限制。
-
-## 引用
-
-```bibtex
-@misc{linguaforce2026,
-  title  = {LINGUAFORCE: Benchmarking Agentive Force in Dialogues via Unified Measurement Dimensions},
-  year   = {2026},
-  note   = {Research release}
-}
-```
-
-机器可读的引用信息见 [`submission/CITATION.cff`](submission/CITATION.cff)。
-
-## 规范使用
-
-部分对话包含威胁、辱骂、欺骗或其他令人不适的语言。项目用于对话分析和检测研究，不应被用于监控、对个人作出重要决策，或在没有人工复核的情况下进行自动化审核。
-
-## 许可证
-
-公开再分发前，需要确定适用的数据和文本许可证，并补充必要的署名说明。具体待办见 [`submission/PUBLIC_RELEASE_CHECKLIST.md`](submission/PUBLIC_RELEASE_CHECKLIST.md)。
+附件另报告126条含请求／建议或理性说服的无压力测试对话上的误报率，以及强度、策略和七维指标的配对bootstrap区间。这些分析复用固定预测，不代表多次训练或API运行的稳定性。

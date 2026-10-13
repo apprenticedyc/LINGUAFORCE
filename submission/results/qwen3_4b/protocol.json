@@ -1,0 +1,52 @@
+{
+  "models": {
+    "base": "Qwen3-4B",
+    "sft": "Qwen3-4B with LoRA"
+  },
+  "annotation_sha256": "ab172eece8a1111a6cc9bf2475467e3fc496d00b4b92c22908eb0e903ecad890",
+  "split_sha256": "20dab4a6f8e29ee03fba53a2601eeab9e4b8bfee9bbd2a3c84d5f6fee5b13957",
+  "prompt_sha256": "58e995815beef8445830badda2d477f870b342d4ba3523706ee9cffdb6507e5f",
+  "prediction_sha256": {
+    "base": "9fdcc36b8bfac466bd07e1426f7996108feea22710f705b35379668784587dff",
+    "sft": "15a38320025e5614f0c725c922079e0b0c05c1ededb43cd8049ac1ca7fef45b9"
+  },
+  "test_n": 634,
+  "request_settings": {
+    "seed": 1024,
+    "stream": false
+  },
+  "prompt_construction": "prompt.txt + json.dumps(utterances, ensure_ascii=False) + newline + /no_think",
+  "unspecified_generation_parameters": "Temperature, top-p and output-token limit were not explicitly set in the exported requests; platform defaults are unrecorded.",
+  "identical_requests_except_deployment_and_operator": true,
+  "observed_outputs": {
+    "base": {
+      "returned_n": 634,
+      "nonempty_thinking_n": 0
+    },
+    "sft": {
+      "returned_n": 634,
+      "nonempty_thinking_n": 0
+    }
+  },
+  "inference_hardware_per_run": "1 NVIDIA RTX 4090",
+  "training": {
+    "method": "LoRA",
+    "base_model": "Qwen3-4B",
+    "train_n": 3088,
+    "rank": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "learning_rate": 0.0001,
+    "epochs": 3,
+    "batch_size_per_device": 1,
+    "gradient_accumulation_steps": 8,
+    "sequence_length": 2048,
+    "implementation": "Managed training service",
+    "unrecorded": [
+      "training seed",
+      "complete framework versions",
+      "complete backend configuration"
+    ]
+  },
+  "reproduction_scope": "Saved-response scoring is reproducible offline. The managed training/inference backend and adapter weights are not included."
+}

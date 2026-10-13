@@ -1,61 +1,100 @@
-# LINGUAFORCE Release Package
+# LINGUAFORCE: Anonymous Supplement
 
-[中文说明](README_zh.md) | [Paper PDF](paper/main.pdf) | [Repository overview](../README.md)
+[中文](README_zh.md)
 
-This directory contains the release package for LINGUAFORCE: paper files,
-data, reported experiment outputs, and analysis code.
+This supplement accompanies *LINGUAFORCE: A Human-Annotated Benchmark for
+Pressure and Influence Strategies in Dialogue*.
+
+ARR provides the data and software as separate archives. Extract both archives
+into the same parent directory; they share a `submission/` root. Shared README
+and permissions files are identical. The paper is uploaded separately as a PDF.
 
 ## Contents
 
-```text
-paper/              Paper PDF, source, bibliography, and figures
-data/               JSONL releases, README, and datasheet
-code/               Evaluation and analysis scripts
-results/            Outputs used by the reported experiments
-requirements.txt    Python dependencies for the analysis scripts
-CITATION.cff        Machine-readable citation metadata
-SHA256SUMS          Checksums for the release files
+- `data/human/`: 4,066 annotated dialogues, statistics, fixed split IDs.
+- `data/datasheet.md`: construction, annotation, scope, permissions.
+- `data/annotation_guide.md`: English translation of the instructions.
+- `data/annotation_guide_zh.md`: original Chinese instructions.
+- `code/`: validation, training, inference, scoring, and tests.
+- `results/human_llm/`: three formal 634-dialogue API runs and protocol.
+- `results/human_supervised/`: word, character, and constant predictions.
+- `results/qwen3_4b/`: matched original/LoRA responses, protocol, and scores.
+- `SHA256SUMS_DATA` and `SHA256SUMS_CODE`: per-archive checksums.
+
+The repository additionally contains a `paper/` release copy and combined
+`SHA256SUMS`; these are not required inside the two upload archives.
+
+The split is 3,088 training, 344 validation, and 634 test dialogues. All four
+targets are human annotations; test labels are not inference-time inputs.
+Each dialogue has one annotation; inter-annotator agreement was not measured.
+
+## Reproduce Scores
+
+Run from this directory with Python 3.9 or later. The recorded environment
+used Python 3.9.6, NumPy 2.0.2, SciPy 1.13.1, and scikit-learn 1.6.1.
+
+```sh
+python -m pip install -r requirements.txt
+python code/validate_release.py
+python -m unittest discover -s code -p 'test_*.py'
+python code/score_human_llm.py
+python code/bootstrap_human_pressure.py
+python code/write_human_result_tables.py
+python code/analyze_human_robustness.py
+python code/write_robustness_tables.py
+python code/score_qwen4b.py
 ```
 
-## Reproduce the reported results
+These commands use saved predictions: no API access or GPU is needed.
+The scorer verifies all 634 test IDs. Derived result summaries are overwritten.
 
-The following commands use only the files included in this package. They do
-not require API credentials or GPU access.
+The robustness analysis reports request/advice and rational-persuasion
+negative controls, their deduplicated union, and all negatives. It also
+computes pointwise 95% paired bootstrap intervals for intensity, strategy,
+and dimension metrics. See `results/human_llm/README.md` for subsets and
+undefined-QWK handling. Analyses do not refit models or change thresholds.
 
-```bash
-python3 -m pip install -r requirements.txt
+## Retrain CPU Baselines
 
-python3 code/verify_paper.py
-python3 code/eval_transfer.py
-python3 code/ablation_linear_readout.py
-python3 code/run_t2_rq3.py
+```sh
+python code/train_human_baselines.py
+python code/score_human_llm.py
+python code/bootstrap_human_pressure.py
+python code/write_human_result_tables.py
 ```
 
-To regenerate the release figures:
+This overwrites supervised predictions. Selection uses training and validation
+data only, seed 2026. See `results/human_supervised/README.md`.
+The script reconstructs the published split; the release validator checks
+it against the protocol hash.
 
-```bash
-python3 code/make_figs_release.py
+## Optional API Generation
+
+API generation may incur charges. Provider aliases and implementations can
+change; fresh generations need not reproduce saved responses.
+See `code/README.md` for external configuration.
+
+```sh
+python code/run_human_llm.py --provider qwen --split training --limit 1
+python code/run_human_llm.py --provider qwen --split test --limit 634
 ```
 
-The result files make the reported metrics independently checkable without
-repeating provider calls. Provider credentials, private annotation workbooks,
-and local configuration files are excluded.
+Substitute `gpt` or `deepseek` for other providers. The runner resumes
+existing outputs; move the corresponding output aside before a fresh run,
+preserving the supplied predictions. Never tune on test labels.
 
-## Data and labels
+## Interpretation and Use
 
-The data files contain reference pressure labels and model-derived intensity,
-dimension, and strategy fields. See [`data/README.md`](data/README.md) for the
-schema and [`data/datasheet.md`](data/datasheet.md) for intended use, privacy
-scope, and limitations.
+Report coverage with valid-only scores. Qwen has 295 valid complete dimension
+profiles; compare dimension MAE/QWK on the released common subset.
+Out-of-range LLM ratings are not clipped. Full-test exact rating accuracy
+counts invalid outputs as wrong. These cross-model baseline comparisons do
+not measure the effect of fine-tuning one model.
 
-## Paper files
+A separate Qwen3-4B diagnostic compares the original and LoRA-tuned model
+using identical test requests with `/no_think`. See `results/qwen3_4b/README.md`.
+Its saved-response scores and paired intervals can be reproduced offline;
+the managed training backend and adapter weights are not included.
 
-The `paper/` directory contains the paper PDF, LaTeX source, bibliography, and
-figures. These files are provided for reading and citation; paper compilation
-is not part of the experiment reproduction workflow.
-
-## Release status
-
-Before public redistribution, finalize the applicable license, attribution
-notice, author metadata, and clean-checkout verification described in
-[`PUBLIC_RELEASE_CHECKLIST.md`](PUBLIC_RELEASE_CHECKLIST.md).
+See `TERMS.md` for permissions. Raw workbooks, author identities, credentials,
+and private service URLs are excluded.

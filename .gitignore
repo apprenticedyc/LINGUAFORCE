@@ -24,6 +24,7 @@ _chk_*.png
 _dump_*.txt
 _scan_*.py
 outputs/
+release/
 
 # ============ IDE / python ============
 .idea/

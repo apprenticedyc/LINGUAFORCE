@@ -1,0 +1,94 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & Valid $n$ & AUROC & F1\\
+\midrule
+GPT-6 Astra & 634 & 0.947 & 0.959\\
+Qwen3.8-Max & 634 & 0.958 & 0.953\\
+DeepSeek-Flash & 634 & 0.954 & 0.950\\
+Word TF--IDF & 634 & 0.949 & 0.942\\
+Character TF--IDF & 634 & 0.948 & 0.943\\
+Constant & 634 & 0.500 & 0.886\\
+\bottomrule
+\end{tabular}
+\caption{Pressure detection. GPT, Qwen, and DeepSeek are zero-shot; TF--IDF models use human training labels. Constant predicts the training-majority label. Valid counts are out of 634; AUROC additionally requires a valid pressure score (see released metrics).}
+\label{tab:pressure_results}
+\end{table}
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & Valid $n$ & MAE $\downarrow$ & QWK $\uparrow$\\
+\midrule
+GPT-6 Astra & 634 & 0.610 & 0.791\\
+Qwen3.8-Max & 634 & 0.891 & 0.714\\
+DeepSeek-Flash & 634 & 0.997 & 0.630\\
+Word TF--IDF & 634 & 0.683 & 0.736\\
+Character TF--IDF & 634 & 0.642 & 0.765\\
+Constant & 634 & 1.114 & 0.000\\
+\bottomrule
+\end{tabular}
+\caption{Overall intensity prediction on valid 0--5 outputs. Counts are out of 634. The constant predictor uses the training median.}
+\label{tab:intensity_results}
+\end{table}
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & Valid $n$ & Macro-F1 & Micro-F1\\
+\midrule
+GPT-6 Astra & 634 & 0.610 & 0.685\\
+Qwen3.8-Max & 634 & 0.590 & 0.667\\
+DeepSeek-Flash & 634 & 0.595 & 0.677\\
+Word TF--IDF & 634 & 0.573 & 0.738\\
+Character TF--IDF & 634 & 0.570 & 0.732\\
+Constant & 634 & 0.046 & 0.231\\
+\bottomrule
+\end{tabular}
+\caption{Fifteen-label strategy recognition. A task-valid response supplies all fifteen binary labels. One unambiguous key spelling is normalized without changing its value.}
+\label{tab:strategy_results}
+\end{table}
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & Valid $n$ & MAE $\downarrow$ & QWK $\uparrow$\\
+\midrule
+GPT-6 Astra & 634 & 0.430 & 0.606\\
+Qwen3.8-Max & 295 & 0.631 & 0.540\\
+DeepSeek-Flash & 634 & 0.636 & 0.547\\
+Word TF--IDF & 634 & 0.422 & 0.631\\
+Character TF--IDF & 634 & 0.424 & 0.614\\
+Constant & 634 & 0.760 & 0.000\\
+\bottomrule
+\end{tabular}
+\caption{Dimension prediction on complete, range-valid seven-dimensional outputs. MAE and QWK are averaged over dimensions. Different coverage prevents a direct ranking; Table~\ref{tab:common_dimensions} uses identical dialogues.}
+\label{tab:dimension_results}
+\end{table}
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & MAE $\downarrow$ & QWK $\uparrow$ & All exact $\uparrow$\\
+\midrule
+GPT-6 Astra & 0.393 & 0.595 & 0.667\\
+Qwen3.8-Max & 0.631 & 0.540 & 0.331\\
+DeepSeek-Flash & 0.593 & 0.524 & 0.506\\
+Word TF--IDF & 0.412 & 0.656 & 0.618\\
+Character TF--IDF & 0.408 & 0.582 & 0.615\\
+Constant & 0.847 & 0.000 & 0.471\\
+\bottomrule
+\end{tabular}
+\caption{Aligned dimension comparison. MAE/QWK use the same 295 dialogues with valid profiles from every model. All exact instead uses all 634 dialogues and seven ratings each, counting missing or out-of-range ratings as incorrect. The common subset is selected by model output validity and may be easier than the full test set.}
+\label{tab:common_dimensions}
+\end{table}
